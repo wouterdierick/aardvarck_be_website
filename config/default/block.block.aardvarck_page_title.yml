@@ -1,13 +1,13 @@
-uuid: 4cd390cf-f6b9-4340-9831-a9798895056e
+uuid: efc3ef70-737a-436f-8b7c-881bc3732705
 langcode: en
 status: true
 dependencies:
   theme:
-    - stark
+    - aardvarck
 _core:
   default_config_hash: Oh72CHUkp6cj6dbrXMK2hzCsM05w9cHVoD22rMLQUfk
-id: stark_page_title
-theme: stark
+id: aardvarck_page_title
+theme: aardvarck
 region: content
 weight: -30
 provider: null

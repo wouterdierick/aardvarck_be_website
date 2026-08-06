@@ -1,15 +1,15 @@
-uuid: 66b9c3ac-a671-4f80-9cdf-f77832e01e77
+uuid: 85a67371-8a57-4f82-b461-0355f98b2529
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - stark
+    - aardvarck
 _core:
   default_config_hash: sG8t_FghbUscJ-GrnQ8zs_vx5YM4bJCfntrK-J5HcAY
-id: stark_branding
-theme: stark
+id: aardvarck_branding
+theme: aardvarck
 region: header
 weight: 0
 provider: null

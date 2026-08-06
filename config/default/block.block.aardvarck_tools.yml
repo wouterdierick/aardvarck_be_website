@@ -1,4 +1,4 @@
-uuid: 449d4eb9-a1c1-42be-9b79-7499bfae8d3c
+uuid: a45602b5-49b6-4bfa-a698-480cd84e0dc3
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,11 @@ dependencies:
   module:
     - system
   theme:
-    - stark
+    - aardvarck
 _core:
   default_config_hash: 21gTvrC3-X1nBOt2rLuxMV9LqgyW8pnzfKXMeq-dnPI
-id: stark_tools
-theme: stark
+id: aardvarck_tools
+theme: aardvarck
 region: sidebar_first
 weight: 0
 provider: null

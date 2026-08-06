@@ -1,0 +1,24 @@
+uuid: 664e03bc-5296-4596-81ef-e66188e8e753
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.node.field_product
+    - node.type.work
+id: node.work.field_product
+field_name: field_product
+entity_type: node
+bundle: work
+label: Product
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_product'
+  handler_settings:
+    target_bundles:
+      default: default
+field_type: entity_reference

@@ -1,0 +1,11 @@
+uuid: 3c2c56fa-1333-4ea7-a687-8d8374df653e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.product
+label: Product
+description: null
+targetEntityType: node
+cache: true

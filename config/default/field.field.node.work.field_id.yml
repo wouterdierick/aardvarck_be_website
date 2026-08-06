@@ -1,0 +1,19 @@
+uuid: 21af6cc4-74f9-4811-9577-3901c5549dc2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_id
+    - node.type.work
+id: node.work.field_id
+field_name: field_id
+entity_type: node
+bundle: work
+label: ID
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

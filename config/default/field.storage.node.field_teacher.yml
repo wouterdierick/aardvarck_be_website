@@ -1,0 +1,20 @@
+uuid: f9ff17b7-4859-4ae8-ba34-7f07795cda63
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_teacher
+field_name: field_teacher
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

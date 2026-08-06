@@ -1,0 +1,24 @@
+uuid: f74d6654-4d9e-45f0-9cab-a4b1f636d01c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_academy
+    - node.type.work
+    - taxonomy.vocabulary.academy
+id: node.work.field_academy
+field_name: field_academy
+entity_type: node
+bundle: work
+label: Academy
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      academy: academy
+field_type: entity_reference

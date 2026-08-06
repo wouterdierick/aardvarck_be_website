@@ -1,0 +1,9 @@
+uuid: d1851f12-34da-4ec9-8757-25cf3a26e799
+langcode: en
+status: true
+dependencies: {  }
+name: 'Academic year'
+vid: academic_year
+description: ''
+weight: 0
+new_revision: false

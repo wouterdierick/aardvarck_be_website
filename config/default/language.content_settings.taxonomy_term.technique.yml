@@ -1,0 +1,16 @@
+uuid: 27b6402d-bf74-4ea9-9b5c-e607442750e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.technique
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.technique
+target_entity_type_id: taxonomy_term
+target_bundle: technique
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,24 @@
+uuid: 7e8f0897-83a5-4f98-a6f3-7837d935154c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_academic_year
+    - node.type.work
+    - taxonomy.vocabulary.academic_year
+id: node.work.field_academic_year
+field_name: field_academic_year
+entity_type: node
+bundle: work
+label: 'Academic year'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      academic_year: academic_year
+field_type: entity_reference

@@ -1,0 +1,9 @@
+uuid: de78a083-5e41-4b91-b09c-34551f9ff820
+langcode: en
+status: true
+dependencies: {  }
+name: Technique
+vid: technique
+description: ''
+weight: 0
+new_revision: false

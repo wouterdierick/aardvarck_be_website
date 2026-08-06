@@ -1,0 +1,9 @@
+uuid: 53a97d85-8a22-4c83-adf6-228be90d0515
+langcode: en
+status: true
+dependencies: {  }
+name: Degree
+vid: degree
+description: ''
+weight: 0
+new_revision: false

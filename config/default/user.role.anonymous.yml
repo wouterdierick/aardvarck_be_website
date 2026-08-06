@@ -2,7 +2,11 @@ uuid: 3756693e-4a6e-4fc9-9b05-3350b781552d
 langcode: en
 status: true
 dependencies:
+  config:
+    - filter.format.restricted_html
   module:
+    - commerce_product
+    - filter
     - media
     - system
 _core:
@@ -13,4 +17,6 @@ weight: 0
 is_admin: false
 permissions:
   - 'access content'
+  - 'use text format restricted_html'
+  - 'view commerce_product'
   - 'view media'

@@ -149,3 +149,15 @@ $settings['skip_permissions_hardening'] = TRUE;
  * the language or field module.
  */
 # $settings['config_exclude_modules'] = ['devel', 'stage_file_proxy'];
+
+/**
+ * Activate the "local" configuration split.
+ *
+ * This enables configuration and modules (such as Field UI and Views UI)
+ * that should only be active on local development environments. The
+ * corresponding "staging" and "production" splits should be activated the
+ * same way in their respective settings files.
+ *
+ * @see https://www.drupal.org/project/config_split
+ */
+$config['config_split.config_split.local']['status'] = TRUE;

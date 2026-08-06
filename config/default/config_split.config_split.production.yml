@@ -1,0 +1,16 @@
+uuid: d9b46367-4b06-4912-ab33-d147d1d33805
+langcode: en
+status: false
+dependencies: {  }
+id: production
+label: Production
+description: 'Configuration overrides for the production environment.'
+weight: 10
+stackable: false
+no_patching: false
+storage: folder
+folder: ../config/production
+module: {  }
+theme: {  }
+complete_list: {  }
+partial_list: {  }

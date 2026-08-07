@@ -26,6 +26,7 @@
         "drupal/gin": "^4.0",
         "drupal/gin_toolbar": "^2.0",
         "drupal/pathauto": "^1.15",
+        "drupal/twig_tweak": "^3.4",
         "drush/drush": "^13.6"
     },
     "conflict": {

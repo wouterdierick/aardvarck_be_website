@@ -1,0 +1,26 @@
+{#
+  Component: Logo
+  -----------------------------------
+#}
+
+{% set base_class = 'ack-logo' %}
+{% set classes = [
+  base_class,
+  base_class ~ '--' ~ orientation,
+  base_class ~ '--' ~ variant,
+  base_class ~ '--' ~ size,
+  url ? base_class ~ '--has-link',
+] %}
+{% set logo_path = '/' ~ componentMetadata.path ~ '/assets/logo-' ~ orientation ~ '.svg' %}
+
+
+{% if url %}
+  <a href="{{ url }}" title="{{ title }}" role="img" aria-label="{{ title }}" {{ attributes.addClass(classes) }}>
+    {% include logo_path ignore missing %}
+  </a>
+{% else %}
+  <div role="img" aria-label="{{ title }}" {{ attributes.addClass(classes) }}>
+    {% include logo_path ignore missing %}
+  </div>
+{% endif %}
+

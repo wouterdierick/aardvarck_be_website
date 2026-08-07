@@ -10,8 +10,8 @@ dependencies:
     - aardvarck
 id: aardvarck_mainnavigation
 theme: aardvarck
-region: primary_menu
-weight: 0
+region: header
+weight: -1
 provider: null
 plugin: 'system_menu_block:main'
 settings:

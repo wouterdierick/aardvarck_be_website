@@ -1,0 +1,23 @@
+aardvarck_import.import_form:
+  path: '/admin/content/work/import'
+  defaults:
+    _form: '\Drupal\aardvarck_import\Form\ImportForm'
+    _title: 'Import portfolio work'
+  requirements:
+    _permission: 'administer aardvarck import'
+
+aardvarck_import.report:
+  path: '/admin/content/work/import/report'
+  defaults:
+    _controller: '\Drupal\aardvarck_import\Controller\ReportController::build'
+    _title: 'Import report'
+  requirements:
+    _permission: 'administer aardvarck import'
+
+aardvarck_import.settings:
+  path: '/admin/config/media/aardvarck-import'
+  defaults:
+    _form: '\Drupal\aardvarck_import\Form\SettingsForm'
+    _title: 'Aardvarck import settings'
+  requirements:
+    _permission: 'administer aardvarck import'

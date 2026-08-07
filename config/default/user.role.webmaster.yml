@@ -15,6 +15,7 @@ dependencies:
     - taxonomy.vocabulary.work_medium
     - taxonomy.vocabulary.work_technique
   module:
+    - aardvarck_import
     - commerce
     - commerce_order
     - commerce_price
@@ -37,6 +38,7 @@ permissions:
   - 'access content overview'
   - 'access media overview'
   - 'access taxonomy overview'
+  - 'administer aardvarck import'
   - 'administer content translation'
   - 'create content translations'
   - 'create default commerce_order'

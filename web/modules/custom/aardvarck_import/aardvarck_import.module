@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Bulk and ad-hoc import of portfolio "work" content.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function aardvarck_import_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.aardvarck_import':
+      $output = '<p>' . t('The Aardvarck import module provides a single admin tool to bulk-import or ad-hoc upload portfolio "work" content from a zip archive of YAML metadata files and images.') . '</p>';
+      $output .= '<p>' . t('See the README.md in the module folder for full documentation of the expected input format, the field mapping, and the taxonomy term mapping file.') . '</p>';
+      return $output;
+  }
+}

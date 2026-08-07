@@ -1,0 +1,13 @@
+aardvarck_import.import_form:
+  title: 'Import portfolio work'
+  description: 'Upload a zip with work YAML + images.'
+  route_name: aardvarck_import.import_form
+  parent: system.admin_content
+  weight: 10
+
+aardvarck_import.settings:
+  title: 'Aardvarck import settings'
+  description: 'Configure the maximum image dimension used by the portfolio importer.'
+  route_name: aardvarck_import.settings
+  parent: system.admin_config_media
+  weight: 10

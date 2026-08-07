@@ -1,0 +1,13 @@
+name: Aardvarck import
+type: module
+description: 'Bulk and ad-hoc import of portfolio "work" content from YAML + image packages.'
+package: Aardvarck
+core_version_requirement: ^11
+dependencies:
+  - drupal:node
+  - drupal:taxonomy
+  - drupal:media
+  - drupal:image
+  - drupal:file
+  - drupal:content_translation
+  - drupal:language

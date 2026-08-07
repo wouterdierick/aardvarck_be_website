@@ -1,0 +1,97 @@
+# Aardvarck import — taxonomy term mapping & translation table.
+#
+# This file is the single source of truth for how raw YAML values from the
+# portfolio import packages (see ./IMPORT in the project root) are resolved
+# to taxonomy terms.
+#
+# There are two kinds of sections:
+#
+# 1. Translatable vocabularies (work_medium, work_technique,
+#    academy_program): a list of nl/en pairs. The raw value found in the
+#    import YAML is always the ENGLISH ("en") value — the importer looks up
+#    the raw value under "en" and uses the matching "nl" value as the term's
+#    canonical (source language) name, adding "en" as its English
+#    translation.
+#
+# 2. Non-translatable vocabularies (academy_name, academy_year,
+#    academy_study_year, academy_teacher): a flat list of strings. The value
+#    is used as-is, identical in both languages, no translation needed.
+#
+# Values not found here are NOT a fatal error: the importer still creates
+# the work and the term (using the raw value verbatim), but flags it on the
+# import report for manual review — add the missing entry here afterwards.
+#
+# Keep this file in sync with ./IMPORT/structure.yml (the data owner
+# maintains the enum values there; this file adds the Dutch translations).
+
+work_medium:
+  - nl: 'Papier'
+    en: 'Paper'
+  - nl: 'Karton'
+    en: 'Cardboard'
+
+work_technique:
+  - nl: 'Pastelkrijt'
+    en: 'Pastel'
+  - nl: 'Houtskool'
+    en: 'Charcoal'
+  - nl: 'Inkt'
+    en: 'Ink'
+  - nl: 'Bister'
+    en: 'Bistre'
+  - nl: 'Potlood'
+    en: 'Pencil'
+  - nl: 'Gemengde techniek'
+    en: 'Mixed Media'
+  - nl: 'Kartondruk'
+    en: 'Cardboard Printing'
+  - nl: 'Riso print'
+    en: 'Risograph Print'
+  - nl: 'Waterverf'
+    en: 'Watercolour'
+  - nl: 'Droge naald'
+    en: 'Drypoint'
+  - nl: 'Zeefdruk'
+    en: 'Screen Printing'
+
+academy_program:
+  - nl: 'Tekenkunst Algemeen'
+    en: 'General Drawing Arts'
+  - nl: 'Tekenkunst'
+    en: 'Drawing Arts'
+  - nl: 'Illustratie en Grafisch Ontwerp'
+    en: 'Illustration and Graphic Design'
+
+academy_name:
+  - 'ABK Mortsel'
+  - 'ABK Kontich'
+  - 'ABK Mechelen'
+
+academy_year:
+  - '2014-2015'
+  - '2015-2016'
+  - '2016-2017'
+  - '2017-2018'
+  - '2018-2019'
+  - '2019-2020'
+  - '2020-2021'
+  - '2021-2022'
+  - '2022-2023'
+  - '2023-2024'
+  - '2024-2025'
+  - '2025-2026'
+
+academy_study_year:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+
+academy_teacher:
+  - 'Paul Morez'
+  - 'Jef Maes'
+  - 'Phara Coenen'
+  - 'Sophie Ryckaert'
+  - 'Katrien Van Breedam'
+  - 'Karolien Vanderstappen'

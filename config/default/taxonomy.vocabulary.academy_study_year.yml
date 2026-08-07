@@ -5,5 +5,5 @@ dependencies: {  }
 name: 'Academy study year'
 vid: academy_study_year
 description: null
-weight: 0
+weight: -7
 new_revision: false

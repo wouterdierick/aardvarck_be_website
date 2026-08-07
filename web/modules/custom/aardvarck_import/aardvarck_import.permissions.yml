@@ -1,0 +1,4 @@
+administer aardvarck import:
+  title: 'Administer Aardvarck portfolio import'
+  description: 'Upload and import portfolio work packages (YAML + images), and configure import settings.'
+  restrict access: true

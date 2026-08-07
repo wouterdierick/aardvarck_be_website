@@ -1,0 +1,21 @@
+services:
+  aardvarck_import.term_resolver:
+    class: Drupal\aardvarck_import\Service\TermResolver
+    arguments: ['@entity_type.manager', '@language_manager', '@module_handler', '@logger.channel.aardvarck_import']
+
+  aardvarck_import.image_resizer:
+    class: Drupal\aardvarck_import\Service\ImageResizer
+    arguments: ['@image.factory', '@file_system', '@entity_type.manager', '@config.factory']
+
+  aardvarck_import.work_importer:
+    class: Drupal\aardvarck_import\Service\WorkImporter
+    arguments:
+      - '@entity_type.manager'
+      - '@aardvarck_import.term_resolver'
+      - '@aardvarck_import.image_resizer'
+      - '@file_system'
+      - '@logger.channel.aardvarck_import'
+
+  logger.channel.aardvarck_import:
+    parent: logger.channel_base
+    arguments: ['aardvarck_import']

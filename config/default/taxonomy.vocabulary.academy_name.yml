@@ -5,5 +5,5 @@ dependencies: {  }
 name: 'Academy name'
 vid: academy_name
 description: null
-weight: 0
+weight: -10
 new_revision: false

@@ -1,6 +1,6 @@
 # Ignore data folder with databases etc.
-data
-dumps
+./data
+./dumps
 
 # Ignore local phpinfo() page.
 phpinfo.php

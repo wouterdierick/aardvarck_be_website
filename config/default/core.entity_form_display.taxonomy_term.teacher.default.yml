@@ -1,0 +1,24 @@
+uuid: 6f29e956-9c9e-49e5-a313-7aad6a00bba7
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.teacher
+id: taxonomy_term.teacher.default
+targetEntityType: taxonomy_term
+bundle: teacher
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  path: true
+  status: true

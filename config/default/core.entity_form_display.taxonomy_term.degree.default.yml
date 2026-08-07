@@ -1,0 +1,30 @@
+uuid: ab56b356-00f2-4c47-9412-d241cab5f43c
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.degree
+id: taxonomy_term.degree.default
+targetEntityType: taxonomy_term
+bundle: degree
+mode: default
+content:
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true
+  status: true

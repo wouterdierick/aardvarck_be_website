@@ -3,3 +3,13 @@ type: theme
 description: 'Custom theme for the Aardvarck website.'
 core_version_requirement: ^10 || ^11
 base theme: false
+
+regions:
+  header: Header
+  highlighted: Highlighted
+  breadcrumb: Breadcrumb
+  content: Content
+  footer: Footer
+
+libraries:
+  - aardvarck/base

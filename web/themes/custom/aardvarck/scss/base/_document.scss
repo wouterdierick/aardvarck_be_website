@@ -1,0 +1,36 @@
+// Base: Document
+// --------------------------------------------------
+
+@use "abstracts/mixins" as mixins;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+  background: var(--colorPageBackground);
+  color: var(--colorText);
+  font-family: var(--fontFamilyBody);
+  font-size: 16px;
+	font-weight: var(--fontWeightRegular);
+	padding: 0;
+	margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	white-space: nowrap;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	border: 0;
+}

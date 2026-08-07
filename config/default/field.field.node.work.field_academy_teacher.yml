@@ -1,16 +1,16 @@
-uuid: 09187484-0063-4ef3-8031-9e726f078c1d
+uuid: 49b20d6f-a839-410a-9f01-07a55d985339
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_academic_year
+    - field.storage.node.field_academy_teacher
     - node.type.work
-    - taxonomy.vocabulary.academy_year
-id: node.work.field_academic_year
-field_name: field_academic_year
+    - taxonomy.vocabulary.academy_teacher
+id: node.work.field_academy_teacher
+field_name: field_academy_teacher
 entity_type: node
 bundle: work
-label: 'Academic year'
+label: 'Academy teacher'
 description: ''
 required: false
 translatable: false
@@ -20,5 +20,5 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      academy_year: academy_year
+      academy_teacher: academy_teacher
 field_type: entity_reference

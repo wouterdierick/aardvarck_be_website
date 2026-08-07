@@ -1,12 +1,12 @@
-uuid: 12fd01fe-53cf-42dd-90a9-ea616c23b07c
+uuid: a81f24d6-d8f1-4a53-870a-fb6c427b63e3
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.field_academic_year
-field_name: field_academic_year
+id: node.field_academy_study_year
+field_name: field_academy_study_year
 entity_type: node
 type: entity_reference
 settings:

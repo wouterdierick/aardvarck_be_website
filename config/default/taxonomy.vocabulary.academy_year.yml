@@ -1,0 +1,9 @@
+uuid: bf008bf7-2478-42ea-9cba-a93a9dffab30
+langcode: en
+status: true
+dependencies: {  }
+name: 'Academy year'
+vid: academy_year
+description: null
+weight: 0
+new_revision: false

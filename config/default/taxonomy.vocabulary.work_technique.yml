@@ -1,0 +1,9 @@
+uuid: 66440d69-4424-4050-b2d7-dbf958f22e54
+langcode: en
+status: true
+dependencies: {  }
+name: 'Work technique'
+vid: work_technique
+description: null
+weight: 0
+new_revision: false

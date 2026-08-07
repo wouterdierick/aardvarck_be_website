@@ -1,0 +1,9 @@
+uuid: 6f48384c-2cd1-4a9f-8e64-2754db5f3228
+langcode: en
+status: true
+dependencies: {  }
+name: 'Work medium'
+vid: work_medium
+description: null
+weight: 0
+new_revision: false

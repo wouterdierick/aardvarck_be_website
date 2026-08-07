@@ -1,0 +1,23 @@
+uuid: f23b3947-6408-422c-88e3-c0c53f68e6a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_work_height
+    - node.type.work
+id: node.work.field_work_height
+field_name: field_work_height
+entity_type: node
+bundle: work
+label: 'Work height'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

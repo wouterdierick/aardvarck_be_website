@@ -1,0 +1,16 @@
+uuid: b243262e-b2eb-4c51-bbaa-70798e44dc27
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.academy_teacher
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+id: taxonomy_term.academy_teacher
+target_entity_type_id: taxonomy_term
+target_bundle: academy_teacher
+default_langcode: site_default
+language_alterable: false

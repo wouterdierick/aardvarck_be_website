@@ -1,19 +1,19 @@
-uuid: 12fd01fe-53cf-42dd-90a9-ea616c23b07c
+uuid: d1bc1e5a-1c63-407c-96a1-8e1f72c3dada
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.field_academic_year
-field_name: field_academic_year
+id: node.field_work_medium
+field_name: field_work_medium
 entity_type: node
 type: entity_reference
 settings:
   target_type: taxonomy_term
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

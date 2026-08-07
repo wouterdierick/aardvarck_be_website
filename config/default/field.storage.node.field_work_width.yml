@@ -1,16 +1,16 @@
-uuid: 12fd01fe-53cf-42dd-90a9-ea616c23b07c
+uuid: 351365f0-fd52-4dff-8f03-5b4df9fe8a91
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - taxonomy
-id: node.field_academic_year
-field_name: field_academic_year
+id: node.field_work_width
+field_name: field_work_width
 entity_type: node
-type: entity_reference
+type: decimal
 settings:
-  target_type: taxonomy_term
+  precision: 10
+  scale: 2
 module: core
 locked: false
 cardinality: 1

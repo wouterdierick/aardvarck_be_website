@@ -1,0 +1,16 @@
+uuid: 85581012-7ee5-458d-ae4a-9a0051cb8e3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.academy_study_year
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+id: taxonomy_term.academy_study_year
+target_entity_type_id: taxonomy_term
+target_bundle: academy_study_year
+default_langcode: site_default
+language_alterable: false

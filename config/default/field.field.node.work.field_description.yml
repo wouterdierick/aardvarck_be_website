@@ -1,0 +1,24 @@
+uuid: f3f2f166-9328-49de-abcb-2e245f29b00b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - filter.format.restricted_html
+    - node.type.work
+  module:
+    - text
+id: node.work.field_description
+field_name: field_description
+entity_type: node
+bundle: work
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - restricted_html
+field_type: text_long

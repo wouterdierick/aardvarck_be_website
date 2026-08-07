@@ -1,0 +1,23 @@
+uuid: cf49325c-d6ab-4824-86d0-c1deb6e82a97
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_work_width
+    - node.type.work
+id: node.work.field_work_width
+field_name: field_work_width
+entity_type: node
+bundle: work
+label: 'Work width'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

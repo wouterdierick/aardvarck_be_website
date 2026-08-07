@@ -1,0 +1,16 @@
+uuid: 682ca23a-cc95-452f-aacb-34190d211b58
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.academy_name
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+id: taxonomy_term.academy_name
+target_entity_type_id: taxonomy_term
+target_bundle: academy_name
+default_langcode: site_default
+language_alterable: false

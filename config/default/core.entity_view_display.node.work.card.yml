@@ -5,18 +5,19 @@ dependencies:
   config:
     - core.entity_view_mode.node.card
     - field.field.node.work.field_academic_year
-    - field.field.node.work.field_academy
+    - field.field.node.work.field_academy_name
+    - field.field.node.work.field_academy_program
+    - field.field.node.work.field_academy_study_year
+    - field.field.node.work.field_academy_teacher
     - field.field.node.work.field_date
-    - field.field.node.work.field_degree
-    - field.field.node.work.field_height
+    - field.field.node.work.field_description
     - field.field.node.work.field_id
-    - field.field.node.work.field_medium
     - field.field.node.work.field_product
-    - field.field.node.work.field_summary
-    - field.field.node.work.field_teacher
     - field.field.node.work.field_teaser_images
-    - field.field.node.work.field_technique
-    - field.field.node.work.field_width
+    - field.field.node.work.field_work_height
+    - field.field.node.work.field_work_medium
+    - field.field.node.work.field_work_technique
+    - field.field.node.work.field_work_width
     - node.type.work
   module:
     - datetime
@@ -51,14 +52,15 @@ content:
     region: content
 hidden:
   field_academic_year: true
-  field_academy: true
-  field_degree: true
-  field_height: true
+  field_academy_name: true
+  field_academy_program: true
+  field_academy_study_year: true
+  field_academy_teacher: true
+  field_description: true
   field_id: true
-  field_medium: true
   field_product: true
-  field_summary: true
-  field_teacher: true
-  field_technique: true
-  field_width: true
+  field_work_height: true
+  field_work_medium: true
+  field_work_technique: true
+  field_work_width: true
   langcode: true

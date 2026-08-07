@@ -1,0 +1,9 @@
+uuid: 242e9868-adcc-4256-809d-597c5ac118dd
+langcode: en
+status: true
+dependencies: {  }
+name: 'Academy program'
+vid: academy_program
+description: null
+weight: 0
+new_revision: false

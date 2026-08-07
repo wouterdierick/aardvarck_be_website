@@ -1,16 +1,16 @@
-uuid: 09187484-0063-4ef3-8031-9e726f078c1d
+uuid: 7da520d4-0cee-44eb-8c13-7b58539ae41a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_academic_year
+    - field.storage.node.field_work_technique
     - node.type.work
-    - taxonomy.vocabulary.academy_year
-id: node.work.field_academic_year
-field_name: field_academic_year
+    - taxonomy.vocabulary.work_technique
+id: node.work.field_work_technique
+field_name: field_work_technique
 entity_type: node
 bundle: work
-label: 'Academic year'
+label: 'Work technique'
 description: ''
 required: false
 translatable: false
@@ -20,5 +20,5 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      academy_year: academy_year
+      work_technique: work_technique
 field_type: entity_reference

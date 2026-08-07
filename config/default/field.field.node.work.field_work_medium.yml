@@ -1,16 +1,16 @@
-uuid: 09187484-0063-4ef3-8031-9e726f078c1d
+uuid: 01762768-83a8-48c5-9356-4c14e89f1c7d
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_academic_year
+    - field.storage.node.field_work_medium
     - node.type.work
-    - taxonomy.vocabulary.academy_year
-id: node.work.field_academic_year
-field_name: field_academic_year
+    - taxonomy.vocabulary.work_medium
+id: node.work.field_work_medium
+field_name: field_work_medium
 entity_type: node
 bundle: work
-label: 'Academic year'
+label: 'Work medium'
 description: ''
 required: false
 translatable: false
@@ -20,5 +20,5 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      academy_year: academy_year
+      work_medium: work_medium
 field_type: entity_reference

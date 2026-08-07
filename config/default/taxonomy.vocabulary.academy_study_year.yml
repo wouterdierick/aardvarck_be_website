@@ -1,0 +1,9 @@
+uuid: b37dc8e2-ec0b-4b17-9ade-830537b38ab4
+langcode: en
+status: true
+dependencies: {  }
+name: 'Academy study year'
+vid: academy_study_year
+description: null
+weight: 0
+new_revision: false

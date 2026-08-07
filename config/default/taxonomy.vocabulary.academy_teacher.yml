@@ -1,0 +1,9 @@
+uuid: 42b9b955-298e-490b-b024-fa3574107047
+langcode: en
+status: true
+dependencies: {  }
+name: 'Academy teacher'
+vid: academy_teacher
+description: null
+weight: 0
+new_revision: false

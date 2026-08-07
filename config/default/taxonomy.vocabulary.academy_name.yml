@@ -1,0 +1,9 @@
+uuid: 9a2c5888-c838-496e-bcdf-2a6396f98852
+langcode: en
+status: true
+dependencies: {  }
+name: 'Academy name'
+vid: academy_name
+description: null
+weight: 0
+new_revision: false

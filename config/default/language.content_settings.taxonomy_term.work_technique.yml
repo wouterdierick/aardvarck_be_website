@@ -1,0 +1,16 @@
+uuid: cccd65fb-8571-4925-b894-42266ee06dca
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.work_technique
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.work_technique
+target_entity_type_id: taxonomy_term
+target_bundle: work_technique
+default_langcode: site_default
+language_alterable: false

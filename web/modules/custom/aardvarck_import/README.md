@@ -38,8 +38,9 @@ The module:
   terms when needed.
 - Resizes images (if needed) so neither dimension exceeds a configurable
   maximum (2400px by default), and stores them as `image` media entities.
-- Creates or updates `work` nodes (always unpublished), including their
-  Dutch source content and English translation.
+- Creates or updates `work` nodes (always unpublished, in both
+  languages), including their English source content and Dutch
+  translation.
 - Processes everything through Drupal's Batch API, so large imports don't
   hit PHP execution timeouts.
 - Reports the outcome of every work processed (created / updated / skipped
@@ -88,8 +89,8 @@ https://www.drupal.org/node/895232 for further information.
    **Administration » Configuration » Media » Aardvarck import settings**
    (`/admin/config/media/aardvarck-import`). Default: 2400px.
 3. Review and extend `data/mapping.yml` in this module (see below) so that
-   your known taxonomy term values are mapped to their Dutch names and
-   English translations ahead of importing.
+   your known taxonomy term values are mapped to their English (source)
+   names and Dutch translations ahead of importing.
 
 
 ## Usage
@@ -119,8 +120,8 @@ description:
   nl: ""
   en: ""
 date: "02-2016"            # MM-YYYY
-work_width: 73              # cm
-work_height: 55             # cm
+work_width: 730              # mm
+work_height: 550             # mm
 work_medium: "Paper"        # English enum value(s) — see data/mapping.yml
 work_technique: "Pastel"    # scalar OR a YAML list of several techniques
 academy_name: "ABK Mortsel"
@@ -133,14 +134,20 @@ academy_teacher: "Paul Morez" # scalar OR a YAML list of several teachers
 `work_technique` and `academy_teacher` may be given as a single string or
 as a YAML list of several values — both forms are accepted.
 
+`work_width` and `work_height` are stored as whole numbers (millimetres);
+any decimal value in the source YAML is rounded.
+
 `work_medium`, `work_technique` and `academy_program` are always given in
-**English** — the module resolves the matching Dutch term name (and the
-term's English translation) via `data/mapping.yml`.
+**English** — the module resolves the matching Dutch term name via
+`data/mapping.yml` and adds it as the term's Dutch translation.
 
 Files that are not part of any work package — `structure.yml`,
 `mapping.yml`, `agent_info.md` — are ignored wherever found in the zip, so
 you can safely zip your entire working data folder (including its own copy
-of these reference files) without special handling.
+of these reference files) without special handling. Hidden files (any
+filename starting with a dot, including macOS `.DS_Store` and the
+`._filename` AppleDouble files that Finder's "Compress" adds to a zip) are
+always ignored too.
 
 ### Uploading and importing
 
@@ -177,9 +184,9 @@ turned into taxonomy terms:
 
 - **Translatable vocabularies** — `work_medium`, `work_technique`,
   `academy_program` — are listed as `nl`/`en` pairs. The importer looks up
-  the raw (English) YAML value under `en`, and uses the matching `nl` value
-  as the term's canonical Dutch name, with `en` added as its English
-  translation.
+  the raw (English) YAML value under `en`, creates/matches the term with
+  that value as its canonical English (source language) name, and adds the
+  matching `nl` value as its Dutch translation.
 - **Non-translatable vocabularies** — `academy_name`, `academy_year`,
   `academy_study_year`, `academy_teacher` — are listed as flat strings
   (identical in both languages, e.g. a school name or a teacher's name).
@@ -187,10 +194,10 @@ turned into taxonomy terms:
 **Unmapped values are never a blocking error.** If a raw value isn't found
 in `mapping.yml` (a typo, or a genuinely new value not yet reviewed), the
 importer still creates the work and the term — using the raw value
-verbatim — but flags it on the import report so you can add a proper
-`mapping.yml` entry (and, for translatable vocabularies, a Dutch name)
-afterwards. Fixing normalization/typo issues in the *source* YAML data
-itself is outside the scope of this module.
+verbatim, in English, with no Dutch translation — but flags it on the
+import report so you can add a proper `mapping.yml` entry (and a Dutch
+translation) afterwards. Fixing normalization/typo issues in the *source*
+YAML data itself is outside the scope of this module.
 
 ### The import report
 
@@ -214,13 +221,13 @@ persisted long-term) — re-run the import to see a fresh report.
 | YAML key | `work` node field | Notes |
 |---|---|---|
 | `id` | `field_id` | natural key for idempotency |
-| `name.nl` | `title` (nl) | |
-| `name.en` | `title` (en translation) | |
-| `description.nl` | `field_description` (nl, `restricted_html`) | |
-| `description.en` | `field_description` (en translation) | |
+| `name.en` | `title` (en, source language) | |
+| `name.nl` | `title` (nl translation) | |
+| `description.en` | `field_description` (en, `restricted_html`, source language) | |
+| `description.nl` | `field_description` (nl translation, `restricted_html`) | |
 | `date` | `field_date` (day forced to `01`) | also used for the `public://work/{year}/{id}/` image path |
-| `work_width` | `field_work_width` | |
-| `work_height` | `field_work_height` | |
+| `work_width` | `field_work_width` | integer, millimetres |
+| `work_height` | `field_work_height` | integer, millimetres |
 | `work_medium` | `field_work_medium` | via `mapping.yml`, multi-value |
 | `work_technique` | `field_work_technique` | via `mapping.yml`, multi-value |
 | `academy_name` | `field_academy_name` | via `mapping.yml` |

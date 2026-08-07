@@ -1,4 +1,4 @@
-uuid: 351365f0-fd52-4dff-8f03-5b4df9fe8a91
+uuid: 6fc922dc-6de9-4e05-b206-f2bd3a9e874f
 langcode: en
 status: true
 dependencies:
@@ -7,10 +7,10 @@ dependencies:
 id: node.field_work_width
 field_name: field_work_width
 entity_type: node
-type: decimal
+type: integer
 settings:
-  precision: 10
-  scale: 2
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1

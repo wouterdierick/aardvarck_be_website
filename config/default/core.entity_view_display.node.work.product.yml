@@ -70,17 +70,6 @@ content:
     third_party_settings: {  }
     weight: -18
     region: content
-  field_work_height:
-    type: number_decimal
-    label: above
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: -15
-    region: content
   field_work_medium:
     type: entity_reference_label
     label: above
@@ -97,17 +86,6 @@ content:
     third_party_settings: {  }
     weight: -13
     region: content
-  field_work_width:
-    type: number_decimal
-    label: above
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: -16
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -120,4 +98,6 @@ hidden:
   field_academy_study_year: true
   field_academy_teacher: true
   field_id: true
+  field_work_height: true
+  field_work_width: true
   langcode: true

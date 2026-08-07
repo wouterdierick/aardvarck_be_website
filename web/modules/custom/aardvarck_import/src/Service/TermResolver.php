@@ -127,23 +127,23 @@ class TermResolver {
     }
 
     if ($entry !== NULL) {
-      $nlName = $entry['nl'];
       $enName = $entry['en'];
-      $term = $this->findTermByName($vocabulary, $nlName, 'nl') ?? $this->findTermByName($vocabulary, $nlName, NULL);
+      $nlName = $entry['nl'];
+      $term = $this->findTermByName($vocabulary, $enName, 'en') ?? $this->findTermByName($vocabulary, $enName, NULL);
       if ($term) {
-        if (!$term->hasTranslation('en')) {
-          $term->addTranslation('en', ['name' => $enName]);
+        if (!$term->hasTranslation('nl')) {
+          $term->addTranslation('nl', ['name' => $nlName]);
           $term->save();
         }
         return [(int) $term->id(), TRUE];
       }
       $term = Term::create([
         'vid' => $vocabulary,
-        'name' => $nlName,
-        'langcode' => 'nl',
+        'name' => $enName,
+        'langcode' => 'en',
       ]);
       $term->save();
-      $term->addTranslation('en', ['name' => $enName]);
+      $term->addTranslation('nl', ['name' => $nlName]);
       $term->save();
       return [(int) $term->id(), TRUE];
     }

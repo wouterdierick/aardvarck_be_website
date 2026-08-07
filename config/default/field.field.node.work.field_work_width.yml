@@ -1,4 +1,4 @@
-uuid: cf49325c-d6ab-4824-86d0-c1deb6e82a97
+uuid: efcf2011-ab65-4ae1-85ef-9b4de1ec4fbc
 langcode: en
 status: true
 dependencies:
@@ -16,8 +16,8 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  min: null
+  min: 0
   max: null
   prefix: ''
-  suffix: ''
-field_type: decimal
+  suffix: ' mm'
+field_type: integer

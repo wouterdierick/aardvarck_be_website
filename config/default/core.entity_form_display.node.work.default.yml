@@ -101,7 +101,7 @@ content:
     third_party_settings: {  }
   field_work_height:
     type: number
-    weight: 6
+    weight: 27
     region: content
     settings:
       placeholder: ''
@@ -120,7 +120,7 @@ content:
     third_party_settings: {  }
   field_work_width:
     type: number
-    weight: 5
+    weight: 26
     region: content
     settings:
       placeholder: ''

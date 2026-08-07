@@ -60,6 +60,12 @@ class WorkImporter {
     foreach ($iterator as $fileInfo) {
       /** @var \SplFileInfo $fileInfo */
       $filename = $fileInfo->getFilename();
+      // Skip macOS metadata: AppleDouble resource-fork files ("._foo.yml"),
+      // .DS_Store, and any other dotfile — none of these are ever part of
+      // a work package.
+      if (str_starts_with($filename, '.')) {
+        continue;
+      }
       if (in_array(strtolower($filename), self::IGNORED_FILENAMES, TRUE)) {
         continue;
       }
@@ -219,36 +225,37 @@ class WorkImporter {
         }
       }
 
-      $mediaIds = $this->processImages($group['images'], $id, $year, $nameNl, $existingNode);
+      $mediaIds = $this->processImages($group['images'], $id, $year, $nameEn, $existingNode);
 
       $isNew = !$existingNode;
       $node = $existingNode ?? $nodeStorage->create([
         'type' => 'work',
-        'langcode' => 'nl',
+        'langcode' => 'en',
         'status' => 0,
         'field_id' => $id,
       ]);
 
       $node->setUnpublished();
-      $node->set('title', $nameNl);
-      $node->set('field_description', ['value' => $descriptionNl, 'format' => 'restricted_html']);
+      $node->set('title', $nameEn);
+      $node->set('field_description', ['value' => $descriptionEn, 'format' => 'restricted_html']);
       $node->set('field_date', ['value' => sprintf('%04d-%02d-01', $year, $month)]);
-      $node->set('field_work_width', $data['work_width']);
-      $node->set('field_work_height', $data['work_height']);
+      $node->set('field_work_width', (int) round($data['work_width']));
+      $node->set('field_work_height', (int) round($data['work_height']));
       foreach ($resolvedTerms as $fieldName => $tids) {
         $node->set($fieldName, array_map(fn($tid) => ['target_id' => $tid], $tids));
       }
       $node->set('field_teaser_images', array_map(fn($mid) => ['target_id' => $mid], $mediaIds));
       $node->save();
 
-      if ($node->hasTranslation('en')) {
-        $translation = $node->getTranslation('en');
+      if ($node->hasTranslation('nl')) {
+        $translation = $node->getTranslation('nl');
       }
       else {
-        $translation = $node->addTranslation('en');
+        $translation = $node->addTranslation('nl');
       }
-      $translation->setTitle($nameEn);
-      $translation->set('field_description', ['value' => $descriptionEn, 'format' => 'restricted_html']);
+      $translation->setUnpublished();
+      $translation->setTitle($nameNl);
+      $translation->set('field_description', ['value' => $descriptionNl, 'format' => 'restricted_html']);
       $node->save();
 
       $status = $isNew ? 'created' : 'updated';
@@ -269,7 +276,7 @@ class WorkImporter {
    * @return int[]
    *   The new media entity IDs, in image order.
    */
-  protected function processImages(array $imagePaths, string $id, int $year, string $titleNl, ?NodeInterface $existingNode): array {
+  protected function processImages(array $imagePaths, string $id, int $year, string $titleEn, ?NodeInterface $existingNode): array {
     if ($existingNode) {
       $this->deleteExistingTeaserMedia($existingNode);
     }
@@ -282,7 +289,7 @@ class WorkImporter {
       $filename = $id . $suffix . '.' . $extension;
 
       $file = $this->imageResizer->resizeAndSave($sourcePath, $destinationDirectory, $filename);
-      $alt = $index === 0 ? $titleNl : sprintf('%s — afbeelding %d', $titleNl, $index + 1);
+      $alt = $index === 0 ? $titleEn : sprintf('%s — image %d', $titleEn, $index + 1);
 
       $media = Media::create([
         'bundle' => 'image',

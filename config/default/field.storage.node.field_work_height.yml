@@ -1,4 +1,4 @@
-uuid: d34589a0-9ad5-4539-9f17-40e3875509c5
+uuid: f5d6b8b5-cffc-4130-b04d-f2c893d03840
 langcode: en
 status: true
 dependencies:
@@ -7,10 +7,10 @@ dependencies:
 id: node.field_work_height
 field_name: field_work_height
 entity_type: node
-type: decimal
+type: integer
 settings:
-  precision: 10
-  scale: 2
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1

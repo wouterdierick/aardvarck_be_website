@@ -1,0 +1,21 @@
+uuid: a99af026-3d8f-4967-90d6-2160da6a06e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.work
+  module:
+    - node
+id: work
+label: Work
+type: 'canonical_entities:node'
+pattern: '/work/[node:field_date:date:custom:Y]/[node:field_id]/[node:title]'
+selection_criteria:
+  work_bundle:
+    id: 'entity_bundle:node'
+    negate: false
+    bundles:
+      work: work
+selection_logic: and
+weight: 0
+relationships: {  }

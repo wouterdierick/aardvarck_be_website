@@ -1,0 +1,129 @@
+uuid: 710f9849-0857-438d-b64d-423d6794ee21
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - media.type.image
+    - node.type.page
+    - node.type.work
+    - taxonomy.vocabulary.academic_year
+    - taxonomy.vocabulary.academy
+    - taxonomy.vocabulary.degree
+    - taxonomy.vocabulary.medium
+    - taxonomy.vocabulary.teacher
+    - taxonomy.vocabulary.technique
+  module:
+    - commerce
+    - commerce_order
+    - commerce_price
+    - commerce_product
+    - commerce_store
+    - content_translation
+    - media
+    - node
+    - taxonomy
+id: webmaster
+label: Webmaster
+weight: 2
+is_admin: false
+permissions:
+  - 'access commerce administration pages'
+  - 'access commerce_currency overview'
+  - 'access commerce_order overview'
+  - 'access commerce_product overview'
+  - 'access commerce_store overview'
+  - 'access content overview'
+  - 'access media overview'
+  - 'access taxonomy overview'
+  - 'administer content translation'
+  - 'create content translations'
+  - 'create default commerce_order'
+  - 'create default commerce_product'
+  - 'create image media'
+  - 'create media'
+  - 'create online commerce_store'
+  - 'create page content'
+  - 'create terms in academic_year'
+  - 'create terms in academy'
+  - 'create terms in degree'
+  - 'create terms in medium'
+  - 'create terms in teacher'
+  - 'create terms in technique'
+  - 'create work content'
+  - 'delete any default commerce_product'
+  - 'delete any image media'
+  - 'delete any image media revisions'
+  - 'delete any media'
+  - 'delete any online commerce_store'
+  - 'delete any page content'
+  - 'delete any work content'
+  - 'delete content translations'
+  - 'delete default commerce_order'
+  - 'delete page revisions'
+  - 'delete term revisions in academic_year'
+  - 'delete term revisions in academy'
+  - 'delete term revisions in degree'
+  - 'delete term revisions in medium'
+  - 'delete term revisions in teacher'
+  - 'delete term revisions in technique'
+  - 'delete terms in academic_year'
+  - 'delete terms in academy'
+  - 'delete terms in degree'
+  - 'delete terms in medium'
+  - 'delete terms in teacher'
+  - 'delete terms in technique'
+  - 'delete work revisions'
+  - 'edit any image media'
+  - 'edit any page content'
+  - 'edit any work content'
+  - 'edit terms in academic_year'
+  - 'edit terms in academy'
+  - 'edit terms in degree'
+  - 'edit terms in medium'
+  - 'edit terms in teacher'
+  - 'edit terms in technique'
+  - 'manage default commerce_product_variation'
+  - 'reassign commerce_order'
+  - 'revert any image media revisions'
+  - 'revert page revisions'
+  - 'revert term revisions in academic_year'
+  - 'revert term revisions in academy'
+  - 'revert term revisions in degree'
+  - 'revert term revisions in medium'
+  - 'revert term revisions in teacher'
+  - 'revert term revisions in technique'
+  - 'revert work revisions'
+  - 'translate academic_year taxonomy_term'
+  - 'translate academy taxonomy_term'
+  - 'translate default commerce_product'
+  - 'translate degree taxonomy_term'
+  - 'translate medium taxonomy_term'
+  - 'translate page node'
+  - 'translate teacher taxonomy_term'
+  - 'translate technique taxonomy_term'
+  - 'translate work node'
+  - 'unlock orders'
+  - 'update any default commerce_product'
+  - 'update any online commerce_store'
+  - 'update content translations'
+  - 'update default commerce_order'
+  - 'view all media revisions'
+  - 'view any image media revisions'
+  - 'view commerce_order'
+  - 'view commerce_store'
+  - 'view default commerce_order'
+  - 'view default commerce_product'
+  - 'view media'
+  - 'view online commerce_store'
+  - 'view own unpublished commerce_product'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view page revisions'
+  - 'view term revisions in academic_year'
+  - 'view term revisions in academy'
+  - 'view term revisions in degree'
+  - 'view term revisions in medium'
+  - 'view term revisions in teacher'
+  - 'view term revisions in technique'
+  - 'view work revisions'

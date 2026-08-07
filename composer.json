@@ -24,6 +24,7 @@
         "drupal/core-recommended": "^11.2",
         "drupal/gin": "^4.0",
         "drupal/gin_toolbar": "^2.0",
+        "drupal/pathauto": "^1.15",
         "drush/drush": "^13.6"
     },
     "conflict": {

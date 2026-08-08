@@ -9,17 +9,19 @@ props:
   type: object
   properties:
     attributes:
-      type: string
-      description: The attributes prop
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*)'
     title:
       type: string
-      description: The title prop
+      description: Optional title attribute for the logo.
     href:
       type: string
-      description: The href prop
+      description: Optional link URL. If provided, logo renders as a link.
     size:
       type: string
-      description: The size prop
+      description: Size of the logo
 slots:
   default:
     description: Default slot content

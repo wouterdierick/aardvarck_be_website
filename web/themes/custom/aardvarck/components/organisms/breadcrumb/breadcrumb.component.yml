@@ -9,11 +9,15 @@ props:
   type: object
   properties:
     attributes:
-      type: string
-      description: The attributes prop
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*)'
     links:
-      type: string
-      description: The links prop
+      type: array
+      description: Array of breadcrumb items. First item is home (can be any URL). Last item is the current page (title only, no link).
+      items:
+        type: object
 slots:
   default:
     description: Default slot content

@@ -7,7 +7,7 @@ export default defineConfig({
     twig({
       namespaces: {
         components: join(__dirname, "src/components"),
-        drupalstorybook: join(__dirname, "src"),
+        aardvarck: join(__dirname, "src"),
       },
     }),
   ],

@@ -8,7 +8,7 @@
 ] %}
 {% set attributes = attributes.addClass(classes) %}
 {% set storybook_icon_path = 'icons/' ~ id ~ '.svg' %}
-{% set drupal_icon_path = '@drupalstorybook/components/atoms/icon/icons/' ~ id ~ '.svg' %}
+{% set drupal_icon_path = '@aardvarck/components/atoms/icon/icons/' ~ id ~ '.svg' %}
 
 {% set icon_markup = source(storybook_icon_path, true) %}
 {% if icon_markup is empty %}

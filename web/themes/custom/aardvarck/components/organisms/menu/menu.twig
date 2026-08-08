@@ -7,7 +7,7 @@
   <ul class="menu__list">
     {% for link in links %}
       <li class="menu__item {% if link.active %}menu__item--active{% endif %}">
-        {% include 'drupalstorybook:link' with {
+        {% include 'aardvarck:link' with {
           title: link.title,
           url: link.href,
           attributes: {

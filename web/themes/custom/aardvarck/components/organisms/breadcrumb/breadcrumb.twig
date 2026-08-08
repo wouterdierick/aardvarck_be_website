@@ -9,7 +9,7 @@
       {% set home = links[0] %}
       <li class="breadcrumb__item">
         <a href="{{ home.href }}" class="breadcrumb__home" aria-label="Home">
-          {% include 'drupalstorybook:icon' with {
+          {% include 'aardvarck:icon' with {
             id: 'home',
             size: 'small'
           } only %}
@@ -18,7 +18,7 @@
 
       {% for link in links|slice(1, links|length) %}
         <li class="breadcrumb__separator">
-          {% include 'drupalstorybook:icon' with {
+          {% include 'aardvarck:icon' with {
             id: 'chevron-right',
             size: 'small'
           } only %}
@@ -30,7 +30,7 @@
           </li>
         {% else %}
           <li class="breadcrumb__item">
-            {% include 'drupalstorybook:link' with { title: link.title, href: link.href } only %}
+            {% include 'aardvarck:link' with { title: link.title, href: link.href } only %}
           </li>
         {% endif %}
       {% endfor %}

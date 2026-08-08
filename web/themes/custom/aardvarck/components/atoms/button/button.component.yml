@@ -9,29 +9,31 @@ props:
   type: object
   properties:
     attributes:
-      type: string
-      description: The attributes prop
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*)'
     element:
       type: string
-      description: The element prop
+      description: HTML element used to render the button
     title:
       type: string
-      description: The title prop
+      description: Button text
     href:
       type: string
-      description: The href prop
+      description: 'Link destination when element is '
     variant:
       type: string
-      description: The variant prop
+      description: Button style variant
     type:
       type: string
-      description: The type prop
+      description: 'Button/input type when element is '
     disabled:
       type: boolean
-      description: The disabled prop
+      description: Disabled state (uses disabled on button/input, aria-disabled on links)
     aria_label:
       type: string
-      description: The aria_label prop
+      description: Accessible label override
 slots:
   default:
     description: Default slot content

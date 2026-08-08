@@ -82,13 +82,13 @@ Run these in `storybook/`:
 
 Theme sync is resolved on every `build:drupal` run and on every rebuild in `watch:drupal`, including when `watch:drupal` is started via `npm run dev`. (dev server mode)
 
-Default target is `../web/themes/custom/drupalstorybook` (relative to `./storybook/`).
+Default target is `../web/themes/custom/aardvarck` (relative to `./storybook/`).
 If `DRUPAL_THEME_DIR` is set, that value is used instead.
 
 If no theme is found, sync is skipped and only `dist/drupal` is generated.
 
 When a valid Drupal theme is detected, this mapping is applied automatically:
 
-`./storybook/dist/drupal/components` -> `./web/themes/custom/drupalstorybook/components`
+`./storybook/dist/drupal/components` -> `./web/themes/custom/aardvarck/components`
 
-`./storybook/dist/drupal/styles` -> `./web/themes/custom/drupalstorybook/styles`
+`./storybook/dist/drupal/styles` -> `./web/themes/custom/aardvarck/styles`

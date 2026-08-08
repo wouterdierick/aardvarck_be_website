@@ -9,14 +9,16 @@ props:
   type: object
   properties:
     attributes:
-      type: string
-      description: The attributes prop
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*)'
     title:
       type: string
-      description: The title prop
+      description: Link label
     url:
       type: string
-      description: The url prop
+      description: Link URL
 slots:
   default:
     description: Default slot content

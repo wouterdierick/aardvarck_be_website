@@ -29,7 +29,7 @@
     {% if tags %}
       <div class="card__tags">
         {% for tag in tags %}
-          {% include 'drupalstorybook:pill' with {
+          {% include 'aardvarck:pill' with {
             label: tag.label,
             href: tag.url|default('')
           } only %}

@@ -9,23 +9,27 @@ props:
   type: object
   properties:
     attributes:
-      type: string
-      description: The attributes prop
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*)'
     title:
       type: string
-      description: The title prop
+      description: Card title
     content:
       type: string
-      description: The content prop
+      description: Card content
     image:
       type: string
       description: Image slot (uses Image component)
     link:
       type: string
-      description: The link prop
+      description: If set, the card is fully clickable as a link.
     tags:
-      type: string
-      description: The tags prop
+      type: array
+      description: Array of tag objects with label (required) and url (optional)
+      items:
+        type: object
 slots:
   default:
     description: Default slot content

@@ -9,17 +9,19 @@ props:
   type: object
   properties:
     attributes:
-      type: string
-      description: The attributes prop
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*)'
     id:
       type: string
-      description: The id prop
+      description: Icon id. This matches the SVG filename without the .svg extension.
     size:
       type: string
-      description: The size prop
+      description: Icon size.
     label:
       type: string
-      description: The label prop
+      description: Accessible label. Leave empty for decorative icons.
 slots:
   default:
     description: Default slot content

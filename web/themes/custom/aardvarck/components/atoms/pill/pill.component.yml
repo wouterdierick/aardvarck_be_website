@@ -9,20 +9,22 @@ props:
   type: object
   properties:
     attributes:
-      type: string
-      description: The attributes prop
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*)'
     label:
       type: string
-      description: The label prop
+      description: Pill label
     icon:
       type: string
-      description: The icon prop
+      description: Icon id. Leave empty to hide the icon.
     href:
       type: string
-      description: The href prop
+      description: Optional link URL. When empty, the pill renders as a span.
     variant:
       type: string
-      description: The variant prop
+      description: Pill style variant
 slots:
   default:
     description: Default slot content

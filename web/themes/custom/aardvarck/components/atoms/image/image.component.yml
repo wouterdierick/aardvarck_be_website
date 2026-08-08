@@ -9,23 +9,25 @@ props:
   type: object
   properties:
     attributes:
-      type: string
-      description: The attributes prop
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*)'
     src:
       type: string
-      description: The src prop
+      description: Image source URL
     alt:
       type: string
-      description: The alt prop
+      description: Alt text for the image
     width:
       type: number
-      description: The width prop
+      description: Image width
     height:
       type: number
-      description: The height prop
+      description: Image height
     rounded:
       type: boolean
-      description: The rounded prop
+      description: Whether the image should be rounded
 slots:
   default:
     description: Default slot content

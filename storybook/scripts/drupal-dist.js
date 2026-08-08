@@ -52,6 +52,7 @@ const ALLOWED_EXTENSIONS = new Set([
   '.md',
 ]);
 
+// Identify Storybook story files; those are the source for generated SDC metadata.
 function isStoriesFile(filePath) {
   return filePath.toLowerCase().endsWith('.stories.js');
 }
@@ -67,6 +68,8 @@ function shouldCopyFile(filename) {
   return ALLOWED_EXTENSIONS.has(extension);
 }
 
+// Walk a directory tree and return every file path so later steps can filter
+// stories, Twig templates, assets, or styles from one shared traversal helper.
 function listFilesRecursive(directory) {
   if (!fs.existsSync(directory)) {
     return [];
@@ -89,6 +92,7 @@ function listFilesRecursive(directory) {
 function parseStoriesMetadata(filePath) {
   const content = fs.readFileSync(filePath, 'utf-8');
 
+  // The default export contains the Storybook meta object we mine for SDC data.
   const defaultMatch = content.match(/export\s+default\s+{([\s\S]*?)^}/m);
   if (!defaultMatch) {
     console.warn(`No default export found in ${filePath}`);
@@ -96,12 +100,15 @@ function parseStoriesMetadata(filePath) {
   }
 
   const metadata = {};
+  // Reuse Storybook's title as the human-friendly component name in Drupal.
   const titleMatch = content.match(/title:\s+['"`]([^'"`]+)['"`]/);
   metadata.title = titleMatch ? titleMatch[1].split('/').pop() : 'Component';
 
+  // Pull the docs description forward so Drupal and Storybook stay aligned.
   const descMatch = content.match(/\/\*\*[\s\S]*?description:\s+['"`]?([^'"`\n]+)/);
   metadata.description = descMatch ? descMatch[1] : `Component: ${metadata.title}`;
 
+  // Turn the story filename into a PascalCase component name for the SDC file.
   const fileName = path.basename(filePath, '.stories.js');
   metadata.name = fileName
     .split('-')
@@ -116,13 +123,15 @@ function parseStoriesMetadata(filePath) {
     return metadata;
   }
 
+  // Each top-level argType becomes one SDC prop definition.
   const argTypesContent = argTypesMatch[1];
-  const propMatches = argTypesContent.matchAll(/(\w+):\s+{([^}]*)}/g);
+  const propMatches = argTypesContent.matchAll(/^(\s{4})(\w+):\s+{([\s\S]*?)^\1},/gm);
 
   for (const match of propMatches) {
-    const propName = match[1];
-    const propConfig = match[2];
+    const propName = match[2];
+    const propConfig = match[3];
 
+    // Infer a simple JSON Schema type from the Storybook control config.
     let propType = 'string';
     if (propConfig.includes('checkbox') || propConfig.includes('boolean')) {
       propType = 'boolean';
@@ -130,14 +139,27 @@ function parseStoriesMetadata(filePath) {
     else if (propConfig.includes('number')) {
       propType = 'number';
     }
+    else if (propConfig.includes("type: 'object'") || propConfig.includes('type: "object"')) {
+      propType = 'object';
+    }
 
     const propDescMatch = propConfig.match(/description:\s+['"`]([^'"`]+)['"`]/);
     const description = propDescMatch ? propDescMatch[1] : `The ${propName} prop`;
+
+    // Storybook represents both objects and arrays with its `object` control.
+    // The component description makes array props explicit for the SDC schema.
+    if (/^array\b/i.test(description)) {
+      propType = 'array';
+    }
 
     metadata.props[propName] = {
       type: propType,
       description,
     };
+
+    if (propType === 'array') {
+      metadata.props[propName].items = { type: 'object' };
+    }
   }
 
   return metadata;
@@ -145,7 +167,24 @@ function parseStoriesMetadata(filePath) {
 
 // Convert parsed story metadata to Drupal SDC YAML content.
 function createComponentYaml(metadata) {
-  const properties = metadata.props || {};
+  // Drupal may pass omitted `attributes` props as an empty string, so the
+  // generated schema needs to accept both the intended object shape and that
+  // empty fallback value.
+  const properties = Object.fromEntries(
+    Object.entries(metadata.props || {}).map(([propName, propDefinition]) => {
+      if (propName !== 'attributes' || propDefinition.type !== 'object') {
+        return [propName, propDefinition];
+      }
+
+      return [
+        propName,
+        {
+          ...propDefinition,
+          type: ['object', 'string'],
+        },
+      ];
+    })
+  );
   const componentYAML = {
     name: metadata.name,
     description: metadata.description,
@@ -163,6 +202,7 @@ function createComponentYaml(metadata) {
     };
   }
 
+  // Prefix generated files with provenance so manual edits do not get lost.
   const yamlContent = yaml.dump(componentYAML, { lineWidth: -1 });
   const comment = `# AUTO-GENERATED FILE
 # Generated from ${metadata.fileName}
@@ -174,10 +214,13 @@ function createComponentYaml(metadata) {
   return comment + yamlContent;
 }
 
+// Create a directory and any missing parents before writing output into it.
 function ensureDirectory(directory) {
   fs.mkdirSync(directory, { recursive: true });
 }
 
+// Decide where generated Drupal artifacts should be mirrored.
+// An env override wins; otherwise we target the local theme in this repo.
 function resolveThemeSyncDirectory() {
   const configuredPath = process.env.DRUPAL_THEME_DIR;
   if (configuredPath) {
@@ -209,6 +252,8 @@ function copyDrupalSourceFiles() {
   for (const sourceFile of allSourceFiles) {
     const relativePath = path.relative(SOURCE_COMPONENTS_DIR, sourceFile);
     const fileName = path.basename(sourceFile);
+    // Skip authoring-only files such as stories, Sass sources, and generated
+    // metadata; Drupal only needs runtime templates, assets, and JS.
     if (!shouldCopyFile(fileName)) {
       continue;
     }
@@ -221,6 +266,8 @@ function copyDrupalSourceFiles() {
 
 // Generate all *.component.yml files in the dist component tree.
 function generateComponentMetadata() {
+  // Metadata is derived from Storybook stories instead of Twig so component
+  // documentation, controls, and Drupal schemas stay driven from one source.
   const storiesFiles = listFilesRecursive(SOURCE_COMPONENTS_DIR).filter(isStoriesFile);
   let generated = 0;
 
@@ -247,8 +294,15 @@ function generateComponentMetadata() {
 // Run a shell command (used for Sass builds) and fail on non-zero exit codes.
 function runCommand(command, args) {
   return new Promise((resolve, reject) => {
+    // Prefer project-local binaries so the script works without global installs.
+    const localBinPath = path.join(ROOT_DIR, 'node_modules', '.bin');
+    const envPath = process.env.PATH || '';
     const child = spawn(command, args, {
       cwd: ROOT_DIR,
+      env: {
+        ...process.env,
+        PATH: `${localBinPath}${path.delimiter}${envPath}`,
+      },
       stdio: 'inherit',
     });
 
@@ -274,6 +328,7 @@ function syncDistToDrupalTheme(themeDirectory) {
   const themeComponentsDir = path.join(themeDirectory, 'components');
   const themeStylesDir = path.join(themeDirectory, 'styles');
 
+  // Replace the whole generated tree so stale component files disappear too.
   fs.rmSync(themeComponentsDir, { recursive: true, force: true });
   fs.rmSync(themeStylesDir, { recursive: true, force: true });
   fs.cpSync(OUTPUT_COMPONENTS_DIR, themeComponentsDir, { recursive: true });
@@ -288,12 +343,15 @@ function syncDistToDrupalTheme(themeDirectory) {
 // 3) compile styles
 // 4) generate SDC metadata
 async function buildDrupalDist() {
+  // Start from a clean export so removed source files do not linger in dist.
   fs.rmSync(OUTPUT_DRUPAL_DIR, { recursive: true, force: true });
   ensureDirectory(OUTPUT_COMPONENTS_DIR);
   ensureDirectory(OUTPUT_STYLES_DIR);
 
   copyDrupalSourceFiles();
 
+  // Build the global stylesheet that Drupal includes once for shared tokens
+  // and layout rules.
   await runCommand('sass', [
     '--load-path=src/styles',
     'src/styles/main.scss',
@@ -302,6 +360,8 @@ async function buildDrupalDist() {
     '--no-source-map',
   ]);
 
+  // Compile component-scoped Sass in place so each exported component keeps
+  // its own colocated CSS next to the Twig file.
   await runCommand('sass', [
     '--load-path=src/styles',
     'src/components:dist/drupal/components',
@@ -325,6 +385,8 @@ async function watchDrupalDist() {
   let pendingBuild = false;
   let dirtyReason = 'file change';
 
+  // Serialize rebuilds so overlapping fs events never run concurrent Sass or
+  // file-copy jobs against the same output directory.
   const runBuild = async () => {
     if (isBuilding) {
       pendingBuild = true;
@@ -347,6 +409,8 @@ async function watchDrupalDist() {
     }
   };
 
+  // Debounce noisy watch events, especially when editors save multiple files or
+  // when Sass compilation itself touches neighboring files.
   const scheduleBuild = (reason) => {
     dirtyReason = reason;
     if (debounceTimer) {
@@ -359,6 +423,7 @@ async function watchDrupalDist() {
     }, 180);
   };
 
+  // Watch component source files, Twig, assets, and colocated scripts.
   const componentWatcher = fs.watch(
     SOURCE_COMPONENTS_DIR,
     { recursive: true },
@@ -367,6 +432,7 @@ async function watchDrupalDist() {
     }
   );
 
+  // Watch shared Sass sources that feed the exported global stylesheet.
   const stylesWatcher = fs.watch(
     SOURCE_STYLES_DIR,
     { recursive: true },
@@ -375,6 +441,7 @@ async function watchDrupalDist() {
     }
   );
 
+  // Close native file watchers explicitly so Ctrl+C exits cleanly.
   process.on('SIGINT', () => {
     componentWatcher.close();
     stylesWatcher.close();
@@ -383,6 +450,7 @@ async function watchDrupalDist() {
   });
 }
 
+// Dispatch the script into one-shot build mode or long-running watch mode.
 async function main() {
   const mode = (process.argv[2] || 'build').toLowerCase();
 
@@ -400,6 +468,7 @@ async function main() {
   process.exit(1);
 }
 
+// Surface only the error message to keep CLI output concise for developers.
 main().catch((error) => {
   console.error(error.message);
   process.exit(1);

@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.work.field_date
     - field.field.node.work.field_description
     - field.field.node.work.field_id
+    - field.field.node.work.field_paragraphs
     - field.field.node.work.field_product
     - field.field.node.work.field_teaser_images
     - field.field.node.work.field_work_height
@@ -21,6 +22,7 @@ dependencies:
   module:
     - datetime
     - field_group
+    - layout_paragraphs
     - media_library
     - path
     - text
@@ -46,6 +48,7 @@ third_party_settings:
       children:
         - field_teaser_images
         - field_description
+        - field_paragraphs
       label: Content
       region: content
       parent_name: group_tabs
@@ -72,6 +75,7 @@ third_party_settings:
         - field_academy_program
         - field_academy_study_year
         - field_academy_teacher
+        - field_product
       label: Metadata
       region: content
       parent_name: group_tabs
@@ -148,9 +152,21 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_paragraphs:
+    type: layout_paragraphs
+    weight: 8
+    region: content
+    settings:
+      view_mode: default
+      preview_view_mode: default
+      form_display_mode: default
+      nesting_depth: 0
+      require_layouts: 1
+      empty_message: ''
+    third_party_settings: {  }
   field_product:
     type: options_select
-    weight: 14
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.work.field_date
     - field.field.node.work.field_description
     - field.field.node.work.field_id
+    - field.field.node.work.field_paragraphs
     - field.field.node.work.field_product
     - field.field.node.work.field_teaser_images
     - field.field.node.work.field_work_height
@@ -98,6 +99,7 @@ hidden:
   field_academy_study_year: true
   field_academy_teacher: true
   field_id: true
+  field_paragraphs: true
   field_work_height: true
   field_work_width: true
   langcode: true

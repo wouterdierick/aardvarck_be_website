@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.work.field_date
     - field.field.node.work.field_description
     - field.field.node.work.field_id
+    - field.field.node.work.field_paragraphs
     - field.field.node.work.field_product
     - field.field.node.work.field_teaser_images
     - field.field.node.work.field_work_height
@@ -20,6 +21,7 @@ dependencies:
     - node.type.work
   module:
     - datetime
+    - layout_paragraphs
     - text
     - user
 id: node.work.default
@@ -82,6 +84,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: -8
+    region: content
+  field_paragraphs:
+    type: layout_paragraphs
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
     region: content
   field_teaser_images:
     type: entity_reference_entity_view

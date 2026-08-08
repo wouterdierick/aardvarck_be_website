@@ -5,24 +5,34 @@
 .logo {
   display: inline-block;
   text-decoration: none;
-  border-radius: var(--border-radius-sm);
 
-  &__image {
+  &__wrapper {
     display: block;
     width: 100%;
     height: auto;
+    padding: 5%;
+    border-radius: 100%;
+    background-color: var(--color-primary);
+  }
+
+  svg {
+    display: block;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    fill: var(--color-white);
   }
 
   &--small {
-    width: mixins.ptr(32);
+    width: mixins.ptr(40);
   }
 
   &--medium {
-    width: mixins.ptr(48);
+    width: mixins.ptr(80);
   }
 
   &--large {
-    width: mixins.ptr(80);
+    width: mixins.ptr(120);
   }
 
   &[href]:hover {

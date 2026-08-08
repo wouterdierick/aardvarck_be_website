@@ -25,6 +25,8 @@
         "drupal/field_group": "^4.0",
         "drupal/gin": "^4.0",
         "drupal/gin_toolbar": "^2.0",
+        "drupal/layout_paragraphs": "^2.1",
+        "drupal/paragraphs": "^1.23",
         "drupal/pathauto": "^1.15",
         "drupal/twig_tweak": "^3.4",
         "drush/drush": "^13.6"
@@ -52,6 +54,10 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
+            },
+            "file-mapping": {
+                "[web-root]/sites/development.services.yml": false,
+                "[web-root]/sites/example.settings.local.php": false
             }
         },
         "installer-paths": {

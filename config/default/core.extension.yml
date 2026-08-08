@@ -4,6 +4,7 @@ module:
   aardvarck_import: 0
   address: 0
   block: 0
+  block_field: 0
   breakpoint: 0
   ckeditor5: 0
   commerce: 0

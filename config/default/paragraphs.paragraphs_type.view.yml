@@ -1,0 +1,10 @@
+uuid: 8d0b4879-1b6c-4585-8571-ae97d2ced0b0
+langcode: nl
+status: true
+dependencies: {  }
+id: view
+label: View
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

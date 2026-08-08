@@ -21,21 +21,19 @@ dependencies:
     - field.field.node.work.field_work_width
     - node.type.work
   module:
-    - datetime
+    - text
     - user
 id: node.work.card
 targetEntityType: node
 bundle: work
 mode: card
 content:
-  field_date:
-    type: datetime_default
-    label: hidden
-    settings:
-      timezone_override: ''
-      format_type: medium
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
     third_party_settings: {  }
-    weight: -9
+    weight: 1
     region: content
   field_teaser_images:
     type: entity_reference_entity_view
@@ -44,12 +42,7 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
-    weight: -10
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
   field_academic_year: true
@@ -57,7 +50,7 @@ hidden:
   field_academy_program: true
   field_academy_study_year: true
   field_academy_teacher: true
-  field_description: true
+  field_date: true
   field_id: true
   field_paragraphs: true
   field_product: true
@@ -66,3 +59,4 @@ hidden:
   field_work_technique: true
   field_work_width: true
   langcode: true
+  links: true

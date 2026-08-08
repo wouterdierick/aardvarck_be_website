@@ -1,0 +1,199 @@
+// Abstracts: Mixins
+// --------------------------------------------------
+
+@use 'sass:list';
+@use 'sass:meta';
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:string';
+
+/// Strip any unit from numeric variables.
+///
+/// @param {number} $num - Number to strip the unit from.
+///
+/// @example
+///   conversions.strip-unit(16px);
+///   conversions.strip-unit(2rem);
+///
+/// @return {number} numerical value without unit.
+///
+@function strip-unit($num) {
+  @return math.div($num, ($num * 0 + 1));
+}
+
+/// Convert a pixels value to rems.
+///
+/// @param {number} $num - Number (in px) to convert the unit from.
+/// @param {bool} $showUnit [false] - Whether or not to include the 'rem' unit in the return.
+/// @todo Does the var name 'showUnit' make sense here? Would 'returnUnit' not be a better alternative?
+///
+/// @require {function} strip-unit
+///
+/// @example
+///   conversions.ptr(16px);
+///
+/// @return {number} numerical value (by default without rem unit).
+///
+@function ptr($num, $showUnit: true) {
+  @if $showUnit {
+    @return #{math.div(strip-unit($num), 16)}rem;
+  }
+
+  @return math.div(strip-unit($num), 16);
+}
+
+/// Convert a rems value to pixels.
+///
+/// @param {number} $num - Number (in rem) to convert the unit from.
+/// @param {bool} $showUnit [false] - Whether or not to include the 'px' unit in the return.
+/// @todo Does the var name 'showUnit' make sense here? Would 'returnUnit' not be a better alternative?
+///
+/// @require {function} strip-unit
+///
+/// @example
+///   conversions.rtp(1rem);
+///
+/// @return {number} numerical value (by default without px unit).
+///
+@function rtp($num, $showUnit: false) {
+  @if $showUnit {
+    @return #{strip-unit($num) * 16}px;
+  }
+
+  @return strip-unit($num) * 16;
+}
+
+/// Heading style mixin.
+///
+/// @param {string} $heading - The heading type (e.g. 'h1'–'h6' or 'card').
+/// @content Optional extra styles inside the mixin.
+///
+/// @example
+///   @include heading('h2');
+///   @include heading('card') { text-transform: uppercase; };
+///
+/// @require {css-var} --fontSizeH*, --fontLineHeightH*, --fontFamilyHeading, --fontWeightHeading, --colorText.
+///
+/// @return void
+///
+@mixin heading($heading) {
+  // Dynamically resolve the font variables based on heading name
+  $size-var: string.unquote("var(--fontSize#{string.to-upper-case($heading)})");
+  $line-var: string.unquote("var(--fontLineHeight#{string.to-upper-case($heading)})");
+
+  @if $heading =='card' {
+    $size-var: var(--fontSizeH6);
+    $line-var: var(--fontLineHeightH6);
+  }
+
+  margin-block: 0.8em;
+  font-family: var(--fontFamilyHeading);
+  font-weight: var(--fontWeightHeading);
+  font-size: #{$size-var};
+  line-height: #{$line-var};
+  text-wrap: balance;
+  color: var(--colorText);
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+    font-weight: inherit;
+  }
+
+  @content;
+}
+
+/// Responsive breakpoint mixin.
+///
+/// @param {string|number} $bp - Breakpoint key from the `$breakpoints` map or a custom pixel value.
+/// @param {string} $limiter ['min'] - Type of limit: 'min', 'max', or 'exact'.
+///   - 'min': uses min-width.
+///   - 'max': uses max-width.
+///   - 'exact': uses min-width and max-width of the next breakpoint.
+/// @content SCSS content to be applied within the media query.
+///
+/// @example
+///   @include bp('tablet') { ... }             // min-width: 431px
+///   @include bp('desktop', 'max') { ... }     // max-width: 1399.9px
+///   @include bp(768px, 'min') { ... }         // custom pixel value
+///
+/// @require {map} $breakpoints
+///
+/// @return void
+///
+$breakpoints: (
+  mobile: 0,
+  tablet: 480px,
+  desktop: 1024px,
+  desktop-xl: 1400px,
+);
+
+@mixin bp($bp, $limiter: 'min') {
+  $val: null;
+
+  @if meta.type-of($bp)=='number' {
+    $val: $bp;
+  }
+
+  @else {
+    $val: map.get($breakpoints, $bp);
+  }
+
+  $next: null;
+
+  // Find the next breakpoint (used for 'exact' and 'max')
+  @if meta.type-of($bp)=='string' {
+    @each $name, $size in $breakpoints {
+      @if $name ==$bp {
+        $keys: map.keys($breakpoints);
+        $values: map.values($breakpoints);
+        $i: list.index($keys, $name);
+
+        // Check if next exists
+        @if $i !=null and $i < list.length($keys) {
+          $next: list.nth($values, $i + 1);
+        }
+
+        @else {
+          $next: null;
+        }
+      }
+    }
+  }
+
+  @if $limiter =='min' {
+    @media (min-width: #{$val}) {
+      @content;
+    }
+  }
+
+  @else if $limiter =='max' {
+    $limit: null;
+
+    @if $next !=null {
+      $limit: $next - 0.1px;
+    }
+
+    @else {
+      $limit: $val - 0.1px;
+    }
+
+    @media (max-width: #{$limit}) {
+      @content;
+    }
+  }
+
+  @else if $limiter =='exact' {
+    @if $next {
+      @media (min-width: #{$val}) and (max-width: #{$next - 0.1px}) {
+        @content;
+      }
+    }
+
+    @else {
+      @media (min-width: #{$val}) {
+        @content;
+      }
+    }
+  }
+}

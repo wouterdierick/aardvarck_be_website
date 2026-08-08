@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a breadcrumb trail.
+ *
+ * Available variables:
+ * - breadcrumb: Breadcrumb trail items.
+ *
+ * @ingroup themeable
+ */
+#}
+{% set links = [] %}
+{% for item in breadcrumb %}
+  {% if item.url %}
+    {% set links = links|merge([{ title: item.text, href: item.url }]) %}
+  {% else %}
+    {% set links = links|merge([{ title: item.text }]) %}
+  {% endif %}
+{% endfor %}
+
+{% if links %}
+  {% include 'aardvarck:breadcrumb' with {
+    links: links,
+  } only %}
+{% endif %}

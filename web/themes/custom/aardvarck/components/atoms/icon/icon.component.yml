@@ -1,0 +1,25 @@
+# AUTO-GENERATED FILE
+# Generated from icon.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: Icon
+description: 'Component: Icon'
+props:
+  type: object
+  properties:
+    attributes:
+      type: string
+      description: The attributes prop
+    id:
+      type: string
+      description: The id prop
+    size:
+      type: string
+      description: The size prop
+    label:
+      type: string
+      description: The label prop
+slots:
+  default:
+    description: Default slot content

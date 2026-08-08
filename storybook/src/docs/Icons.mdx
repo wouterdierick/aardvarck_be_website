@@ -1,0 +1,57 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Icons" />
+
+export const iconModules = import.meta.glob('../components/atoms/icon/icons/*.svg', {
+  eager: true,
+  query: '?raw',
+  import: 'default',
+});
+
+export const icons = Object.entries(iconModules)
+  .map(([path, svg]) => ({
+    id: path.split('/').pop().replace('.svg', ''),
+    svg,
+  }))
+  .sort((a, b) => a.id.localeCompare(b.id));
+
+# Icons
+
+Icons provide clear visual cues for common actions, statuses, and navigation patterns across the interface. They support the surrounding content, improve scanability, and keep repeated interactions recognizable and consistent.
+
+Each icon is available as a reusable component and can be referenced by its icon name. The overview below shows the complete icon set currently available in the design system.
+
+<div
+  style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(9rem, 1fr))',
+    gap: '1rem',
+    marginTop: '1.5rem',
+  }}
+>
+  {icons.map((icon) => (
+    <div
+      key={icon.id}
+      style={{
+        display: 'grid',
+        gap: '0.75rem',
+        justifyItems: 'center',
+        padding: '1rem',
+        border: '1px solid #d9d9d9',
+        borderRadius: '0.5rem',
+        background: '#fff',
+      }}
+    >
+      <div
+        aria-hidden="true"
+        dangerouslySetInnerHTML={{ __html: icon.svg }}
+        style={{
+          width: '2rem',
+          height: '2rem',
+          color: 'currentColor',
+        }}
+      />
+      <code style={{ fontSize: '0.8125rem', textAlign: 'center' }}>{icon.id}</code>
+    </div>
+  ))}
+</div>

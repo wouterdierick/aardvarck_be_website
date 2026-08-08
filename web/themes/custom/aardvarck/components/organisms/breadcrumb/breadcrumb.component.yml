@@ -1,0 +1,19 @@
+# AUTO-GENERATED FILE
+# Generated from breadcrumb.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: Breadcrumb
+description: 'Component: Breadcrumb'
+props:
+  type: object
+  properties:
+    attributes:
+      type: string
+      description: The attributes prop
+    links:
+      type: string
+      description: The links prop
+slots:
+  default:
+    description: Default slot content

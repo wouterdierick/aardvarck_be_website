@@ -1,0 +1,22 @@
+# AUTO-GENERATED FILE
+# Generated from link.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: Link
+description: 'Component: Link'
+props:
+  type: object
+  properties:
+    attributes:
+      type: string
+      description: The attributes prop
+    title:
+      type: string
+      description: The title prop
+    url:
+      type: string
+      description: The url prop
+slots:
+  default:
+    description: Default slot content

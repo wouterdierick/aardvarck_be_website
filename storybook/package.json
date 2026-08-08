@@ -1,0 +1,38 @@
+{
+  "name": "drupalstorybook-ui",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run storybook\" \"npm run watch:drupal\"",
+    "storybook": "storybook dev -p 6006",
+    "build": "npm run build:storybook",
+    "build:storybook": "storybook build",
+    "build:drupal": "node scripts/drupal-dist.js build",
+    "watch:drupal": "node scripts/drupal-dist.js watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@chromatic-com/storybook": "^5.3.0",
+    "@storybook/addon-a11y": "^10.5.7",
+    "@storybook/addon-docs": "^10.5.7",
+    "@storybook/addon-vitest": "^10.5.7",
+    "@storybook/builder-vite": "^10.5.7",
+    "@storybook/cli": "^10.5.7",
+    "@storybook/html-vite": "^10.5.7",
+    "@vitest/browser-playwright": "^4.1.3",
+    "@vitest/coverage-v8": "^4.1.3",
+    "concurrently": "^9.2.1",
+    "js-yaml": "^4.1.1",
+    "playwright": "^1.59.1",
+    "remark-gfm": "^4.0.1",
+    "sass": "^1.99.0",
+    "storybook": "^10.5.7",
+    "vite": "^7.3.2",
+    "vite-plugin-twig-drupal": "^1.6.2",
+    "vitest": "^4.1.3"
+  }
+}

@@ -1,0 +1,120 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+
+<Meta title="Colors" />
+
+# Colors
+
+Design token colors used across components.
+
+<ColorPalette>
+  <ColorItem
+    title="Primary"
+    subtitle="Blue scale"
+    colors={{
+      100: '#cce5ff',
+      200: '#99caff',
+      300: '#66b0ff',
+      400: '#3395ff',
+      500: '#007bff',
+      600: '#006fe6',
+      700: '#005cbf',
+      800: '#004a99',
+      900: '#003773',
+    }}
+  />
+  <ColorItem
+    title="Secondary"
+    subtitle="Orange scale"
+    colors={{
+      100: '#ffe6cc',
+      200: '#ffce99',
+      300: '#ffb566',
+      400: '#ff9d33',
+      500: '#ff8400',
+      600: '#e67700',
+      700: '#bf6300',
+      800: '#994f00',
+      900: '#733b00',
+    }}
+  />
+  <ColorItem
+    title="Neutral"
+    subtitle="Gray scale"
+    colors={{
+      100: '#e2e3e5',
+      200: '#c4c8cb',
+      300: '#a7acb1',
+      400: '#899197',
+      500: '#6c757d',
+      600: '#616971',
+      700: '#51585e',
+      800: '#41464b',
+      900: '#313538',
+    }}
+  />
+</ColorPalette>
+
+## Basic Colors
+
+Basic colors define the visual baseline of the interface: `Light` supports clear
+background surfaces, while `Dark` is used for body text and high-contrast
+elements.
+
+<div class="docblock-colorpalette-small">
+<ColorPalette>
+  <ColorItem
+    title="White"
+    subtitle=""
+    colors={{
+      '': '#ffffff',
+    }}
+  />
+  <ColorItem
+    title="Black"
+    subtitle=""
+    colors={{
+      '': '#222222',
+    }}
+  />
+</ColorPalette>
+</div>
+
+## Semantic Colors
+
+### Status messages
+
+Use semantic status colors to communicate feedback and system state consistently
+across components.
+
+<div class="docblock-colorpalette-small">
+<ColorPalette>
+  <ColorItem
+    title="Success"
+    subtitle="Used for success confirmations and positive feedback."
+    colors={{
+      '': '#28a745',
+    }}
+  />
+  <ColorItem
+    title="Danger"
+    subtitle="Used for error messages and destructive states."
+    colors={{
+      '': '#dc3545',
+    }}
+  />
+  <ColorItem
+    title="Warning"
+    subtitle="Used for warnings and situations that need attention."
+    colors={{
+      '': '#ffc107',
+    }}
+  />
+  <ColorItem
+    title="Info"
+    subtitle="Used for neutral informational messages."
+    colors={{
+      '': '#17a2b8',
+    }}
+  />
+</ColorPalette>
+</div>

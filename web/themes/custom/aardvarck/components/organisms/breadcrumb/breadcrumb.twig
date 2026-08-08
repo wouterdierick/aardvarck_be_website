@@ -1,0 +1,39 @@
+{# Component: Breadcrumb (Organism) #}
+{% set attributes = create_attribute(attributes|default({})) %}
+{% set classes = ['breadcrumb'] %}
+{% set attributes = attributes.addClass(classes) %}
+
+<nav {{ attributes }} aria-label="Breadcrumb">
+  <ol class="breadcrumb__list">
+    {% if links %}
+      {% set home = links[0] %}
+      <li class="breadcrumb__item">
+        <a href="{{ home.href }}" class="breadcrumb__home" aria-label="Home">
+          {% include 'drupalstorybook:icon' with {
+            id: 'home',
+            size: 'small'
+          } only %}
+        </a>
+      </li>
+
+      {% for link in links|slice(1, links|length) %}
+        <li class="breadcrumb__separator">
+          {% include 'drupalstorybook:icon' with {
+            id: 'chevron-right',
+            size: 'small'
+          } only %}
+        </li>
+
+        {% if loop.last %}
+          <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">
+            {{ link.title }}
+          </li>
+        {% else %}
+          <li class="breadcrumb__item">
+            {% include 'drupalstorybook:link' with { title: link.title, href: link.href } only %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </ol>
+</nav>

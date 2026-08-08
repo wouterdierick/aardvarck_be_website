@@ -1,0 +1,35 @@
+/* Component: Logo (Atom) */
+
+@use 'abstracts/mixins';
+
+.logo {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: var(--border-radius-sm);
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &--small {
+    width: mixins.ptr(32);
+  }
+
+  &--medium {
+    width: mixins.ptr(48);
+  }
+
+  &--large {
+    width: mixins.ptr(80);
+  }
+
+  &[href]:hover {
+    opacity: 0.8;
+  }
+
+  &[href]:focus-visible {
+    outline: var(--outline);
+  }
+}

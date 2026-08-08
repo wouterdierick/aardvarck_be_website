@@ -12,4 +12,6 @@ regions:
   footer: Footer
 
 libraries:
-  - aardvarck/base
+  - aardvarck/storybook
+
+

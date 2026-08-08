@@ -1,0 +1,114 @@
+import { Meta, Typeset } from '@storybook/addon-docs/blocks';
+
+export const typography = {
+  type: {
+    heading: '"Aleo", serif',
+    body: '"Open Sans", sans-serif',
+  },
+  weight: {
+    Thin: '100',
+    ExtraLight: '200',
+    Light: '300',
+    Regular: '400',
+    Medium: '500',
+    SemiBold: '600',
+    Bold: '700',
+    ExtraBold: '800',
+    Black: '900',
+  },
+  size: {
+    h1: 40,
+    h2: 32,
+    h3: 28,
+    h4: 24,
+    h5: 20,
+    h6: 16,
+    base: 16,
+    sm: 14,
+  },
+};
+
+<Meta title="Typography" />
+
+# Typography
+
+Headings use **Aleo** and body text uses **Open Sans**.
+
+## Font Weights
+
+| Token | Value |
+| --- | --- |
+| Thin | 100 |
+| Extra-light | 200 |
+| Light | 300 |
+| Regular | 400 |
+| Medium | 500 |
+| Semi-bold | 600 |
+| Bold | 700 |
+| Extra-bold | 800 |
+| Black | 900 |
+
+## Headings
+
+### H1
+
+<Typeset
+  fontSizes={[Number(typography.size.h1)]}
+  fontWeight={typography.weight.Bold}
+  sampleText="The quick brown fox jumps over the lazy dog."
+  fontFamily={typography.type.heading}
+/>
+
+### H2
+
+<Typeset
+  fontSizes={[Number(typography.size.h2)]}
+  fontWeight={typography.weight.Bold}
+  sampleText="The quick brown fox jumps over the lazy dog."
+  fontFamily={typography.type.heading}
+/>
+
+### H3
+
+<Typeset
+  fontSizes={[Number(typography.size.h3)]}
+  fontWeight={typography.weight.Bold}
+  sampleText="The quick brown fox jumps over the lazy dog."
+  fontFamily={typography.type.heading}
+/>
+
+### H4
+
+<Typeset
+  fontSizes={[Number(typography.size.h4)]}
+  fontWeight={typography.weight.Bold}
+  sampleText="The quick brown fox jumps over the lazy dog."
+  fontFamily={typography.type.heading}
+/>
+
+### H5
+
+<Typeset
+  fontSizes={[Number(typography.size.h5)]}
+  fontWeight={typography.weight.Bold}
+  sampleText="The quick brown fox jumps over the lazy dog."
+  fontFamily={typography.type.heading}
+/>
+
+### H6
+
+<Typeset
+  fontSizes={[Number(typography.size.h6)]}
+  fontWeight={typography.weight.Bold}
+  sampleText="The quick brown fox jumps over the lazy dog."
+  fontFamily={typography.type.heading}
+/>
+
+## Body Text
+
+<Typeset
+  fontSizes={[Number(typography.size.base), Number(typography.size.sm)]}
+  fontWeight={typography.weight.Regular}
+  sampleText="The quick brown fox jumps over the lazy dog."
+  fontFamily={typography.type.body}
+/>

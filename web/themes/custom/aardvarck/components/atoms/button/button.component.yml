@@ -1,0 +1,37 @@
+# AUTO-GENERATED FILE
+# Generated from button.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: Button
+description: 'Component: Button'
+props:
+  type: object
+  properties:
+    attributes:
+      type: string
+      description: The attributes prop
+    element:
+      type: string
+      description: The element prop
+    title:
+      type: string
+      description: The title prop
+    href:
+      type: string
+      description: The href prop
+    variant:
+      type: string
+      description: The variant prop
+    type:
+      type: string
+      description: The type prop
+    disabled:
+      type: boolean
+      description: The disabled prop
+    aria_label:
+      type: string
+      description: The aria_label prop
+slots:
+  default:
+    description: Default slot content

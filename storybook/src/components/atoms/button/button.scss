@@ -1,0 +1,38 @@
+/* Component: Button (Atom) */
+
+@use 'abstracts/mixins';
+
+.button {
+  display: inline-block;
+  padding-inline: mixins.ptr(16);
+  padding-block: mixins.ptr(8);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-md);
+  transition: background-color var(--transition-duration) var(--transition-timing);
+  cursor: pointer;
+
+  &--primary {
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+
+    &:hover {
+      background-color: var(--color-link-hover);
+      border-color: var(--color-link-hover);
+    }
+  }
+
+  &--secondary {
+    color: var(--color-white);
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+
+    &:hover {
+      background-color: var(--color-secondary-400);
+      border-color: var(--color-secondary-400);
+    }
+  }
+}

@@ -4,3 +4,71 @@
  * @file
  * Functions to support theming in the Aardvarck theme.
  */
+
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_page_attachments().
+ */
+function aardvarck_page_attachments(array &$attachments): void {
+  $attachments['#attached']['html_head'][] = [
+    [
+      '#tag' => 'link',
+      '#attributes' => [
+        'rel' => 'preconnect',
+        'href' => 'https://fonts.googleapis.com',
+      ],
+    ],
+    'drupalstorybook_fonts_preconnect_googleapis',
+  ];
+
+  $attachments['#attached']['html_head'][] = [
+    [
+      '#tag' => 'link',
+      '#attributes' => [
+        'rel' => 'preconnect',
+        'href' => 'https://fonts.gstatic.com',
+        'crossorigin' => 'anonymous',
+      ],
+    ],
+    'drupalstorybook_fonts_preconnect_gstatic',
+  ];
+
+  $attachments['#attached']['html_head'][] = [
+    [
+      '#tag' => 'link',
+      '#attributes' => [
+        'rel' => 'stylesheet',
+        'href' => 'https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap',
+      ],
+    ],
+    'drupalstorybook_fonts_stylesheet',
+  ];
+}
+
+/**
+ * Implements hook_preprocess_breadcrumb().
+ */
+function aardvarck_preprocess_breadcrumb(&$variables): void {
+  $current_request = \Drupal::request();
+  $current_path = $current_request->getPathInfo();
+  $current_url = Url::fromUserInput($current_path)->toString();
+
+  $route_match = \Drupal::routeMatch();
+  $node = $route_match->getParameter('node');
+
+  // Add current page to breadcrumb.
+  if ($node && method_exists($node, 'getTitle')) {
+    $current_title = $node->getTitle();
+  } else {
+    $current_title = \Drupal::service('title_resolver')
+      ->getTitle($current_request, $route_match->getRouteObject());
+  }
+
+  if (!empty($variables['breadcrumb'])) {
+    $variables['breadcrumb'][] = [
+      'text' => $current_title,
+      'url' => $current_url,
+    ];
+  }
+}

@@ -1,0 +1,31 @@
+# AUTO-GENERATED FILE
+# Generated from card.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: Card
+description: 'Component: Card'
+props:
+  type: object
+  properties:
+    attributes:
+      type: string
+      description: The attributes prop
+    title:
+      type: string
+      description: The title prop
+    content:
+      type: string
+      description: The content prop
+    image:
+      type: string
+      description: Image slot (uses Image component)
+    link:
+      type: string
+      description: The link prop
+    tags:
+      type: string
+      description: The tags prop
+slots:
+  default:
+    description: Default slot content

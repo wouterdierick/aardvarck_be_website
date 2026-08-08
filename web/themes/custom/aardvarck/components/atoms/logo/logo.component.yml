@@ -1,44 +1,25 @@
-$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+# AUTO-GENERATED FILE
+# Generated from logo.stories.js
+# Regenerate with: npm run build:drupal
+#
+
 name: Logo
-description: Brand logo
-group: Atoms
+description: 'Component: Logo'
 props:
   type: object
   properties:
-    orientation:
-      title: Orientation
-      type: string
-      enum:
-        - horizontal
-        - vertical
-      default: horizontal
-    variant:
-      title: Variant
-      type: string
-      enum:
-        - primary
-        - secondary
-        - black
-        - white
-      default: primary
-    size:
-       title: Size
-       type: string
-       enum:
-         - small
-         - medium
-         - large
-         - huge
-       default: medium
     attributes:
-      title: Attributes
-      type: Drupal\Core\Template\Attribute
-      default: {}
-    url:
-      type: ['string', 'null']
-      title: URL
-      description: Optional url to create a link.
-      default: null
+      type: string
+      description: The attributes prop
+    title:
+      type: string
+      description: The title prop
+    href:
+      type: string
+      description: The href prop
+    size:
+      type: string
+      description: The size prop
 slots:
-  title:
-    title: Title
+  default:
+    description: Default slot content

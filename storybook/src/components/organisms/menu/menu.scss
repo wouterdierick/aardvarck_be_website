@@ -1,0 +1,38 @@
+/* Component: Menu (Organism) */
+
+@use 'abstracts/mixins';
+
+.menu {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: mixins.ptr(16);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    &--active .menu__link {
+      font-weight: 500;
+      color: var(--color-link-hover);
+      border-bottom: 2px solid var(--color-link-hover);
+      padding-bottom: mixins.ptr(2);
+    }
+  }
+
+  &__link {
+    padding-bottom: mixins.ptr(4);
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      color: var(--color-link-hover);
+      border-bottom-color: var(--color-link-hover);
+    }
+
+    &:focus-visible {
+      outline: var(--outline);
+    }
+  }
+}

@@ -1,0 +1,28 @@
+# AUTO-GENERATED FILE
+# Generated from pill.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: Pill
+description: 'Component: Pill'
+props:
+  type: object
+  properties:
+    attributes:
+      type: string
+      description: The attributes prop
+    label:
+      type: string
+      description: The label prop
+    icon:
+      type: string
+      description: The icon prop
+    href:
+      type: string
+      description: The href prop
+    variant:
+      type: string
+      description: The variant prop
+slots:
+  default:
+    description: Default slot content

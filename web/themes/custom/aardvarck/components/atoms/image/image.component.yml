@@ -1,0 +1,31 @@
+# AUTO-GENERATED FILE
+# Generated from image.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: Image
+description: 'Component: Image'
+props:
+  type: object
+  properties:
+    attributes:
+      type: string
+      description: The attributes prop
+    src:
+      type: string
+      description: The src prop
+    alt:
+      type: string
+      description: The alt prop
+    width:
+      type: number
+      description: The width prop
+    height:
+      type: number
+      description: The height prop
+    rounded:
+      type: boolean
+      description: The rounded prop
+slots:
+  default:
+    description: Default slot content

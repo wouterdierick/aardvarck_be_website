@@ -1,0 +1,17 @@
+// Base styles
+// -------------------------------
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--font-color-base);
+  background-color: var(--color-background);
+}

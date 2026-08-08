@@ -1,0 +1,28 @@
+/* Component: Icon (Atom) */
+
+@use 'abstracts/mixins';
+
+.icon {
+  display: inline-block;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &--small {
+    width: mixins.ptr(14);
+    height: mixins.ptr(14);
+  }
+
+  &--medium {
+    width: mixins.ptr(20);
+    height: mixins.ptr(20);
+  }
+
+  &--large {
+    width: mixins.ptr(32);
+    height: mixins.ptr(32);
+  }
+}

@@ -14,10 +14,7 @@
  * @ingroup themeable
  */
 #}
-{{ include('aardvarck:logo', {
-  variant: 'primary',
-  orientation: 'vertical',
-  size: 'large',
-  title: site_name,
-  url: path('<front>')
-}, with_context = false) }}
+{% include 'aardvarck:logo' with {
+  href: path('<front>'),
+  title: 'Home'|t,
+} only %}

@@ -1,9 +1,5 @@
-base:
+storybook:
   version: VERSION
   css:
-    base:
-      css/main.css: {}
-    # theme:
-      # Load Google Fonts
-      # https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap: { type: external }
-  js: {}
+    theme:
+      styles/main.css: {}

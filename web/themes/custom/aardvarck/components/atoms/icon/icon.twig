@@ -1,0 +1,29 @@
+{# Component: Icon (Atom) #}
+{% set id = id|default('')|lower|replace({'/': '', '..': '', ' ': '-'}) %}
+{% set size = size|default('medium') %}
+{% set attributes = create_attribute(attributes|default({})) %}
+{% set classes = [
+  'icon',
+  'icon--' ~ size,
+] %}
+{% set attributes = attributes.addClass(classes) %}
+{% set storybook_icon_path = 'icons/' ~ id ~ '.svg' %}
+{% set drupal_icon_path = '@drupalstorybook/components/atoms/icon/icons/' ~ id ~ '.svg' %}
+
+{% set icon_markup = source(storybook_icon_path, true) %}
+{% if icon_markup is empty %}
+  {% set icon_markup = source(drupal_icon_path, true) %}
+{% endif %}
+
+{% if label is defined and label is not empty %}
+  {% set attributes = attributes.setAttribute('role', 'img') %}
+  {% set attributes = attributes.setAttribute('aria-label', label) %}
+{% else %}
+  {% set attributes = attributes.setAttribute('aria-hidden', 'true') %}
+{% endif %}
+
+{% if id %}
+  <span {{ attributes }}>
+    {{ icon_markup|raw }}
+  </span>
+{% endif %}

@@ -1,0 +1,51 @@
+
+/* Increase font size for body text */
+.sbdocs-content > p,
+.sbdocs-content > ul li,
+.sbdocs-content > blockquote p,
+.sbdocs-content > blockquote ul ,
+.sbdocs-content > dl dt {
+  font-size: 16px;
+}
+
+/* Add margin to headings */
+.sbdocs-content > h2 {
+  margin-block-end: 24px;
+}
+
+/* Add more spacing under first paragraph */
+.sbdocs-content > h1:first-of-type + p {
+  max-width: 640px;
+  margin-block: 32px 64px;
+  font-size: 18px;
+}
+
+/* Add more spacing between paragraphs and list items */
+.sbdocs-content > blockquote {
+  margin-block: 32px;
+}
+
+/* Description List styling */
+.sbdocs-content dl {
+  color: rgb(46, 51, 56);
+}
+.sbdocs-content dl dt {
+  font-style: normal;
+}
+
+/* Remove shadows and border from color pallette */
+.docblock-colorpalette div {
+  border: none;
+  box-shadow: none;
+}
+.docblock-colorpalette div[title]:not(:first-child):before {
+  border-left: solid 1px white;
+}
+.docblock-colorpalette > div > div:nth-child(1) {
+  padding-right: 8px;
+}
+
+/* Smaller color palette swatches */
+.docblock-colorpalette-small .docblock-colorpalette > div > div:nth-child(2) {
+  max-width: 78px;
+}

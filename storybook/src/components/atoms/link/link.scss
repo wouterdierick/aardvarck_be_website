@@ -1,0 +1,14 @@
+/* Component: Link (Atom) */
+
+@use 'abstracts/mixins';
+
+.link {
+  color: var(--color-link);
+  text-decoration: underline;
+  transition: color var(--transition-duration) var(--transition-timing);
+
+  &:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+  }
+}

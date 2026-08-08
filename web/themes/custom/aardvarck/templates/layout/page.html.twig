@@ -45,28 +45,30 @@
  * @ingroup themeable
  */
 #}
-<div class="container">
+<div class="site-wrapper">
 
-  <header>
+  <header class="container">
     {{ page.header }}
   </header>
 
   {{ page.highlighted }}
-
   {{ page.breadcrumb }}
 
   <main>
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-    <div class="layout-content">
+    {% if not (is_node or is_taxonomy_term or is_user) %}
+      <div class="container">
+        <h1>{{ page_title }}</h1>
+        {{ page.content }}
+      </div>
+    {% else %}
       {{ page.content }}
-    </div>
+    {% endif %}
   </main>
 
-  {% if page.footer %}
-    <footer>
-      {{ page.footer }}
-    </footer>
-  {% endif %}
+  <footer class="container">
+    {{ page.footer }}
+  </footer>
 
 </div>

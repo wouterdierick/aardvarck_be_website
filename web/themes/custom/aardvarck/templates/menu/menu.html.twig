@@ -5,6 +5,7 @@
  *
  * Available variables:
  * - menu_name: The machine name of the menu.
+ * - menu_aria_label: The aria-label for the menu, used for accessibility.
  * - items: A nested list of menu items. Each menu item contains:
  *   - attributes: HTML attributes for the menu item.
  *   - below: The menu item child items.
@@ -30,5 +31,6 @@
 {% endfor %}
 
 {% include 'aardvarck:menu' with {
+  name: menu_aria_label,
   links: menu_items,
 } only %}

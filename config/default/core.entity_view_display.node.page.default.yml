@@ -7,30 +7,14 @@ dependencies:
     - field.field.node.page.field_paragraphs
     - node.type.page
   module:
-    - layout_paragraphs
-    - text
     - user
 id: node.page.default
 targetEntityType: node
 bundle: page
 mode: default
-content:
-  field_body:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  field_paragraphs:
-    type: layout_paragraphs
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 1
-    region: content
+content: {  }
 hidden:
+  field_body: true
+  field_paragraphs: true
   langcode: true
   links: true

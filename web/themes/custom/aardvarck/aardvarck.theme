@@ -47,6 +47,21 @@ function aardvarck_page_attachments(array &$attachments): void {
 }
 
 /**
+ * Implements hook_preprocess_page().
+ */
+function aardvarck_preprocess_page(&$variables): void {
+  // Page title.
+  $variables['page_title'] = \Drupal::service('title_resolver')
+    ->getTitle(\Drupal::request(), \Drupal::routeMatch()->getRouteObject());
+  // Node page.
+  $variables['is_node'] = \Drupal::routeMatch()->getParameter('node') instanceof \Drupal\node\NodeInterface;
+  // Taxonomy term page.
+  $variables['is_taxonomy_term'] = \Drupal::routeMatch()->getParameter('taxonomy_term') instanceof \Drupal\taxonomy\TermInterface;
+  // User page.
+  $variables['is_user'] = \Drupal::routeMatch()->getParameter('user') instanceof \Drupal\user\UserInterface;
+}
+
+/**
  * Implements hook_preprocess_breadcrumb().
  */
 function aardvarck_preprocess_breadcrumb(&$variables): void {
@@ -71,4 +86,14 @@ function aardvarck_preprocess_breadcrumb(&$variables): void {
       'url' => $current_url,
     ];
   }
+}
+
+/**
+ * Implements hook_preprocess_menu().
+ */
+function aardvarck_preprocess_menu(&$variables): void {
+  $menu = \Drupal::entityTypeManager()
+    ->getStorage('menu')
+    ->load($variables['menu_name']);
+  $variables['menu_aria_label'] = $menu->label() . ' menu';
 }

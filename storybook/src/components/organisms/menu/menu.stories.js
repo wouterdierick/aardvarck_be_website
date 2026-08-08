@@ -16,6 +16,10 @@ export default {
       control: { type: 'object' },
       description: 'Additional HTML attributes (for example: class, id, data-*)',
     },
+    name: {
+      control: { type: 'text' },
+      description: 'Name of the menu, used for accessibility and identification.',
+    },
     links: {
       control: { type: 'object' },
       description: 'Array of menu items with title, href, and optional active state.',
@@ -27,6 +31,7 @@ export default {
 export const Default = {
   args: {
     attributes: {},
+    name: 'Main Menu',
     links: [
       { title: 'Home', href: '/', active: true },
       { title: 'About', href: '/about', active: false },
@@ -38,6 +43,7 @@ export const Default = {
 
 export const WithActiveItem = {
   args: {
+    name: 'Main Menu',
     attributes: {},
     links: [
       { title: 'Home', href: '/', active: false },
@@ -50,6 +56,7 @@ export const WithActiveItem = {
 
 export const SingleItem = {
   args: {
+    name: 'Main Menu',
     attributes: {},
     links: [
       { title: 'Home', href: '/', active: true },

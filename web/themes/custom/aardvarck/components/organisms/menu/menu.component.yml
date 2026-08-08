@@ -13,6 +13,9 @@ props:
         - object
         - string
       description: 'Additional HTML attributes (for example: class, id, data-*)'
+    name:
+      type: string
+      description: Name of the menu, used for accessibility and identification.
     links:
       type: array
       description: Array of menu items with title, href, and optional active state.

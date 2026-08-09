@@ -1,0 +1,56 @@
+cols_1:
+  label: 'One column'
+  category: 'Custom layouts'
+  path: layouts/cols-1
+  template: layout--cols-1
+  library: aardvarck_layouts/cols-1
+  icon_map:
+    - [content]
+  regions:
+    col_1:
+      label: 'Content'
+cols_2:
+  label: 'Two column'
+  category: 'Custom layouts'
+  path: layouts/cols-2
+  template: layout--cols-2
+  library: aardvarck_layouts/cols-2
+  icon_map:
+    - [first, second]
+  regions:
+    col_1:
+      label: 'First column'
+    col_2:
+      label: 'Second column'
+cols_3:
+  label: 'Three column'
+  category: 'Custom layouts'
+  path: layouts/cols-3
+  template: layout--cols-3
+  library: aardvarck_layouts/cols-3
+  icon_map:
+    - [first, second, third]
+  regions:
+    col_1:
+      label: 'First column'
+    col_2:
+      label: 'Second column'
+    col_3:
+      label: 'Third column'
+cols_4:
+  label: 'Four column'
+  category: 'Custom layouts'
+  path: layouts/cols-4
+  template: layout--cols-4
+  library: aardvarck_layouts/cols-4
+  icon_map:
+    - [first, second, third, fourth]
+  regions:
+    col_1:
+      label: 'First column'
+    col_2:
+      label: 'Second column'
+    col_3:
+      label: 'Third column'
+    col_4:
+      label: 'Fourth column'

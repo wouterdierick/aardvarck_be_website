@@ -1,0 +1,7 @@
+name: Aardvarck Layouts
+type: module
+description: 'Provides custom layouts.'
+core_version_requirement: ^10 || ^11
+package: Aardvarck
+dependencies:
+  - layout_discovery

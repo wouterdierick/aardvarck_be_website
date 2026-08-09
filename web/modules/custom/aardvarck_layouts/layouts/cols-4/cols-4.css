@@ -1,0 +1,15 @@
+/*
+ * @file
+ * Provides the layout styles.
+ */
+
+.layout--cols-4 {
+  display: grid;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 40em) {
+  .layout--cols-4  {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}

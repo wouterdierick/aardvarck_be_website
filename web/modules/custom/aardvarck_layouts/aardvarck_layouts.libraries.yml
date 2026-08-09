@@ -1,0 +1,20 @@
+cols-1:
+  version: VERSION
+  css:
+    theme:
+      layouts/cols-1/cols-1.css: {}
+cols-2:
+  version: VERSION
+  css:
+    theme:
+      layouts/cols-2/cols-2.css: {}
+cols-3:
+  version: VERSION
+  css:
+    theme:
+      layouts/cols-3/cols-3.css: {}
+cols-4:
+  version: VERSION
+  css:
+    theme:
+      layouts/cols-4/cols-4.css: {}

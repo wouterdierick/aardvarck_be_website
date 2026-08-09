@@ -1,0 +1,28 @@
+{#
+  Layout: Three column
+#}
+{%
+  set classes = [
+    'layout',
+    'layout--cols-3',
+  ]
+%}
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+    {% if content.col_1 %}
+      <div {{ region_attributes.col_1.addClass('layout__region', 'layout__region--col-1') }}>
+        {{ content.col_1 }}
+      </div>
+    {% endif %}
+    {% if content.col_2 %}
+      <div {{ region_attributes.col_2.addClass('layout__region', 'layout__region--col-2') }}>
+        {{ content.col_2 }}
+      </div>
+    {% endif %}
+    {% if content.col_3 %}
+      <div {{ region_attributes.col_3.addClass('layout__region', 'layout__region--col-3') }}>
+        {{ content.col_3 }}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

@@ -13,5 +13,5 @@ behavior_plugins:
   layout_paragraphs:
     enabled: true
     available_layouts:
-      layout_onecol: 'One column'
-      layout_twocol: 'Two column'
+      cols_1: 'One column'
+      cols_2: 'Two column'

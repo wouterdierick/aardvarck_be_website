@@ -1,0 +1,18 @@
+{#
+  Layout: Two column
+#}
+{%
+  set classes = [
+    'layout',
+    'layout--cols-1',
+  ]
+%}
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+    {% if content.col_1 %}
+      <div {{ region_attributes.col_1.addClass('layout__region', 'layout__region--col-1') }}>
+        {{ content.col_1 }}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

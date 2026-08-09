@@ -2,6 +2,7 @@ _core:
   default_config_hash: 4GIX5Esnc_umpXUBj4IIocRX7Mt5fPhm4AgXfE3E56E
 module:
   aardvarck_import: 0
+  aardvarck_layouts: 0
   address: 0
   block: 0
   block_field: 0

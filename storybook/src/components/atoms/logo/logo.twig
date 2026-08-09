@@ -1,10 +1,14 @@
 {# Component: Logo (Atom) #}
-{% set size = size|default('medium') %}
+
+{% set base_class = 'c-logo' %}
 {% set href = href|default('') %}
+{% set color = color|default('primary') %}
+{% set size = size|default('medium') %}
 {% set attributes = create_attribute(attributes|default({})) %}
 {% set classes = [
-  'logo',
-  'logo--' ~ size,
+  base_class,
+  base_class ~ '--' ~ color,
+  base_class ~ '--' ~ size,
 ] %}
 {% set attributes = attributes.addClass(classes) %}
 {% if title %}
@@ -17,13 +21,13 @@
 
 {% if href %}
   <a href="{{ href }}" {{ attributes }}>
-    <span class="logo__wrapper">
+    <span class="{{ base_class }}__wrapper">
       {{ logo_content }}
     </span>
   </a>
 {% else %}
   <span {{ attributes }}>
-    <span class="logo__wrapper">
+    <span class="{{ base_class }}__wrapper">
       {{ logo_content }}
     </span>
   </span>

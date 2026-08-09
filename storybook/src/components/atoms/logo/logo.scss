@@ -2,7 +2,9 @@
 
 @use 'abstracts/mixins';
 
-.logo {
+$base_class: 'c-logo';
+
+.#{$base_class} {
   display: inline-block;
   text-decoration: none;
 
@@ -12,7 +14,7 @@
     height: auto;
     padding: 5%;
     border-radius: 100%;
-    background-color: var(--color-primary);
+    background-color: var(--color-brand-primary);
   }
 
   svg {
@@ -20,19 +22,7 @@
     margin: 0;
     width: 100%;
     height: auto;
-    fill: var(--color-white);
-  }
-
-  &--small {
-    width: mixins.ptr(40);
-  }
-
-  &--medium {
-    width: mixins.ptr(80);
-  }
-
-  &--large {
-    width: mixins.ptr(120);
+    fill: var(--color-neutral-black);
   }
 
   &[href]:hover {
@@ -43,3 +33,60 @@
     outline: var(--outline);
   }
 }
+
+// Color
+.#{$base_class} {
+  &--primary {
+    .#{$base_class}__wrapper {
+      background-color: var(--color-brand-primary);
+    }
+    svg {
+      fill: var(--color-neutral-black);
+    }
+  }
+
+  &--secondary {
+    .#{$base_class}__wrapper {
+      background-color: var(--color-brand-secondary);
+    }
+    svg {
+      fill: var(--color-neutral-black);
+    }
+  }
+
+  &--black {
+    .#{$base_class}__wrapper {
+      background-color: var(--color-neutral-black);
+    }
+
+    svg {
+      fill: var(--color-neutral-white);
+    }
+  }
+
+  &--white {
+    .#{$base_class}__wrapper {
+      background-color: var(--color-neutral-white);
+    }
+
+    svg {
+      fill: var(--color-neutral-black);
+    }
+  }
+}
+
+// Size
+.#{$base_class} {
+  &--small {
+    width: mixins.ptr(60);
+  }
+
+  &--medium {
+    width: mixins.ptr(80);
+  }
+
+  &--large {
+    width: mixins.ptr(120);
+  }
+}
+

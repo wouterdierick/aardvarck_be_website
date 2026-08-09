@@ -1,1 +1,1 @@
-.link{color:var(--color-link);text-decoration:underline;transition:color var(--transition-duration) var(--transition-timing)}.link:hover{color:var(--color-link-hover);text-decoration:underline}
+.c-link{color:var(--color-link);font-weight:var(--link-weight);text-decoration:underline;transition:color var(--transition-duration) var(--transition-timing)}.c-link:hover{color:var(--color-link-hover);text-decoration:underline}

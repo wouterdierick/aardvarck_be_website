@@ -1,0 +1,31 @@
+// Primitives: Typography
+// -------------------------------
+
+@use 'abstracts/mixins';
+
+:root {
+  --font-family-rubik: "Rubik", sans-serif;
+  --font-family-aleo: "Aleo", serif;
+
+  --font-weight-thin: 100;
+  --font-weight-extra-light: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
+  --font-weight-black: 900;
+
+  --font-scale-12: #{mixins.ptr(12)};
+  --font-scale-14: #{mixins.ptr(14)};
+  --font-scale-16: #{mixins.ptr(16)};
+  --font-scale-18: #{mixins.ptr(18)};
+  --font-scale-20: #{mixins.ptr(20)};
+  --font-scale-24: #{mixins.ptr(24)};
+  --font-scale-32: #{mixins.ptr(32)};
+  --font-scale-40: #{mixins.ptr(40)};
+  --font-scale-48: #{mixins.ptr(48)};
+  --font-scale-64: #{mixins.ptr(64)};
+  --font-scale-72: #{mixins.ptr(72)};
+}

@@ -3,81 +3,37 @@
 
 :root {
   // Colors
-  --color-white: #ffffff;
-  --color-black: #222222;
+  --color-brand-primary: var(--color-saffron-500);
+  --color-brand-secondary: var(--color-pale-mint-500);
 
-  --color-primary-100: #cce5ff;
-  --color-primary-200: #99caff;
-  --color-primary-300: #66b0ff;
-  --color-primary-400: #3395ff;
-  --color-primary-500: #007bff;
-  --color-primary-600: #006fe6;
-  --color-primary-700: #005cbf;
-  --color-primary-800: #004a99;
-  --color-primary-900: #003773;
-  --color-primary: var(--color-primary-500);
+  --color-success: var(--color-green-500);
+  --color-danger: var(--color-red-500);
+  --color-warning: var(--color-orange-500);
+  --color-info: #var(--color-blue-500);
 
-  --color-secondary-100: #ffe6cc;
-  --color-secondary-200: #ffce99;
-  --color-secondary-300: #ffb566;
-  --color-secondary-400: #ff9d33;
-  --color-secondary-500: #ff8400;
-  --color-secondary-600: #e67700;
-  --color-secondary-700: #bf6300;
-  --color-secondary-800: #994f00;
-  --color-secondary-900: #733b00;
-  --color-secondary: var(--color-secondary-500);
+  --color-link: var(--color-blue-500);
+  --color-link-hover: var(--color-blue-400);
+  --link-weight: var(--font-weight-medium);
 
-  --color-neutral-100: #e2e3e5;
-  --color-neutral-200: #c4c8cb;
-  --color-neutral-300: #a7acb1;
-  --color-neutral-400: #899197;
-  --color-neutral-500: #6c757d;
-  --color-neutral-600: #616971;
-  --color-neutral-700: #51585e;
-  --color-neutral-800: #41464b;
-  --color-neutral-900: #313538;
-  --color-neutral: var(--color-neutral-500);
-
-  --color-success: #28a745;
-  --color-danger: #dc3545;
-  --color-warning: #ffc107;
-  --color-info: #17a2b8;
-
-  --color-link: var(--color-primary);
-  --color-link-hover: var(--color-primary-400);
-
-  --color-background: #f8f9fa;
+  --color-background: var(--color-neutral-white);
 
   // Layout
   --container-max-width: 1200px;
 
   // Typography
-  --font-family-base: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-family-title: "Aleo", "Georgia", serif;
+  --font-family-base: var(--font-family-rubik);
+  --font-family-title: var(--font-family-aleo);
 
   --font-color-base: var(--color-neutral-800);
   --font-color-title: var(--color-black);
 
-  --font-weight-thin: 100;
-  --font-weight-extra-light: 200;
-  --font-weight-light: 300;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semi-bold: 600;
-  --font-weight-bold: 700;
-  --font-weight-extra-bold: 800;
-  --font-weight-black: 900;
-
-  --font-size-base: 1rem;
-  --font-size-lg: 1.25rem;
-  --font-size-sm: 0.875rem;
-  --font-size-h1: clamp(2rem, 1.75rem + 1.25vw, 2.5rem);
-  --font-size-h2: clamp(1.75rem, 1.6rem + 0.8vw, 2rem);
-  --font-size-h3: clamp(1.5rem, 1.35rem + 0.7vw, 1.75rem);
-  --font-size-h4: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
-  --font-size-h5: clamp(1.125rem, 1.05rem + 0.35vw, 1.25rem);
-  --font-size-h6: 1rem;
+  --font-size-base: var(--font-scale-16);
+  --font-size-h1: clamp(var(--font-scale-32), var(--font-scale-40) + 1.25vw, var(--font-scale-48));
+  --font-size-h2: clamp(var(--font-scale-24), var(--font-scale-32) + 0.8vw, var(--font-scale-40));
+  --font-size-h3: clamp(var(--font-scale-20), var(--font-scale-24) + 0.7vw, var(--font-scale-32));
+  --font-size-h4: clamp(var(--font-scale-18), var(--font-scale-20) + 0.7vw, var(--font-scale-24));
+  --font-size-h5: clamp(var(--font-scale-16), var(--font-scale-18) + 0.7vw, var(--font-scale-20));
+  --font-size-h6: var(--font-scale-18);
 
   --line-height-heading: 1.2;
   --line-height-base: 1.5;
@@ -85,11 +41,6 @@
   // Borders
   --border-color: var(--color-neutral-100);
   --border-base: solid 1px var(--border-color);
-
-  // Border Radius
-  --border-radius-sm: 0.25rem;
-  --border-radius-md: 0.5rem;
-  --border-radius-lg: 1rem;
 
   // Interactivity
   --outline: solid 2px var(--color-link-hover);

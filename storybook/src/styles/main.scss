@@ -1,6 +1,9 @@
 // Main SCSS file
 // -------------------------------
 
+@use 'abstracts/primitives_color';
+@use 'abstracts/primitives_size';
+@use 'abstracts/primitives_typography';
 @use 'abstracts/variables';
 @use 'abstracts/mixins';
 

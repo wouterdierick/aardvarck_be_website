@@ -12,6 +12,7 @@ regions:
   footer: Footer
 
 libraries:
+  - aardvarck/google-fonts
   - aardvarck/storybook
 
 

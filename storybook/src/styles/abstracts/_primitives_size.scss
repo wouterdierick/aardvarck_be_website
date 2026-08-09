@@ -1,0 +1,30 @@
+// Primitives: Size
+// -------------------------------
+
+@use 'abstracts/mixins';
+
+:root {
+  --space-2: #{mixins.ptr(2)};
+  --space-4: #{mixins.ptr(4)};
+  --space-8: #{mixins.ptr(8)};
+  --space-12: #{mixins.ptr(12)};
+  --space-16: #{mixins.ptr(16)};
+  --space-20: #{mixins.ptr(20)};
+  --space-24: #{mixins.ptr(24)};
+  --space-32: #{mixins.ptr(32)};
+  --space-48: #{mixins.ptr(48)};
+  --space-64: #{mixins.ptr(64)};
+  --space-96: #{mixins.ptr(96)};
+
+  --radius-sm: #{mixins.ptr(4)};
+  --radius-md: #{mixins.ptr(8)};
+  --radius-lg: #{mixins.ptr(16)};
+
+  --stroke-sm: #{mixins.ptr(1)};
+  --stroke-md: #{mixins.ptr(2)};
+  --stroke-lg: #{mixins.ptr(4)};
+
+  --icon-sm: #{mixins.ptr(16)};
+  --icon-md: #{mixins.ptr(20)};
+  --icon-lg: #{mixins.ptr(24)};
+}

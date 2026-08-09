@@ -1,12 +1,12 @@
-import Logo from './logo.twig';
-import './logo.scss';
+import LogoHorizontal from './logo-horizontal.twig';
+import './logo-horizontal.scss';
 
 export default {
-  title: 'Components/Atoms/Logo',
+  title: 'Components/Atoms/Logo Horizontal',
   parameters: {
     docs: {
       description: {
-        component: 'Logo component with optional link and size variants.',
+        component: 'Horizontal logo component with optional link and size variants.',
       },
     },
   },
@@ -26,7 +26,7 @@ export default {
     },
     color: {
       control: { type: 'select' },
-      options: ['primary', 'secondary', 'black', 'white'],
+      options: ['black', 'white'],
       description: 'Color of the logo',
     },
     size: {
@@ -35,25 +35,7 @@ export default {
       description: 'Size of the logo',
     },
   },
-  component: Logo,
-};
-
-export const Primary = {
-  args: {
-    attributes: {},
-    href: '',
-    color: 'primary',
-    size: 'medium',
-  },
-};
-
-export const Secondary = {
-  args: {
-    attributes: {},
-    href: '',
-    color: 'secondary',
-    size: 'medium',
-  },
+  component: LogoHorizontal,
 };
 
 export const Black = {
@@ -70,16 +52,16 @@ export const White = {
     attributes: {},
     href: '',
     color: 'white',
-    size: 'medium',
+    size: 'small',
   },
 };
 
 export const WithLink = {
   args: {
     attributes: {},
-    title: 'Home',
     href: '/',
-    color: 'primary',
+    color: 'black',
     size: 'medium',
+    title: 'Home',
   },
 };

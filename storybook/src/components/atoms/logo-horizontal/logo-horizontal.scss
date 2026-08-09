@@ -1,0 +1,57 @@
+/* Component: Logo (Atom) */
+
+@use 'abstracts/mixins';
+
+$base_class: 'c-logo-horizontal';
+
+.#{$base_class} {
+  display: inline-block;
+  text-decoration: none;
+
+  svg {
+    display: block;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    fill: var(--color-neutral-black);
+  }
+
+  &[href]:hover {
+    opacity: 0.8;
+  }
+
+  &[href]:focus-visible {
+    outline: var(--outline);
+  }
+}
+
+// Color
+.#{$base_class} {
+  &--black {
+    svg {
+      fill: var(--color-neutral-black);
+    }
+  }
+
+  &--white {
+    svg {
+      fill: var(--color-neutral-white);
+    }
+  }
+}
+
+// Size
+.#{$base_class} {
+  &--small {
+    width: mixins.ptr(100);
+  }
+
+  &--medium {
+    width: mixins.ptr(140);
+  }
+
+  &--large {
+    width: mixins.ptr(200);
+  }
+}
+

@@ -1,9 +1,18 @@
 {# Component: Button (Atom) #}
+
+{% set base_class = 'c-button' %}
 {% set element = element|default('button') %}
 {% set button_type = type|default('button') %}
 {% set href = href|default('#') %}
+{% set color = color|default('primary') %}
+{% set size = size|default('default') %}
 {% set attributes = create_attribute(attributes|default({})) %}
-{% set classes = ['button', 'button--' ~ variant] %}
+{% set classes = [
+    base_class,
+    base_class ~ '--' ~ color,
+    base_class ~ '--' ~ size,
+  ],
+%}
 {% set attributes = attributes.addClass(classes) %}
 
 {% if aria_label is defined and aria_label is not empty %}

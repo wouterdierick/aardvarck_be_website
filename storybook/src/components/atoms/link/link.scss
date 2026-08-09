@@ -2,8 +2,11 @@
 
 @use 'abstracts/mixins';
 
-.link {
+$base_class: 'c-link';
+
+.#{$base_class} {
   color: var(--color-link);
+  font-weight: var(--link-weight);
   text-decoration: underline;
   transition: color var(--transition-duration) var(--transition-timing);
 

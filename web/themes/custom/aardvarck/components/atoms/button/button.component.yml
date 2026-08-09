@@ -16,18 +16,21 @@ props:
     element:
       type: string
       description: HTML element used to render the button
+    type:
+      type: string
+      description: 'Button/input type when element is '
     title:
       type: string
       description: Button text
     href:
       type: string
       description: 'Link destination when element is '
-    variant:
+    color:
       type: string
       description: Button style variant
-    type:
+    size:
       type: string
-      description: 'Button/input type when element is '
+      description: Button size variant
     disabled:
       type: boolean
       description: Disabled state (uses disabled on button/input, aria-disabled on links)

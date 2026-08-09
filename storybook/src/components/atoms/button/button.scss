@@ -2,37 +2,76 @@
 
 @use 'abstracts/mixins';
 
-.button {
+$base_class: 'c-button';
+
+// Local scope
+.#{$base_class} {
+  --font-size: var(--font-scale-16);
+  --text-color: var(--color-neutral-100);
+  --background-color: var(--color-neutral-800);
+}
+
+.#{$base_class} {
   display: inline-block;
-  padding-inline: mixins.ptr(16);
-  padding-block: mixins.ptr(8);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
+  vertical-align: middle;
+  min-height: mixins.ptr(36);
+  padding-inline: var(--space-16);
+  padding-block: var(--space-8);
+  font-size: var(--font-size);
+  line-height: 1.2;
   text-decoration: none;
-  border: 1px solid transparent;
-  border-radius: var(--border-radius-md);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  border: none;
+  border-radius: var(--radius-md);
   transition: background-color var(--transition-duration) var(--transition-timing);
   cursor: pointer;
 
+  &:hover {
+    --background-color: var(--color-neutral-700);
+    --text-color: var(--color-neutral-100);
+  }
+}
+
+// Color
+.#{$base_class} {
   &--primary {
-    color: var(--color-white);
-    background-color: var(--color-primary);
-    border-color: var(--color-primary);
+    --text-color: var(--color-neutral-800);
+    --background-color: var(--color-saffron-500);
 
     &:hover {
-      background-color: var(--color-link-hover);
-      border-color: var(--color-link-hover);
+      --text-color: var(--color-neutral-800);
+      --background-color: var(--color-saffron-400);
     }
   }
 
   &--secondary {
-    color: var(--color-white);
-    background-color: var(--color-secondary);
-    border-color: var(--color-secondary);
+    --text-color: var(--color-neutral-800);
+    --background-color: var(--color-pale-mint-500);
 
     &:hover {
-      background-color: var(--color-secondary-400);
-      border-color: var(--color-secondary-400);
+      --text-color: var(--color-neutral-800);
+      --background-color: var(--color-pale-mint-400);
     }
+  }
+
+  &--danger {
+    --text-color: var(--color-red-100);
+    --background-color: var(--color-red-500);
+
+    &:hover {
+      --text-color: var(--color-red-100);
+      --background-color: var(--color-red-400);
+    }
+  }
+}
+
+// Size
+.#{$base_class} {
+  &--small {
+    padding-inline: var(--space-8);
+    padding-block: var(--space-4);
+    font-size: var(--font-scale-12);
+    min-height: mixins.ptr(24);
   }
 }

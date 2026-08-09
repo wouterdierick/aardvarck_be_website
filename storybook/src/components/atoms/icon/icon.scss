@@ -2,7 +2,9 @@
 
 @use 'abstracts/mixins';
 
-.icon {
+$base_class: 'c-icon';
+
+.#{$base_class} {
   display: inline-block;
 
   svg {
@@ -12,17 +14,17 @@
   }
 
   &--small {
-    width: mixins.ptr(14);
-    height: mixins.ptr(14);
+    width: var(--icon-sm);
+    height: var(--icon-sm);
   }
 
   &--medium {
-    width: mixins.ptr(20);
-    height: mixins.ptr(20);
+    width: var(--icon-md);
+    height: var(--icon-md);
   }
 
   &--large {
-    width: mixins.ptr(32);
-    height: mixins.ptr(32);
+    width: var(--icon-lg);
+    height: var(--icon-lg);
   }
 }

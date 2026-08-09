@@ -1,10 +1,10 @@
 # AUTO-GENERATED FILE
-# Generated from logo.stories.js
+# Generated from logo-horizontal.stories.js
 # Regenerate with: npm run build:drupal
 #
 
-name: Logo
-description: 'Component: Logo'
+name: LogoHorizontal
+description: 'Component: Logo Horizontal'
 props:
   type: object
   properties:

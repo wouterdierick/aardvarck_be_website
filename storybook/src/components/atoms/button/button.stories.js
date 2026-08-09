@@ -21,6 +21,11 @@ export default {
       options: ['button', 'input', 'a'],
       description: 'HTML element used to render the button',
     },
+    type: {
+      control: { type: 'select' },
+      options: ['button', 'submit', 'reset'],
+      description: 'Button/input type when element is "button" or "input"',
+    },
     title: {
       control: { type: 'text' },
       description: 'Button text',
@@ -29,15 +34,15 @@ export default {
       control: { type: 'text' },
       description: 'Link destination when element is "a"',
     },
-    variant: {
+    color: {
       control: { type: 'select' },
-      options: ['primary', 'secondary'],
+      options: ['default', 'primary', 'secondary', 'danger'],
       description: 'Button style variant',
     },
-    type: {
+    size: {
       control: { type: 'select' },
-      options: ['button', 'submit', 'reset'],
-      description: 'Button/input type when element is "button" or "input"',
+      options: ['default', 'small'],
+      description: 'Button size variant',
     },
     disabled: {
       control: { type: 'boolean' },
@@ -57,7 +62,7 @@ export const Primary = {
     element: 'button',
     title: 'Primary Button',
     href: '#',
-    variant: 'primary',
+    color: 'primary',
     type: 'button',
     disabled: false,
     aria_label: '',
@@ -70,7 +75,7 @@ export const Secondary = {
     element: 'button',
     title: 'Secondary Button',
     href: '#',
-    variant: 'secondary',
+    color: 'secondary',
     type: 'button',
     disabled: false,
     aria_label: '',

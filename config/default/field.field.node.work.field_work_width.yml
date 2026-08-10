@@ -9,7 +9,7 @@ id: node.work.field_work_width
 field_name: field_work_width
 entity_type: node
 bundle: work
-label: 'Work width'
+label: Width
 description: ''
 required: false
 translatable: false

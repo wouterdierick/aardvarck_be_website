@@ -10,7 +10,7 @@ id: node.work.field_work_medium
 field_name: field_work_medium
 entity_type: node
 bundle: work
-label: 'Work medium'
+label: Medium
 description: ''
 required: false
 translatable: false
@@ -21,4 +21,9 @@ settings:
   handler_settings:
     target_bundles:
       work_medium: work_medium
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference

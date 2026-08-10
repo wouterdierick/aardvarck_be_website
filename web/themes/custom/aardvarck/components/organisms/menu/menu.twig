@@ -1,17 +1,21 @@
 {# Component: Menu (Organism) #}
+{% set base_class = 'c-menu' %}
 {% set attributes = create_attribute(attributes|default({})) %}
-{% set classes = ['menu'] %}
+{% set classes = [
+    base_class,
+    base_class ~ '--' ~ system_name|default('default'),
+] %}
 {% set attributes = attributes.addClass(classes) %}
 
 <nav {{ attributes }} aria-label="{{ name|default('Menu') }}">
-  <ul class="menu__list">
+  <ul class="{{ base_class }}__list">
     {% for link in links %}
-      <li class="menu__item {% if link.active %}menu__item--active{% endif %}">
+      <li class="{{ base_class }}__item {% if link.active %}{{ base_class }}__item--active{% endif %}">
         {% include 'aardvarck:link' with {
           title: link.title,
           url: link.href,
           attributes: {
-            class: 'menu__link'
+            class: base_class ~ '__link'
           }
         } only %}
       </li>

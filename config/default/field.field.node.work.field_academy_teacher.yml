@@ -10,7 +10,7 @@ id: node.work.field_academy_teacher
 field_name: field_academy_teacher
 entity_type: node
 bundle: work
-label: 'Academy teacher'
+label: Teacher
 description: ''
 required: false
 translatable: false
@@ -21,4 +21,9 @@ settings:
   handler_settings:
     target_bundles:
       academy_teacher: academy_teacher
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference

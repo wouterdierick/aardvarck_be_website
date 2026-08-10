@@ -1,0 +1,23 @@
+# AUTO-GENERATED FILE
+# Generated from metadata.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: Metadata
+description: 'Component: Metadata'
+props:
+  type: object
+  properties:
+    attributes:
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*)'
+    items:
+      type: array
+      description: Array of fields with label and value.
+      items:
+        type: object
+slots:
+  default:
+    description: Default slot content

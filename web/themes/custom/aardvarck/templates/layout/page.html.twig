@@ -47,9 +47,11 @@
 #}
 <div class="site-wrapper">
 
-  <header class="container">
-    {{ page.header }}
-  </header>
+  {% include 'aardvarck:site-header' with {
+    branding: page.header.aardvarck_branding,
+    mainnavigation: page.header.aardvarck_mainnavigation,
+    languageswitcher: page.header.aardvarck_languageswitcher,
+  } only %}
 
   {{ page.highlighted }}
   {{ page.breadcrumb }}
@@ -65,20 +67,10 @@
     {% else %}
       {{ page.content }}
     {% endif %}
-
-
-    <h1>Headline 1</h1>
-    <h2>Headline 2</h2>
-    <h3>Headline 3</h3>
-    <h4>Headline 4</h4>
-    <h5>Headline 5</h5>
-    <h6>Headline 6</h6>
-    <p>Body text</p>
-
   </main>
 
-  <footer class="container">
-    {{ page.footer }}
-  </footer>
+  {% include 'aardvarck:site-footer' with {
+    footernavigation: page.footer.aardvarck_footer,
+  } only %}
 
 </div>

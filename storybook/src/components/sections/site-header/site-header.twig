@@ -1,0 +1,27 @@
+{# Component: Site header (Section) #}
+{% set base_class = 'c-site-header' %}
+{% set attributes = create_attribute(attributes|default({})) %}
+{% set classes = [
+  base_class,
+] %}
+{% set attributes = attributes.addClass(classes) %}
+
+<header {{ attributes }}>
+  <div class="container">
+    <div class="{{ base_class }}__wrapper">
+      {{ branding }}
+      {{ mainnavigation }}
+      {{ languageswitcher }}
+      <div class="{{ base_class }}__instagram-link">
+        <a href="https://www.instagram.com/aardvarck_be" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          {% set icon = 'instagram' %}
+          <span class="visually-hidden">Instagram</span>
+          {% include 'aardvarck:icon' with {
+            id: 'instagram',
+            size: 'large'
+          } only %}
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

@@ -53,6 +53,8 @@ work_technique:
     en: 'Drypoint'
   - nl: 'Zeefdruk'
     en: 'Screen Printing'
+  - nl: "Lino"
+    en: "Linocut"
 
 academy_program:
   - nl: 'Tekenkunst Algemeen'

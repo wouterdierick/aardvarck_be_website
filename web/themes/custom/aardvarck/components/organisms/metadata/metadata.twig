@@ -1,0 +1,15 @@
+{# Component: Logo (Atom) #}
+
+{% set base_class = 'c-metadata' %}
+{% set attributes = create_attribute(attributes|default({})) %}
+{% set classes = [
+  base_class,
+] %}
+{% set attributes = attributes.addClass(classes) %}
+
+<dl {{ attributes }}>
+  {% for item in items %}
+    <dt>{{ item.label }}</dt>
+    <dd>{{ item.value }}</dd>
+  {% endfor %}
+</dl>

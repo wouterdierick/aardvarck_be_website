@@ -2,7 +2,9 @@
 
 @use 'abstracts/mixins';
 
-.menu {
+$base_class: 'c-menu';
+
+.#{$base_class} {
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -12,27 +14,35 @@
     padding: 0;
   }
 
-  &__item {
-    &--active .menu__link {
-      font-weight: 500;
-      color: var(--color-link-hover);
-      border-bottom: 2px solid var(--color-link-hover);
-      padding-bottom: mixins.ptr(2);
-    }
-  }
-
   &__link {
-    padding-bottom: mixins.ptr(4);
+    padding-bottom: mixins.ptr(2);
     border-bottom: 2px solid transparent;
     transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    color: var(--font-color-base);
 
     &:hover {
       color: var(--color-link-hover);
       border-bottom-color: var(--color-link-hover);
+      text-decoration: none;
     }
 
     &:focus-visible {
       outline: var(--outline);
     }
+  }
+
+  .#{$base_class}__item--active .#{$base_class}__link {
+    font-weight: 500;
+    color: var(--color-link-hover);
+    border-bottom: 2px solid var(--color-link-hover);
+  }
+}
+
+.#{$base_class}--footer {
+  font-size: var(--font-scale-14);
+
+  .#{$base_class}__link {
+    font-weight: var(--font-weight-regular);
   }
 }

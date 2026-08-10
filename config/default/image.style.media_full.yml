@@ -1,0 +1,21 @@
+uuid: 0ce47130-1c42-4973-809e-6c1b0e7e6b72
+langcode: nl
+status: true
+dependencies: {  }
+name: media_full
+label: 'Media Full'
+effects:
+  f0725c38-918e-4c6d-a580-ab63b8cda93b:
+    uuid: f0725c38-918e-4c6d-a580-ab63b8cda93b
+    id: image_convert_avif
+    weight: -9
+    data:
+      extension: jpeg
+  f007a88f-7a5b-4ae2-bd30-c8e111ff10a0:
+    uuid: f007a88f-7a5b-4ae2-bd30-c8e111ff10a0
+    id: image_scale
+    weight: -10
+    data:
+      width: 700
+      height: 700
+      upscale: false

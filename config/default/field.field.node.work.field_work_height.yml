@@ -9,7 +9,7 @@ id: node.work.field_work_height
 field_name: field_work_height
 entity_type: node
 bundle: work
-label: 'Work height'
+label: Height
 description: ''
 required: false
 translatable: false

@@ -10,7 +10,7 @@ id: node.work.field_academy_program
 field_name: field_academy_program
 entity_type: node
 bundle: work
-label: 'Academy program'
+label: Program
 description: ''
 required: false
 translatable: false
@@ -21,4 +21,9 @@ settings:
   handler_settings:
     target_bundles:
       academy_program: academy_program
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference

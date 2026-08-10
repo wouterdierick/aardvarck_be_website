@@ -1,7 +1,48 @@
 // Layout styles
 // -------------------------------
 
+@use 'abstracts/mixins';
+
 .container {
   max-width: var(--container-max-width);
+  padding-inline: var(--space-16);
   margin-inline: auto;
+}
+
+// Content layouts.
+
+.layout {
+  display: grid;
+  gap: var(--space-16);
+  max-width: var(--container-max-width);
+  padding-inline: var(--space-16);
+  margin-inline: auto;
+
+  @include mixins.bp('desktop') {
+    gap: var(--space-32);
+  }
+}
+
+.layout--cols-1 {
+  @include mixins.bp('tablet') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.layout--cols-2 {
+  @include mixins.bp('tablet') {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.layout--cols-3 {
+  @include mixins.bp('tablet') {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.layout--cols-4 {
+  @include mixins.bp('tablet') {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }

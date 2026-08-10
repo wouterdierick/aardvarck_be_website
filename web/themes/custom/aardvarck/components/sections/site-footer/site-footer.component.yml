@@ -1,0 +1,18 @@
+# AUTO-GENERATED FILE
+# Generated from site-footer.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: SiteFooter
+description: 'Component: Site footer'
+props:
+  type: object
+  properties:
+    attributes:
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*)'
+slots:
+  default:
+    description: Default slot content

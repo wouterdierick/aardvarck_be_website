@@ -66,16 +66,9 @@ third_party_settings:
       children:
         - field_id
         - field_date
-        - field_work_width
-        - field_work_height
-        - field_work_medium
-        - field_work_technique
-        - field_academy_name
-        - field_academic_year
-        - field_academy_program
-        - field_academy_study_year
-        - field_academy_teacher
         - field_product
+        - group_metadata_work
+        - group_metadata_academy
       label: Metadata
       region: content
       parent_name: group_tabs
@@ -87,6 +80,43 @@ third_party_settings:
         id: ''
         label_as_html: false
         formatter: closed
+        description: ''
+        required_fields: true
+    group_metadata_work:
+      children:
+        - field_work_width
+        - field_work_height
+        - field_work_medium
+        - field_work_technique
+      label: Work
+      region: content
+      parent_name: group_metadata
+      weight: 5
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+        required_fields: true
+    group_metadata_academy:
+      children:
+        - field_academy_name
+        - field_academic_year
+        - field_academy_program
+        - field_academy_study_year
+        - field_academy_teacher
+      label: Academy
+      region: content
+      parent_name: group_metadata
+      weight: 6
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
         description: ''
         required_fields: true
 id: node.work.default
@@ -102,31 +132,31 @@ content:
     third_party_settings: {  }
   field_academic_year:
     type: options_select
-    weight: 9
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   field_academy_name:
     type: options_select
-    weight: 8
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   field_academy_program:
     type: options_select
-    weight: 10
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   field_academy_study_year:
     type: options_select
-    weight: 11
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   field_academy_teacher:
     type: options_buttons
-    weight: 12
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -166,7 +196,7 @@ content:
     third_party_settings: {  }
   field_product:
     type: options_select
-    weight: 13
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -179,26 +209,26 @@ content:
     third_party_settings: {  }
   field_work_height:
     type: number
-    weight: 5
+    weight: 6
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_work_medium:
     type: options_buttons
-    weight: 6
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   field_work_technique:
     type: options_buttons
-    weight: 7
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   field_work_width:
     type: number
-    weight: 4
+    weight: 5
     region: content
     settings:
       placeholder: ''

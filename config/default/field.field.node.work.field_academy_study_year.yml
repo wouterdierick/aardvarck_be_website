@@ -10,7 +10,7 @@ id: node.work.field_academy_study_year
 field_name: field_academy_study_year
 entity_type: node
 bundle: work
-label: 'Academy study year'
+label: 'Study year'
 description: ''
 required: false
 translatable: false
@@ -21,4 +21,9 @@ settings:
   handler_settings:
     target_bundles:
       academy_study_year: academy_study_year
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference

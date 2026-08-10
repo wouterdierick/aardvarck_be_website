@@ -59,18 +59,50 @@
  * @ingroup themeable
  */
 #}
+{% set metadata_item_fields = [
+  'field_work_width',
+  'field_work_height',
+  'field_work_medium',
+  'field_work_technique',
+  'field_academy_name',
+] %}
+{% set metadata_items = [] %}
+{% for field_name in metadata_item_fields %}
+  {% if content[field_name] is not empty %}
+    {% set metadata_items = metadata_items|merge([{
+      label: content[field_name]|field_label|render,
+      value: content[field_name]|field_value|render,
+    }]) %}
+  {% endif %}
+{% endfor %}
+
 <article{{ attributes }}>
 
-  <div class="container">
+  <div class="layout layout--cols-2">
 
-    {{ title_prefix }}
-    <h1{{ title_attributes }}>
-      {{ label }}
-    </h1>
-    {{ title_suffix }}
+    <div class="image-wrapper">
+      {{ content.field_teaser_images }}
+    </div>
 
-    <div{{ content_attributes }}>
-      {{ content|without('field_paragraphs') }}
+    <div class="meta-wrapper">
+      {{ title_prefix }}
+      <h1{{ title_attributes }}>
+        {{ label }}
+      </h1>
+      {{ title_suffix }}
+
+      <p>
+        <span class="visually-hidden">{{ content.field_date|field_label }}</span>
+        {{ content.field_date|field_value }}
+      </p>
+
+      {% include 'aardvarck:metadata' with {
+        items: metadata_items
+      } only %}
+
+      <div{{ content_attributes }}>
+        {{ content|without('field_teaser_images','field_date',metadata_item_fields,'field_paragraphs') }}
+      </div>
     </div>
   </div>
 

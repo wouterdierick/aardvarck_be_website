@@ -31,6 +31,7 @@
 {% endfor %}
 
 {% include 'aardvarck:menu' with {
+  system_name: menu_name,
   name: menu_aria_label,
   links: menu_items,
 } only %}

@@ -1,9 +1,0 @@
-{# Component: Link (Atom) #}
-
-{% set base_class = 'c-link' %}
-{% set attributes = create_attribute(attributes|default({})) %}
-{% set classes = [
-  base_class
-] %}
-
-<a href="{{ url }}" {{ attributes.addClass(classes) }}>{{ title }}</a>

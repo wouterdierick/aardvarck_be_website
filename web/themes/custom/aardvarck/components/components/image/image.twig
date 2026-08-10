@@ -1,0 +1,14 @@
+{# Component: Image #}
+{% set image_attributes = create_attribute(attributes|default({})) %}
+{% set image_classes = ['image'] %}
+{% if rounded %}
+  {% set image_classes = image_classes|merge(['image--rounded']) %}
+{% endif %}
+
+<img
+  src="{{ src }}"
+  alt="{{ alt }}"
+  {{ image_attributes.addClass(image_classes) }}
+  {% if width %}width="{{ width }}"{% endif %}
+  {% if height %}height="{{ height }}"{% endif %}
+>

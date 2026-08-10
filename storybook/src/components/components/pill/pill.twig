@@ -1,0 +1,29 @@
+{# Component: Pill #}
+{% set label = label|default('') %}
+{% set href = href|default('') %}
+{% set variant = variant|default('neutral') %}
+{% set attributes = create_attribute(attributes|default({})) %}
+{% set classes = [
+  'pill',
+  'pill--' ~ variant,
+  href ? 'pill--link' : '',
+] %}
+{% set attributes = attributes.addClass(classes) %}
+
+{% set content %}
+  {% if icon %}
+    {% include 'aardvarck:icon' with {
+      id: icon,
+      size: 'small'
+    } only %}
+  {% endif %}
+  {% if label %}
+    <span class="pill__label">{{ label }}</span>
+  {% endif %}
+{% endset %}
+
+{% if href %}
+  <a href="{{ href }}" {{ attributes }}>{{ content }}</a>
+{% else %}
+  <span {{ attributes }}>{{ content }}</span>
+{% endif %}

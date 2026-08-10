@@ -1,9 +1,9 @@
 import Sitefooter from './site-footer.twig';
 import './site-footer.scss';
-import Menu from '../../organisms/menu/menu.twig';
+import Menu from '../../components/menu/menu.twig';
 
 export default {
-  title: 'Components/Sections/Site footer',
+  title: 'Sections/Site footer',
   parameters: {
     docs: {
       description: {

@@ -1,0 +1,68 @@
+/* Component: Card */
+
+@use 'abstracts/mixins';
+
+.card {
+  position: relative;
+  border: var(--border-base);
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  max-inline-size: mixins.ptr(400);
+
+  &__overlay-link {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--border-radius-md);
+    z-index: 0;
+    text-decoration: none;
+  }
+
+  &__content-wrapper a {
+    position: relative;
+    z-index: 1;
+  }
+
+  &.has-link:hover .card__title {
+    color: var(--color-link-hover);
+  }
+
+  &:focus-visible {
+    outline: var(--outline);
+  }
+
+  &__image {
+    border-block-end: var(--border-base);
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-start-start-radius: var(--border-radius-md);
+      border-start-end-radius: var(--border-radius-md);
+    }
+  }
+
+  &__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: mixins.ptr(16);
+    padding: mixins.ptr(16);
+  }
+
+  &__title {
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  h2, p {
+    margin: 0;
+  }
+
+  &__content {
+
+  }
+}

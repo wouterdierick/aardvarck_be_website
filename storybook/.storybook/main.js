@@ -23,7 +23,7 @@ const config = {
   staticDirs: [
     '../src/assets',
     {
-      from: '../src/components/atoms/icon/icons',
+      from: '../src/components/components/icon/icons',
       to: '/icons',
     },
   ],

@@ -1,9 +1,10 @@
 import SiteHeader from './site-header.twig';
 import './site-header.scss';
-import Menu from '../../organisms/menu/menu.twig';
+import Logo from '../../components/logo/logo.twig';
+import Menu from '../../components/menu/menu.twig';
 
 export default {
-  title: 'Components/Sections/Site Header',
+  title: 'Sections/Site Header',
   parameters: {
     docs: {
       description: {
@@ -33,6 +34,17 @@ export default {
   component: SiteHeader,
 };
 
+const logoArgs = {
+  args: {
+    attributes: {},
+    title: 'Home',
+    href: '/',
+    color: 'primary',
+    size: 'large',
+  },
+};
+
+
 const menuArgs = {
   attributes: {},
   name: 'Main Menu',
@@ -47,6 +59,7 @@ const menuArgs = {
 export const Default = {
   args: {
     attributes: {},
+    branding: Logo(logoArgs),
     mainnavigation: Menu(menuArgs),
   },
 };

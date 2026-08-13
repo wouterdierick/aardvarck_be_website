@@ -24,7 +24,7 @@ $base_class: 'c-site-header';
   right: 0;
   display: flex;
   flex-flow: row nowrap;
-  gap: var(--space-16);
+  gap: 0;
   padding-inline: var(--space-16);
   background-color: var(--color-pale-mint-500);
   border-bottom-right-radius: var(--radius-md);
@@ -41,5 +41,30 @@ $base_class: 'c-site-header';
     background-position: bottom right;
     background-size: 60px 52px;
     background-color: transparent;
+  }
+
+  // Language selector toggle.
+  .c-button {
+    border-radius: 0;
+  }
+
+  // User menu
+  .c-menu__list {
+    gap: 0;
+  }
+  .c-menu__item a {
+    display: block;
+    padding-inline: var(--space-16);
+    padding-block: var(--space-8);
+    font-size: var(--font-scale-16);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.2;
+    text-decoration: none;
+    --text-color: var(--text-color-base);
+    border: none;
+
+    &:hover {
+      background-color: var(--color-pale-mint-400);
+    }
   }
 }

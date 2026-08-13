@@ -46,6 +46,11 @@
   }]) %}
 {% endfor %}
 
+{% include 'aardvarck:icon' with {
+  id: "profile",
+  size: "small",
+} only %}
+
 {% include 'aardvarck:menu' with {
   system_name: menu_name,
   name: menu_aria_label,

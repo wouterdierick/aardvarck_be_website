@@ -6,4 +6,12 @@
   base_class
 ] %}
 
-<a href="{{ url }}" {{ attributes.addClass(classes) }}>{{ title }}</a>
+<a href="{{ url }}" {{ attributes.addClass(classes) }}>
+  {% if icon_id %}
+    {% include 'aardvarck:icon' with {
+      id: icon_id,
+      size: 'small'
+    } only %}
+  {% endif %}
+  {{ title }}
+</a>

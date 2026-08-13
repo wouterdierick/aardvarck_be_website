@@ -19,6 +19,9 @@ props:
     url:
       type: string
       description: Link URL
+    icon_id:
+      type: string
+      description: Icon ID.
 slots:
   default:
     description: Default slot content

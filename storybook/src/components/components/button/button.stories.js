@@ -57,7 +57,10 @@ export default {
       control: { type: 'text' },
       description: 'Accessible label override',
     },
-
+    icon_id: {
+      control: { type: 'text' },
+      description: 'Icon ID.',
+    },
   },
   component: Button,
 };

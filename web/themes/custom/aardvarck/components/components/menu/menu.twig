@@ -15,6 +15,7 @@
         {% include 'aardvarck:link' with {
           title: link.title,
           url: link.href,
+          icon_id: link.icon_id|default(''),
           attributes: {
             class: base_class ~ '__link'
           }

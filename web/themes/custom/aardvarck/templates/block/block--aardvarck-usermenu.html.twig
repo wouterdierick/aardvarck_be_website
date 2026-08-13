@@ -38,11 +38,13 @@
 {% set menu_name = content['#menu_name'] %}
 
 {% set menu_items = [] %}
-{% for item in content['#items'] %}
+{% for key, item in content['#items'] %}
+{% set icon = key == 'user.logout' ? 'profile' : '' %}
   {% set menu_items = menu_items|merge([{
     title: item.title,
     href: item.url.toString(),
     active: item.in_active_trail,
+    icon_id: icon,
   }]) %}
 {% endfor %}
 

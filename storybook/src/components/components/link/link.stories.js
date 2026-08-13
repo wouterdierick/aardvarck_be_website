@@ -24,6 +24,10 @@ export default {
       control: { type: 'text' },
       description: 'Link URL',
     },
+    icon_id: {
+      control: { type: 'text' },
+      description: 'Icon ID.',
+    },
   },
   component: Link,
 };
@@ -33,5 +37,14 @@ export const Default = {
     attributes: {},
     title: 'Primary Link',
     url: '#',
+  },
+};
+
+export const WithIcon = {
+  args: {
+    attributes: {},
+    title: 'Primary Link',
+    url: '#',
+    icon_id: 'arrow-right',
   },
 };

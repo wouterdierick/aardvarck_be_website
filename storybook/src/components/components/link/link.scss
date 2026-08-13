@@ -4,14 +4,27 @@
 
 $base_class: 'c-link';
 
+// Local scope
 .#{$base_class} {
-  color: var(--color-link);
+  --text-color: var(--color-link);
+}
+
+.#{$base_class} {
+  display: inline-flex;
+  flex-flow: row wrap;
+  gap: var(--space-4);
+  color: var(--text-color);
   font-weight: var(--link-weight);
   text-decoration: underline;
   transition: color var(--transition-duration) var(--transition-timing);
 
   &:hover {
-    color: var(--color-link-hover);
+    --text-color: var(--color-link-hover);
     text-decoration: underline;
+  }
+
+  .c-icon {
+    stroke: var(--text-color);
+    transform: translateY(2px);
   }
 }

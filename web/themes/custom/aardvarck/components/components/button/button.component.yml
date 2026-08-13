@@ -40,6 +40,9 @@ props:
     aria_label:
       type: string
       description: Accessible label override
+    icon_id:
+      type: string
+      description: Icon ID.
 slots:
   default:
     description: Default slot content

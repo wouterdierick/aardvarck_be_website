@@ -68,6 +68,19 @@ export const WithActiveItem = {
   },
 };
 
+export const WithIcons = {
+  args: {
+    attributes: {},
+    system_name: 'main-menu',
+    name: 'Main Menu',
+    links: [
+      { title: 'Home', href: '/', active: false, icon_id: 'home' },
+      { title: 'About', href: '/about', active: false, icon_id: 'info' },
+      { title: 'Contact', href: '/contact', active: false, icon_id: 'mail' },
+    ],
+  },
+};
+
 export const SingleItem = {
   args: {
     attributes: {},

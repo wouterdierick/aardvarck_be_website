@@ -1,10 +1,10 @@
 # AUTO-GENERATED FILE
-# Generated from site-header.stories.js
+# Generated from site-header-mobile.stories.js
 # Regenerate with: npm run build:drupal
 #
 
-name: SiteHeader
-description: 'Component: Site Header'
+name: SiteHeaderMobile
+description: 'Component: Site Header Mobile'
 props:
   type: object
   properties:

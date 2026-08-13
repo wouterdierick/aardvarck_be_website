@@ -16,6 +16,14 @@ export default {
       control: { type: 'object' },
       description: 'Additional HTML attributes (for example: class, id, data-*)',
     },
+    orientation: {
+      control: { type: 'select' },
+      description: 'Orientation of the menu, either horizontal or vertical.',
+      options: [
+        'horizontal',
+        'vertical'
+      ],
+    },
     system_name: {
       control: { type: 'text' },
       description: 'System name of the menu, used as a unique identifier for the menu.',

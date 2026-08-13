@@ -47,11 +47,26 @@
 #}
 <div class="site-wrapper">
 
-  {% include 'aardvarck:site-header' with {
-    branding: page.header.aardvarck_branding,
-    mainnavigation: page.header.aardvarck_mainnavigation,
-    languageswitcher: page.header.aardvarck_languageswitcher,
-  } only %}
+  <header id="site-header">
+    {# Mobile-first: available without JS enabled. #}
+    <div data-site-header-active>
+      {% include 'aardvarck:site-header-mobile' with {
+        branding: page.header_mobile.aardvarck_branding_mobile,
+        mainnavigation: page.header_mobile.aardvarck_mainnavigation_mobile,
+        languageswitcher: page.header_mobile.aardvarck_languageswitcher_mobile,
+        usermenu: page.header_mobile.aardvarck_usermenu_mobile,
+      } only %}
+    </div>
+    {# Desktop #}
+    <template data-site-header-template="desktop">
+      {% include 'aardvarck:site-header' with {
+        branding: page.header.aardvarck_branding,
+        mainnavigation: page.header.aardvarck_mainnavigation,
+        languageswitcher: page.header.aardvarck_languageswitcher,
+        usermenu: page.header.aardvarck_usermenu,
+      } only %}
+    </template>
+  </header>
 
   {{ page.highlighted }}
   {{ page.breadcrumb }}

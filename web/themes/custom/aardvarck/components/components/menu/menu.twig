@@ -4,6 +4,7 @@
 {% set classes = [
     base_class,
     base_class ~ '--' ~ system_name|default('default'),
+    base_class ~ '--' ~ orientation|default('horizontal'),
 ] %}
 {% set attributes = attributes.addClass(classes) %}
 

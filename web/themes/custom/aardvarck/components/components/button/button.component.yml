@@ -31,6 +31,9 @@ props:
     size:
       type: string
       description: Button size variant
+    layout:
+      type: string
+      description: Button content layout variant
     disabled:
       type: boolean
       description: Disabled state (uses disabled on button/input, aria-disabled on links)

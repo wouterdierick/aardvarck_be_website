@@ -38,3 +38,16 @@ $base_class: 'c-menu';
     border-bottom: 2px solid var(--color-link-hover);
   }
 }
+
+// Orientation
+.#{$base_class}--vertical {
+  .#{$base_class}__list {
+    flex-direction: column;
+    gap: 0;
+
+    li {
+      padding-block: mixins.ptr(8);
+      border-bottom: 1px solid var(--color-neutral-500);
+    }
+  }
+}

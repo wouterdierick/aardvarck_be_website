@@ -1,6 +1,6 @@
-import SiteHeader from './site-header.twig';
-import './site-header.scss';
-import './site-header.js';
+import SiteHeaderMobile from './site-header-mobile.twig';
+import './site-header-mobile.scss';
+import './site-header-mobile.js';
 
 import Logo from '../../components/logo/logo.twig';
 import Menu from '../../components/menu/menu.twig';
@@ -8,7 +8,7 @@ import LanguageSwitcher from '../../components/language-switcher/language-switch
 import '../../components/language-switcher/language-switcher.js';
 
 export default {
-  title: 'Sections/Site Header',
+  title: 'Sections/Site Header Mobile',
   parameters: {
     docs: {
       description: {
@@ -39,7 +39,7 @@ export default {
       description: 'User menu slot.',
     },
   },
-  component: SiteHeader,
+  component: SiteHeaderMobile,
 };
 
 const logoArgs = {
@@ -55,6 +55,7 @@ const logoArgs = {
 const menuArgs = {
   attributes: {},
   name: 'Main Menu',
+  orientation: 'vertical',
   links: [
     { title: 'Work', href: '/', active: true },
     { title: 'About', href: '/about', active: false },
@@ -63,7 +64,8 @@ const menuArgs = {
 };
 
 const languageSwitcherArgs = {
-  variant: 'dropdown',
+  attributes: {},
+  variant: 'link-list',
   title: 'Select Language',
   links: [
     { title: 'Nederlands', href: '/nl', active: true },

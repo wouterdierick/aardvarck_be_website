@@ -6,7 +6,7 @@
 ] %}
 {% set attributes = attributes.addClass(classes) %}
 
-<header {{ attributes }}>
+<div {{ attributes }}>
   <div class="container">
     <div class="{{ base_class }}__wrapper">
       <div class="{{ base_class }}__branding">
@@ -15,14 +15,14 @@
       <div class="{{ base_class }}__main-navigation">
         {{ mainnavigation }}
       </div>
-      {% if languageswitcher %}
       <div class="{{ base_class }}__language-switcher">
         {{ languageswitcher }}
       </div>
-      {% endif %}
+      <div class="{{ base_class }}__user-menu">
+        {{ usermenu }}
+      </div>
       <div class="{{ base_class }}__instagram-link">
         <a href="https://www.instagram.com/aardvarck_be" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-          {% set icon = 'instagram' %}
           <span class="visually-hidden">Instagram</span>
           {% include 'aardvarck:icon' with {
             id: 'instagram',
@@ -32,4 +32,4 @@
       </div>
     </div>
   </div>
-</header>
+</div>

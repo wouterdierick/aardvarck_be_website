@@ -1,0 +1,52 @@
+{# Component: Language switcher #}
+{% set base_class = 'c-language-switcher' %}
+{% set attributes = create_attribute(attributes|default({})) %}
+{% set classes = [
+  base_class,
+  base_class ~ '--' ~ variant|default('link-list')
+] %}
+{% set attributes = attributes.addClass(classes) %}
+
+{% set active_title = title|default('Select language') %}
+{% for link in links %}
+  {% if link.active %}
+    {% set active_title = link.title %}
+  {% endif %}
+{% endfor %}
+
+<nav {{ attributes }} aria-label="{{ name|default('Select language') }}">
+
+  {% include 'aardvarck:icon' with {
+    id: 'message',
+    size: 'small',
+  } only %}
+
+  {% if variant == 'dropdown' %}
+    <button
+      type="button"
+      class="{{ base_class }}__toggle"
+      aria-expanded="false"
+      aria-controls="{{ list_id }}"
+    >
+      {{ active_title }}
+    </button>
+  {% endif %}
+
+  {% if variant == 'dropdown' %}
+  <ul class="{{ base_class }}__list" aria-hidden="true" hidden>
+  {% else %}
+  <ul class="{{ base_class }}__list">
+  {% endif %}
+    {% for link in links %}
+      <li class="{{ base_class }}__item {% if link.active %}{{ base_class }}__item--active{% endif %}">
+        {% include 'aardvarck:link' with {
+          title: link.title,
+          url: link.href,
+          attributes: {
+            class: base_class ~ '__link'
+          }
+        } only %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

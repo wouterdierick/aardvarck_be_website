@@ -1,0 +1,82 @@
+{# Component: Site header #}
+{% set base_class = 'c-site-header-mobile' %}
+{% set attributes = create_attribute(attributes|default({})) %}
+{% set classes = [
+  base_class,
+] %}
+{% set attributes = attributes.addClass(classes) %}
+{% set navigation_id = attributes.id|default(base_class ~ '-navigation') %}
+
+<div {{ attributes }}>
+  <div class="container">
+    <div class="{{ base_class }}__wrapper">
+      <div class="{{ base_class }}__branding">
+        {{ branding }}
+      </div>
+      <div class="{{ base_class }}__mobile-navigation-toggle">
+        {% include 'aardvarck:button' with {
+          attributes: {
+            'aria-expanded': 'false',
+            'aria-controls': navigation_id,
+            'class': base_class ~ '__toggle',
+          },
+          title: 'Open navigation',
+          aria_label: 'Open navigation',
+          element: 'button',
+          type: 'button',
+          color: 'secondary',
+          size: 'large',
+          layout: 'icon-only',
+          href: '#',
+          icon_id: 'menu',
+        } only %}
+        {% include 'aardvarck:button' with {
+          attributes: {
+            'class': base_class ~ '__close',
+            'hidden': 'hidden',
+          },
+          title: 'Close navigation',
+          aria_label: 'Close navigation',
+          element: 'button',
+          type: 'button',
+          color: 'secondary',
+          size: 'large',
+          layout: 'icon-only',
+          href: '#',
+          icon_id: 'close',
+        } only %}
+      </div>
+    </div>
+    <div
+      id="{{ navigation_id }}"
+      class="{{ base_class }}__mobile-navigation"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Navigation"
+      aria-hidden="true"
+      hidden
+    >
+      <div class="{{ base_class }}__branding">
+        {{ branding }}
+      </div>
+      <div class="{{ base_class }}__main-navigation">
+        {{ mainnavigation }}
+      </div>
+      <div class="{{ base_class }}__language-switcher">
+        {{ languageswitcher }}
+      </div>
+      <div class="{{ base_class }}__user-menu">
+        {{ usermenu }}
+      </div>
+      <div class="{{ base_class }}__instagram-link">
+        <a href="https://www.instagram.com/aardvarck_be" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <span class="visually-hidden">Instagram</span>
+          {% include 'aardvarck:icon' with {
+            id: 'instagram',
+            size: 'large'
+          } only %}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

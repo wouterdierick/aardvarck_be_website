@@ -1,1 +1,1 @@
-.c-icon{display:inline-block}.c-icon svg{display:block;width:100%;height:100%}.c-icon--small{width:var(--icon-sm);height:var(--icon-sm)}.c-icon--medium{width:var(--icon-md);height:var(--icon-md)}.c-icon--large{width:var(--icon-lg);height:var(--icon-lg)}
+.c-icon{display:inline-block}.c-icon svg{display:block;width:100%;height:100%;stroke:var(--color-icon)}.c-icon--small{width:var(--icon-sm);height:var(--icon-sm)}.c-icon--medium{width:var(--icon-md);height:var(--icon-md)}.c-icon--large{width:var(--icon-lg);height:var(--icon-lg)}

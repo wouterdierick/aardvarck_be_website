@@ -36,13 +36,18 @@ export default {
     },
     color: {
       control: { type: 'select' },
-      options: ['default', 'primary', 'secondary', 'danger'],
+      options: ['default', 'primary', 'secondary', 'danger', 'ghost'],
       description: 'Button style variant',
     },
     size: {
       control: { type: 'select' },
-      options: ['default', 'small'],
+      options: ['default', 'small', 'large'],
       description: 'Button size variant',
+    },
+    layout: {
+      control: { type: 'select' },
+      options: ['icon-label', 'label-icon', 'icon-only', 'label-only'],
+      description: 'Button content layout variant',
     },
     disabled: {
       control: { type: 'boolean' },
@@ -52,6 +57,7 @@ export default {
       control: { type: 'text' },
       description: 'Accessible label override',
     },
+
   },
   component: Button,
 };

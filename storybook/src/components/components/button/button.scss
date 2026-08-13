@@ -30,9 +30,7 @@ $base_class: 'c-button';
   transition: background-color var(--transition-duration) var(--transition-timing);
   cursor: pointer;
 
-  svg {
-    stroke: var(--text-color);
-  }
+  --color-icon: var(--text-color);
 
   &:hover {
     --background-color: var(--color-neutral-700);
@@ -80,6 +78,16 @@ $base_class: 'c-button';
       --background-color: var(--color-red-400);
     }
   }
+
+  &--ghost {
+    --text-color: var(--color-neutral-800);
+    --background-color: var(--color-transparent);
+
+    &:hover {
+      --text-color: var(--color-neutral-800);
+      --background-color: var(--color-neutral-100);
+    }
+  }
 }
 
 // Size
@@ -89,5 +97,43 @@ $base_class: 'c-button';
     padding-block: var(--space-4);
     font-size: var(--font-scale-12);
     min-height: mixins.ptr(24);
+    .c-icon {
+      width: mixins.ptr(12);
+      height: mixins.ptr(12);
+    }
+  }
+
+  &--large {
+    padding-inline: var(--space-16);
+    padding-block: var(--space-8);
+    font-size: var(--font-scale-18);
+    min-height: mixins.ptr(36);
+    .c-icon {
+      width: mixins.ptr(18);
+      height: mixins.ptr(18);
+    }
+  }
+}
+
+//Layout
+.#{$base_class} {
+  &--icon-label {
+    flex-direction: row;
+  }
+
+  &--label-icon {
+    flex-direction: row-reverse;
+  }
+
+  &--icon-only {
+    span.#{$base_class}__label {
+      display: none;
+    }
+  }
+
+  &--label-only {
+    span.c-icon {
+      display: none;
+    }
   }
 }

@@ -6,6 +6,7 @@ base theme: false
 
 regions:
   header: Header
+  header_mobile: Mobile header
   highlighted: Highlighted
   breadcrumb: Breadcrumb
   content: Content

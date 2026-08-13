@@ -1,0 +1,67 @@
+/* Component: Language switcher */
+
+$base_class: 'c-language-switcher';
+
+.#{$base_class} {
+}
+
+// Variant: Link list
+
+.#{$base_class}--link-list {
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--space-16);
+
+  .#{$base_class}__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--space-16);
+  }
+
+  .c-language-switcher__item a {
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-link-hover);
+      text-decoration: underline;
+    }
+  }
+
+  .c-language-switcher__item--active a {
+    font-weight: var(--font-weight-bold);
+  }
+}
+
+// Variant: Dropdown
+
+.#{$base_class}--dropdown {
+  position: relative;
+
+  .#{$base_class}__toggle {
+    cursor: pointer;
+  }
+
+  .#{$base_class}__list {
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: var(--color-background, #fff);
+  }
+
+  .#{$base_class}__list[hidden] {
+    display: none;
+  }
+
+  .#{$base_class}__link {
+    display: block;
+  }
+}

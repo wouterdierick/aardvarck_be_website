@@ -50,11 +50,35 @@ function aardvarck_preprocess_breadcrumb(&$variables): void {
 }
 
 /**
- * Implements hook_preprocess_menu().
+ * Implements hook_preprocess_block__language_block().
  */
-function aardvarck_preprocess_menu(&$variables): void {
-  $menu = \Drupal::entityTypeManager()
-    ->getStorage('menu')
-    ->load($variables['menu_name']);
-  $variables['menu_aria_label'] = $menu->label() . ' menu';
+function aardvarck_preprocess_block(&$variables): void {
+  switch($variables['base_plugin_id']) {
+    case 'system_menu_block':
+      // Menu block:
+      $variables['menu_name'] = '';
+      $variables['menu_aria_label'] = '';
+      if(isset($variables['content']['#menu_name']) && !empty($variables['content']['#menu_name'])) {
+        $variables['menu_name'] = $variables['content']['#menu_name'];
+        $menu = \Drupal::entityTypeManager()
+          ->getStorage('menu')
+          ->load($variables['menu_name']);
+        $variables['menu_aria_label'] = $menu->label() . ' menu';
+      }
+      break;
+    case 'language_block':
+      // Language selector block (Desktop and Mobile):
+      $language_switcher_links = [];
+      foreach ($variables['content']['#links'] as $link) {
+        $url = clone $link['url'];
+        $url->setOption('language', $link['language']);
+        $language_switcher_links[] = [
+          'title' => $link['title'],
+          'href' => $url->toString(),
+          'active' => $link['language']->getId() === \Drupal::languageManager()->getCurrentLanguage()->getId(),
+        ];
+      }
+      $variables['language_switcher_links'] = $language_switcher_links;
+      break;
+  }
 }

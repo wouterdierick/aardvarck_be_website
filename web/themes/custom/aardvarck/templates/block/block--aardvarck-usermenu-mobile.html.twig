@@ -34,6 +34,20 @@
  * @ingroup themeable
  */
 #}
-  {% block content %}
-    {{ content }}
-  {% endblock %}
+
+{% set menu_name = content['#menu_name'] %}
+
+{% set menu_items = [] %}
+{% for item in content['#items'] %}
+  {% set menu_items = menu_items|merge([{
+    title: item.title,
+    href: item.url.toString(),
+    active: item.in_active_trail,
+  }]) %}
+{% endfor %}
+
+{% include 'aardvarck:menu' with {
+  system_name: menu_name,
+  name: menu_aria_label,
+  links: menu_items,
+} only %}

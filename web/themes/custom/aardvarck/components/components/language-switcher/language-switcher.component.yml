@@ -1,0 +1,24 @@
+# AUTO-GENERATED FILE
+# Generated from language-switcher.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: LanguageSwitcher
+description: 'Component: Language Switcher'
+props:
+  type: object
+  properties:
+    attributes:
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*)'
+    variant:
+      type: string
+      description: Variant of the language switcher.
+    title:
+      type: string
+      description: Language label
+slots:
+  default:
+    description: Default slot content

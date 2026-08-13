@@ -2,6 +2,12 @@ google-fonts:
   css:
     theme:
       'https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap': { type: external }
+  js:
+    'js/header.js': {}
+  dependencies:
+      - core/jquery
+      - core/once
+      - core/drupal
 storybook:
   version: VERSION
   css:

@@ -14,28 +14,39 @@
   {% endif %}
 {% endfor %}
 
+{% set list_id = 'language-switcher-list' ~ '-' ~ random() %}
+
 <nav {{ attributes }} aria-label="{{ name|default('Select language') }}">
 
-  {% include 'aardvarck:icon' with {
-    id: 'message',
-    size: 'small',
-  } only %}
+  {% if variant == 'link-list' %}
+    {% include 'aardvarck:icon' with {
+      id: 'message',
+      size: 'small',
+    } only %}
+  {% endif %}
 
   {% if variant == 'dropdown' %}
-    <button
-      type="button"
-      class="{{ base_class }}__toggle"
-      aria-expanded="false"
-      aria-controls="{{ list_id }}"
-    >
-      {{ active_title }}
-    </button>
+    {% include 'aardvarck:button' with {
+      attributes: {
+        'class': base_class ~ '__toggle',
+        'aria-expanded': 'false',
+        'aria-controls': list_id,
+      },
+      title: active_title,
+      aria_label: active_title,
+      element: 'button',
+      type: 'button',
+      color: 'secondary',
+      layout: 'icon-label',
+      href: '#',
+      icon_id: 'message',
+    } only %}
   {% endif %}
 
   {% if variant == 'dropdown' %}
   <ul class="{{ base_class }}__list" aria-hidden="true" hidden>
   {% else %}
-  <ul class="{{ base_class }}__list">
+  <ul class="{{ base_class }}__list" id="{{ list_id }}">
   {% endif %}
     {% for link in links %}
       <li class="{{ base_class }}__item {% if link.active %}{{ base_class }}__item--active{% endif %}">

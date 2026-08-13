@@ -1,0 +1,16 @@
+{# Section: Work masonry #}
+{% set base_class = 'c-work-masonry' %}
+{% set attributes = create_attribute(attributes|default({})) %}
+{% set attributes = attributes.addClass([base_class]) %}
+
+<section {{ attributes }}>
+  <div class="{{ base_class }}__items">
+    {% if html %}
+      {{ html }}
+    {% else %}
+      {% for item in items|default([]) %}
+        {{ item }}
+      {% endfor %}
+    {% endif %}
+  </div>
+</section>

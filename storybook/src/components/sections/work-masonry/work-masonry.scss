@@ -1,0 +1,14 @@
+/* Section: Work masonry */
+
+$base_class: 'c-work-masonry';
+
+.#{$base_class} {
+
+  &__items {
+    position: relative;
+  }
+
+  &__items > * {
+    max-inline-size: none;
+  }
+}

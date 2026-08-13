@@ -1,0 +1,26 @@
+# AUTO-GENERATED FILE
+# Generated from work-masonry.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: WorkMasonry
+description: 'Component: Work Masonry'
+props:
+  type: object
+  properties:
+    attributes:
+      type:
+        - object
+        - string
+      description: Additional attributes. Use data-work-masonry-tablet and data-work-masonry-desktop to set breakpoints in pixels.
+    items:
+      type: array
+      description: Array of cards or other rendered content to distribute across the columns.
+      items:
+        type: object
+    html:
+      type: string
+      description: Optional rendered HTML whose direct children are distributed across the columns. Takes precedence over items.
+slots:
+  default:
+    description: Default slot content

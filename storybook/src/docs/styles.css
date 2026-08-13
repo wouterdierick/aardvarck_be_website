@@ -49,3 +49,8 @@
 .docblock-colorpalette-small .docblock-colorpalette > div > div:nth-child(2) {
   max-width: 78px;
 }
+
+/* Set icon color */
+.sbdocs-icon-grid svg {
+  stroke: #333;
+}

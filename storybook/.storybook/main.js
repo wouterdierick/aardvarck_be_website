@@ -51,7 +51,9 @@ const config = {
       css: {
         preprocessorOptions: {
           scss: {
-            loadPaths: [path.resolve(__dirname, '../src/styles')],
+            loadPaths: [
+              path.resolve(__dirname, '../src/styles')
+            ],
           },
         },
       },

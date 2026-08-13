@@ -30,7 +30,7 @@ mode: card
 content:
   field_description:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 1
@@ -39,7 +39,7 @@ content:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: default
+      view_mode: full
       link: false
     third_party_settings: {  }
     weight: 0

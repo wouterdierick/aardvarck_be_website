@@ -46,3 +46,15 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
+
+// Paragraph layouts.
+
+.paragraph--width--medium {
+  max-width: var(--paragraph-width-medium);
+  margin-inline: auto;
+}
+
+.paragraph--width--small {
+  max-width: var(--paragraph-width-small);
+  margin-inline: auto;
+}

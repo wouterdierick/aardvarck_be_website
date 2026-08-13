@@ -1,0 +1,7 @@
+<?php
+
+/**
+ * @file
+ * Provides hooks and alter functions for the Aardvarck Layouts module.
+ */
+

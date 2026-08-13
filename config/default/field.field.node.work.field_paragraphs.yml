@@ -5,8 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_paragraphs
     - node.type.work
-    - paragraphs.paragraphs_type.layout
-    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.view
   module:
     - entity_reference_revisions
 id: node.work.field_paragraphs
@@ -23,14 +22,19 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      layout: layout
-      text: text
-    negate: 0
+      view: view
+    negate: 1
     target_bundles_drag_drop:
+      image:
+        weight: 5
+        enabled: false
       layout:
         weight: 3
-        enabled: true
+        enabled: false
       text:
         weight: 4
+        enabled: false
+      view:
+        weight: 8
         enabled: true
 field_type: entity_reference_revisions

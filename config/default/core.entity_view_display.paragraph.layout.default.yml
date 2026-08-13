@@ -1,0 +1,14 @@
+uuid: e4a55130-8d55-47c4-9243-303f8d94c87f
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.layout.field_width
+    - paragraphs.paragraphs_type.layout
+id: paragraph.layout.default
+targetEntityType: paragraph
+bundle: layout
+mode: default
+content: {  }
+hidden:
+  field_width: true

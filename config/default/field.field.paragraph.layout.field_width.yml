@@ -1,0 +1,23 @@
+uuid: a0ab8592-6f2b-4cda-b019-9c53003ec267
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_width
+    - paragraphs.paragraphs_type.layout
+  module:
+    - options
+id: paragraph.layout.field_width
+field_name: field_width
+entity_type: paragraph
+bundle: layout
+label: Width
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: full
+default_value_callback: ''
+settings: {  }
+field_type: list_string

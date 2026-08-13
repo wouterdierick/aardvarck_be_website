@@ -1,0 +1,26 @@
+uuid: 26b8aa97-8b0f-4ddd-b2cf-9921cfc91a37
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.layout.field_width
+    - paragraphs.paragraphs_type.layout
+id: paragraph.layout.default
+targetEntityType: paragraph
+bundle: layout
+mode: default
+content:
+  field_width:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  layout_paragraphs_fields:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

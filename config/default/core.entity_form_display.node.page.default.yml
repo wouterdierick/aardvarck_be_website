@@ -39,7 +39,7 @@ content:
       form_display_mode: default
       nesting_depth: 0
       require_layouts: 1
-      empty_message: ''
+      empty_message: 'No paragraphs yet.'
     third_party_settings: {  }
   langcode:
     type: language_select

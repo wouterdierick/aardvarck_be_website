@@ -1,0 +1,20 @@
+uuid: 05a27cc7-400a-4f26-8708-1c44a2a4e3d2
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+  theme:
+    - aardvarck
+id: aardvarck_languageswitcher_mobile
+theme: aardvarck
+region: header_mobile
+weight: -3
+provider: null
+plugin: 'language_block:language_interface'
+settings:
+  id: 'language_block:language_interface'
+  label: 'Language switcher'
+  label_display: '0'
+  provider: language
+visibility: {  }

@@ -1,0 +1,23 @@
+uuid: 74de809d-cf6b-42a8-9a56-2b7f2e8e1716
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - aardvarck
+id: aardvarck_branding_mobile
+theme: aardvarck
+region: header_mobile
+weight: -5
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

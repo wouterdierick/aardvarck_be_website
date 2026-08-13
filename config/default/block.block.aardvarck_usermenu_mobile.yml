@@ -1,0 +1,25 @@
+uuid: 5e49736c-677e-4a8a-9fa1-edaf94f3ded7
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - aardvarck
+id: aardvarck_usermenu_mobile
+theme: aardvarck
+region: header_mobile
+weight: -2
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }

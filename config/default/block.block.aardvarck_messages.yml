@@ -11,7 +11,7 @@ _core:
 id: aardvarck_messages
 theme: aardvarck
 region: highlighted
-weight: -2
+weight: -3
 provider: null
 plugin: system_messages_block
 settings:

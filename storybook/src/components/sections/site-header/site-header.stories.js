@@ -1,5 +1,6 @@
 import SiteHeader from './site-header.twig';
 import './site-header.scss';
+import './site-header.js';
 import Logo from '../../components/logo/logo.twig';
 import Menu from '../../components/menu/menu.twig';
 
@@ -18,18 +19,18 @@ export default {
       control: { type: 'object' },
       description: 'Additional HTML attributes (for example: class, id, data-*)',
     },
-  },
-  branding: {
-    control: false,
-    description: 'Branding slot.',
-  },
-  mainnavigation: {
-    control: false,
-    description: 'Main navigation slot.',
-  },
-  languageswitcher: {
-    control: false,
-    description: 'Language switcher slot.',
+    branding: {
+      control: false,
+      description: 'Branding slot.',
+    },
+    mainnavigation: {
+      control: false,
+      description: 'Main navigation slot.',
+    },
+    languageswitcher: {
+      control: false,
+      description: 'Language switcher slot.',
+    },
   },
   component: SiteHeader,
 };
@@ -44,15 +45,13 @@ const logoArgs = {
   },
 };
 
-
 const menuArgs = {
   attributes: {},
   name: 'Main Menu',
   links: [
-    { title: 'Home', href: '/', active: true },
+    { title: 'Work', href: '/', active: true },
     { title: 'About', href: '/about', active: false },
-    { title: 'Services', href: '/services', active: false },
-    { title: 'Contact', href: '/contact', active: false },
+    { title: 'Shop', href: '/shop', active: false },
   ],
 };
 
@@ -61,5 +60,6 @@ export const Default = {
     attributes: {},
     branding: Logo(logoArgs),
     mainnavigation: Menu(menuArgs),
+    languageswitcher: '',
   },
 };

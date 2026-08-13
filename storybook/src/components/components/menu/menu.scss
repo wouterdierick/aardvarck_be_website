@@ -38,11 +38,3 @@ $base_class: 'c-menu';
     border-bottom: 2px solid var(--color-link-hover);
   }
 }
-
-.#{$base_class}--footer {
-  font-size: var(--font-scale-14);
-
-  .#{$base_class}__link {
-    font-weight: var(--font-weight-regular);
-  }
-}

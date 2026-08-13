@@ -4,7 +4,7 @@
 #
 
 name: SiteFooter
-description: 'Component: Site footer'
+description: 'Component: Site Footer'
 props:
   type: object
   properties:
@@ -13,6 +13,9 @@ props:
         - object
         - string
       description: 'Additional HTML attributes (for example: class, id, data-*)'
+    footernavigation:
+      type: string
+      description: Footer navigation slot.
 slots:
   default:
     description: Default slot content

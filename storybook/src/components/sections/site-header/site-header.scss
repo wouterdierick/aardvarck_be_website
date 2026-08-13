@@ -6,12 +6,18 @@ $base_class: 'c-site-header';
 
 .#{$base_class} {
   margin-block: var(--space-32);
+  padding-bottom: var(--space-32);
+  border-bottom: 1px solid var(--color-neutral-200);
 
   &__wrapper {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     gap: var(--space-32);
+  }
+
+  &__main-navigation {
+    margin-inline-end: auto;
   }
 }
 

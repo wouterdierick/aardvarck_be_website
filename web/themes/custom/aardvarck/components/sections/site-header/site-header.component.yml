@@ -13,6 +13,15 @@ props:
         - object
         - string
       description: 'Additional HTML attributes (for example: class, id, data-*)'
+    branding:
+      type: string
+      description: Branding slot.
+    mainnavigation:
+      type: string
+      description: Main navigation slot.
+    languageswitcher:
+      type: string
+      description: Language switcher slot.
 slots:
   default:
     description: Default slot content

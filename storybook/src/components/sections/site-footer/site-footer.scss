@@ -17,8 +17,10 @@ $base_class: 'c-site-footer';
   }
 }
 
-.instagram-gradient {
-  background: #833ab4;
-  background: linear-gradient(to right,
-      #833ab4, #fd1d1d, #fcb045);
+.#{$base_class} .c-menu {
+  font-size: var(--font-scale-14);
+
+  .c-menu__link {
+    font-weight: var(--font-weight-regular);
+  }
 }

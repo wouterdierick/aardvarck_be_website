@@ -56,12 +56,26 @@ export default {
   component: Button,
 };
 
+export const Default = {
+  args: {
+    attributes: {},
+    element: 'button',
+    title: 'Default Button',
+    href: '#',
+    icon_id: 'upload',
+    type: 'button',
+    disabled: false,
+    aria_label: '',
+  },
+};
+
 export const Primary = {
   args: {
     attributes: {},
     element: 'button',
     title: 'Primary Button',
     href: '#',
+    icon_id: 'mail',
     color: 'primary',
     type: 'button',
     disabled: false,
@@ -75,7 +89,22 @@ export const Secondary = {
     element: 'button',
     title: 'Secondary Button',
     href: '#',
+    icon_id: 'cart',
     color: 'secondary',
+    type: 'button',
+    disabled: false,
+    aria_label: '',
+  },
+};
+
+export const Danger = {
+  args: {
+    attributes: {},
+    element: 'button',
+    title: 'Danger Button',
+    href: '#',
+    icon_id: 'trash',
+    color: 'danger',
     type: 'button',
     disabled: false,
     aria_label: '',

@@ -9,9 +9,17 @@
 <header {{ attributes }}>
   <div class="container">
     <div class="{{ base_class }}__wrapper">
-      {{ branding }}
-      {{ mainnavigation }}
-      {{ languageswitcher }}
+      <div class="{{ base_class }}__branding">
+        {{ branding }}
+      </div>
+      <div class="{{ base_class }}__main-navigation">
+        {{ mainnavigation }}
+      </div>
+      {% if languageswitcher %}
+      <div class="{{ base_class }}__language-switcher">
+        {{ languageswitcher }}
+      </div>
+      {% endif %}
       <div class="{{ base_class }}__instagram-link">
         <a href="https://www.instagram.com/aardvarck_be" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
           {% set icon = 'instagram' %}

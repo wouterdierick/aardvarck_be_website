@@ -4,7 +4,8 @@
 {% set element = element|default('button') %}
 {% set button_type = type|default('button') %}
 {% set href = href|default('#') %}
-{% set color = color|default('primary') %}
+{% set icon_id = icon_id|default('') %}
+{% set color = color|default('default') %}
 {% set size = size|default('default') %}
 {% set attributes = create_attribute(attributes|default({})) %}
 {% set classes = [
@@ -31,7 +32,25 @@
 {% if element == 'input' %}
   <input type="{{ button_type }}" value="{{ title }}" {{ attributes }}>
 {% elseif element == 'a' %}
-  <a {% if not disabled %}href="{{ href }}"{% endif %} {{ attributes }}>{{ title }}</a>
+  <a {% if not disabled %}href="{{ href }}"{% endif %} {{ attributes }}>
+    {% if icon_id %}
+      {% include 'aardvarck:icon' with {
+        id: icon_id,
+        size: 'medium'
+      } only %}
+    {% endif %}
+    {{ title }}
+  </a>
 {% else %}
-  <button type="{{ button_type }}" {{ attributes }}>{{ title }}</button>
+  <button type="{{ button_type }}" {{ attributes }}>
+    {% if icon_id %}
+      {% include 'aardvarck:icon' with {
+        id: icon_id,
+        size: 'small'
+      } only %}
+    {% endif %}
+    {{ title }}
+  </button>
 {% endif %}
+
+

@@ -1,9 +1,9 @@
-import Sitefooter from './site-footer.twig';
+import SiteFooter from './site-footer.twig';
 import './site-footer.scss';
 import Menu from '../../components/menu/menu.twig';
 
 export default {
-  title: 'Sections/Site footer',
+  title: 'Sections/Site Footer',
   parameters: {
     docs: {
       description: {
@@ -17,20 +17,13 @@ export default {
       control: { type: 'object' },
       description: 'Additional HTML attributes (for example: class, id, data-*)',
     },
+    footernavigation: {
+      control: false,
+      description: 'Footer navigation slot.',
+    },
   },
-  branding: {
-    control: false,
-    description: 'Branding slot.',
-  },
-  mainnavigation: {
-    control: false,
-    description: 'Main navigation slot.',
-  },
-  languageswitcher: {
-    control: false,
-    description: 'Language switcher slot.',
-  },
-  component: Sitefooter,
+
+  component: SiteFooter,
 };
 
 const menuArgs = {

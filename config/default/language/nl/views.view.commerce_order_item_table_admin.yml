@@ -1,0 +1,28 @@
+display:
+  default:
+    display_title: Master
+    display_options:
+      fields:
+        title:
+          label: Titel
+          separator: ', '
+        unit_price__number:
+          label: Eenheidsprijs
+          separator: ', '
+        quantity:
+          label: Hoeveelheid
+          separator: ', '
+        total_price__number:
+          label: Totaalprijs
+          separator: ', '
+      exposed_form:
+        options:
+          submit_button: Toepassen
+          reset_button_label: 'Opnieuw instellen'
+          exposed_sorts_label: 'Sorteren op'
+          sort_asc_label: Oplopend
+          sort_desc_label: Aflopend
+      arguments:
+        order_item_id:
+          exception:
+            title: Alle

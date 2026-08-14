@@ -1,0 +1,55 @@
+{# Component: Notification #}
+
+{% set base_class = 'c-notification' %}
+{% set message_type = message_type|default('default') %}
+{% set show_close_button = show_close_button|default(false) %}
+{% set attributes = create_attribute(attributes|default({})) %}
+{% set classes = [
+  base_class,
+  base_class ~ '--' ~ message_type
+] %}
+
+{% set icon_id = 'info' %}
+{% if message_type == 'success' %}
+  {% set icon_id = 'check-circle' %}
+{% elseif message_type == 'warning' %}
+  {% set icon_id = 'warning' %}
+{% elseif message_type == 'error' %}
+  {% set icon_id = 'error' %}
+{% endif %}
+
+{% if message_type == 'error' %}
+  {% set attributes = attributes.setAttribute('role', 'alert') %}
+{% endif %}
+
+<div {{ attributes.addClass(classes) }}>
+  {% if icon_id %}
+    {% include 'aardvarck:icon' with {
+      attributes: {
+        'class': base_class ~ '__icon',
+      },
+      id: icon_id,
+      size: 'medium'
+    } only %}
+  {% endif %}
+  <div class="{{ base_class }}__content">
+    <div class="{{ base_class }}__title">{{ title }}</div>
+    <div class="{{ base_class }}__message">{{ message }}</div>
+  </div>
+  {% if show_close_button %}
+    {% include 'aardvarck:button' with {
+      attributes: {
+        'class': base_class ~ '__close',
+      },
+      title: 'Close message',
+      aria_label: 'Close message',
+      element: 'button',
+      type: 'button',
+      color: 'ghost',
+      size: 'small',
+      layout: 'icon-only',
+      href: '#',
+      icon_id: 'close',
+    } only %}
+  {% endif %}
+</div>

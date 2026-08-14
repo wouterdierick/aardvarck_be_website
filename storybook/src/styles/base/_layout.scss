@@ -4,6 +4,7 @@
 @use 'abstracts/mixins';
 
 .container {
+  width: 100%;
   max-width: var(--container-max-width);
   padding-inline: var(--space-16);
   margin-inline: auto;

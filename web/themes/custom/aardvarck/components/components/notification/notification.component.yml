@@ -1,0 +1,27 @@
+# AUTO-GENERATED FILE
+# Generated from notification.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: Notification
+description: 'Component: Notification'
+props:
+  type: object
+  properties:
+    attributes:
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*)'
+    message_type:
+      type: string
+      description: The type of notification (info, success, warning, error)
+    title:
+      type: string
+      description: Notification title
+    message:
+      type: string
+      description: Notification message
+slots:
+  default:
+    description: Default slot content

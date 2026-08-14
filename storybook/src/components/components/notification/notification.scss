@@ -1,0 +1,96 @@
+/* Component: Notification */
+
+@use 'abstracts/mixins';
+
+$base_class: 'c-notification';
+
+// Local scope
+.#{$base_class} {
+  --notification-background-color: var(--color-neutral-200);
+  --notification-background-hover-color: var(--color-neutral-100);
+  --notification-text-color: var(--color-neutral-800);
+  --notification-label-color: var(--color-neutral-900);
+}
+
+.#{$base_class} {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  gap: var(--space-8);
+  padding-block: var(--space-12);
+  padding-inline: var(--space-8);
+  background-color: var(--notification-background-color);
+  color: var(--notification-text-color);
+  border-radius: var(--radius-md);
+
+  &__icon svg {
+    stroke: var(--notification-text-color);
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--space-4);
+  }
+
+  &__title {
+    font-size: var(--font-scale-16);
+    font-weight: var(--font-weight-medium);
+    color: var(--notification-label-color);
+  }
+
+  &__close {
+    svg {
+      stroke: var(--notification-text-color);
+    }
+    &:hover {
+      background-color: var(--notification-background-hover-color);
+    }
+  }
+
+}
+
+// Variant: info
+
+.#{$base_class}--info {
+  --notification-background-color: var(--color-blue-200);
+  --notification-background-hover-color: var(--color-blue-100);
+  --notification-text-color: var(--color-blue-800);
+  --notification-label-color: var(--color-blue-900);
+}
+
+// Variant: success
+
+.#{$base_class}--success {
+  --notification-background-color: var(--color-green-200);
+  --notification-background-hover-color: var(--color-green-100);
+  --notification-text-color: var(--color-green-800);
+  --notification-label-color: var(--color-green-900);
+}
+
+// Variant: warning
+
+.#{$base_class}--warning {
+  --notification-background-color: var(--color-orange-200);
+  --notification-background-hover-color: var(--color-orange-100);
+  --notification-text-color: var(--color-orange-800);
+  --notification-label-color: var(--color-orange-900);
+}
+
+// Variant: error
+
+.#{$base_class}--error {
+  --notification-background-color: var(--color-red-200);
+  --notification-background-hover-color: var(--color-red-100);
+  --notification-text-color: var(--color-red-800);
+  --notification-label-color: var(--color-red-900);
+}
+
+// Drupal specific
+
+.c-notifications-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: var(--space-8);
+}

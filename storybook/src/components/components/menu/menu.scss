@@ -6,6 +6,7 @@ $base_class: 'c-menu';
 
 .#{$base_class} {
   --menu-gap: #{mixins.ptr(16)};
+  --menu-justify-content: flex-start;
   --menu-item-separator-width: 1px;
   --menu-item-separator-color: var(--color-neutral-300);
   --menu-item-separator-spacing: var(--menu-gap);
@@ -29,6 +30,7 @@ $base_class: 'c-menu';
   &__list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: var(--menu-justify-content);
     gap: var(--menu-gap);
     list-style: none;
     margin: 0;

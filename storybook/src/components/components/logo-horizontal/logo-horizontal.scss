@@ -5,7 +5,7 @@
 $base_class: 'c-logo-horizontal';
 
 .#{$base_class} {
-  display: inline-block;
+  display: block;
   text-decoration: none;
 
   svg {

@@ -26,7 +26,7 @@ $base_class: 'c-button';
   color: var(--text-color);
   background-color: var(--background-color);
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: 999px;
   transition: background-color var(--transition-duration) var(--transition-timing);
   cursor: pointer;
 

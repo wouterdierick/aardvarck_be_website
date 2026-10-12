@@ -71,7 +71,7 @@ export const Default = {
     element: 'button',
     title: 'Default Button',
     href: '#',
-    icon_id: 'plus',
+    icon_id: 'arrow-right',
     type: 'button',
     disabled: false,
     aria_label: '',

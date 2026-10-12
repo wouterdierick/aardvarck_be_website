@@ -7,24 +7,27 @@
 {% set attributes = attributes.addClass(classes) %}
 
 <footer {{ attributes }}>
-  <div class="container">
-    <div class="{{ base_class }}__wrapper">
-
-
-      <div>
-
-
+  <div class="{{ base_class }}__top">
+    <div class="container">
 
       {% include 'aardvarck:logo-horizontal' with {
-        size: 'small',
+        size: 'medium',
+        color: 'white'
       } only %}
+<!--
+      <p>Wouter Dierick</p>
+      <p>+32 485 682 342</p>
+      <p><a href="mailto:hello@aardvarck.be">hello@aardvarck.be</a></p>
+-->
+    </div>
+  </div>
 
-        <p>Wouter Dierick</p>
-        <p>+32 485 682 342</p>
-        <p><a href="mailto:hello@aardvarck.be">hello@aardvarck.be</a></p>
+  <div class="{{ base_class }}__bottom">
+    <div class="container">
+      <div class="{{ base_class }}__bottom-wrapper">
+        {{ footernavigation }}
+        <p class="{{ base_class }}__copyright">&copy; {{ "now"|date("Y") }} Wouter Dierick</p>
       </div>
-
-      {{ footernavigation }}
     </div>
   </div>
 </footer>

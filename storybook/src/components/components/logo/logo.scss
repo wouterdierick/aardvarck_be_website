@@ -5,7 +5,7 @@
 $base_class: 'c-logo';
 
 .#{$base_class} {
-  display: inline-block;
+  display: block;
   text-decoration: none;
 
   &__wrapper {
@@ -78,15 +78,15 @@ $base_class: 'c-logo';
 // Size
 .#{$base_class} {
   &--small {
-    width: mixins.ptr(60);
+    width: mixins.ptr(32);
   }
 
   &--medium {
-    width: mixins.ptr(80);
+    width: mixins.ptr(48);
   }
 
   &--large {
-    width: mixins.ptr(120);
+    width: mixins.ptr(80);
   }
 }
 

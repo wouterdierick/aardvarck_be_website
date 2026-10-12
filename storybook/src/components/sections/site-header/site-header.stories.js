@@ -43,22 +43,29 @@ export default {
 };
 
 const logoArgs = {
-  args: {
-    attributes: {},
-    title: 'Home',
-    href: '/',
-    color: 'primary',
-    size: 'large',
-  },
+  attributes: {},
+  title: 'Home',
+  href: '/',
+  color: 'primary',
+  size: 'medium',
 };
 
-const menuArgs = {
+const mainMenuArgs = {
   attributes: {},
   name: 'Main Menu',
   links: [
     { title: 'Work', href: '/', active: true },
     { title: 'About', href: '/about', active: false },
     { title: 'Shop', href: '/shop', active: false },
+  ],
+};
+
+const userMenuArgs = {
+  attributes: {},
+  name: 'User Menu',
+  links: [
+    { title: 'Cart', href: '/', icon_id: 'cart', hide_label: true },
+    { title: 'Inloggen', href: '/', icon_id: 'user', hide_label: true },
   ],
 };
 
@@ -75,7 +82,8 @@ export const Default = {
   args: {
     attributes: {},
     branding: Logo(logoArgs),
-    mainnavigation: Menu(menuArgs),
+    mainnavigation: Menu(mainMenuArgs),
     languageswitcher: LanguageSwitcher(languageSwitcherArgs),
+    usermenu: Menu(userMenuArgs),
   },
 };

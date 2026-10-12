@@ -2,6 +2,7 @@
 
 {% set base_class = 'c-link' %}
 {% set attributes = create_attribute(attributes|default({})) %}
+{% set hide_label = hide_label|default(false) %}
 {% set classes = [
   base_class
 ] %}
@@ -13,5 +14,9 @@
       size: 'small'
     } only %}
   {% endif %}
-  {{ title }}
+  {% if hide_label and icon_id %}
+    <span class="visually-hidden">{{ title }}</span>
+  {% else %}
+    {{ title }}
+  {% endif %}
 </a>

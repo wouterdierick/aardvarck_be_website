@@ -34,7 +34,7 @@ export default {
     },
     links: {
       control: { type: 'object' },
-      description: 'Array of menu items with title, href, and optional active state.',
+      description: 'Array of menu items with title, href, optional active state, optional icon_id, and optional hide_label for accessible icon-only links.',
     },
   },
   component: Menu,
@@ -77,6 +77,19 @@ export const WithIcons = {
       { title: 'Home', href: '/', active: false, icon_id: 'home' },
       { title: 'About', href: '/about', active: false, icon_id: 'info' },
       { title: 'Contact', href: '/contact', active: false, icon_id: 'mail' },
+    ],
+  },
+};
+
+export const OnlyIcons = {
+  args: {
+    attributes: {},
+    system_name: 'main-menu',
+    name: 'Main Menu',
+    links: [
+      { title: 'Home', href: '/', active: false, icon_id: 'home', hide_label: true },
+      { title: 'About', href: '/about', active: false, icon_id: 'info', hide_label: true },
+      { title: 'Contact', href: '/contact', active: false, icon_id: 'mail', hide_label: true },
     ],
   },
 };

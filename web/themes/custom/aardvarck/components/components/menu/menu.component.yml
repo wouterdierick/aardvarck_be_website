@@ -24,7 +24,7 @@ props:
       description: Name of the menu, used for accessibility and identification.
     links:
       type: array
-      description: Array of menu items with title, href, and optional active state.
+      description: Array of menu items with title, href, optional active state, optional icon_id, and optional hide_label for accessible icon-only links.
       items:
         type: object
 slots:

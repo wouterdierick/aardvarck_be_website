@@ -48,3 +48,13 @@ export const WithIcon = {
     icon_id: 'arrow-right',
   },
 };
+
+export const OnlyIcon = {
+  args: {
+    attributes: {},
+    title: 'Primary Link',
+    url: '#',
+    icon_id: 'arrow-right',
+    hide_label: true,
+  },
+};

@@ -71,7 +71,7 @@ export const Linked = {
   args: {
     attributes: {},
     label: 'Linked pill',
-    icon: 'external-link',
+    icon: 'link',
     href: 'https://www.example.com',
     variant: 'primary',
   },

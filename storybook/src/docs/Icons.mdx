@@ -46,11 +46,7 @@ Each icon is available as a reusable component and can be referenced by its icon
       <div
         aria-hidden="true"
         dangerouslySetInnerHTML={{ __html: icon.svg }}
-        style={{
-          width: '2rem',
-          height: '2rem',
-          color: 'currentColor',
-        }}
+        className={`c-icon c-icon--${icon.id} c-icon--large`}
       />
       <code style={{ fontSize: '0.8125rem', textAlign: 'center' }}>{icon.id}</code>
     </div>

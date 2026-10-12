@@ -71,7 +71,7 @@ export const Default = {
     element: 'button',
     title: 'Default Button',
     href: '#',
-    icon_id: 'upload',
+    icon_id: 'plus',
     type: 'button',
     disabled: false,
     aria_label: '',

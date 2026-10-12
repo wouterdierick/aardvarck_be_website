@@ -92,3 +92,17 @@ When a valid Drupal theme is detected, this mapping is applied automatically:
 `./storybook/dist/drupal/components` -> `./web/themes/custom/aardvarck/components`
 
 `./storybook/dist/drupal/styles` -> `./web/themes/custom/aardvarck/styles`
+
+
+## Components
+
+### Icons
+
+SVG icons can be found in './storybook/src/components/components/icon/icons'
+
+Specifications:
+- Base SVG canvas: `24 x 24` with `viewBox="0 0 24 24"`.
+- Use `fill="none"` and `stroke="currentColor"` for outline shapes.
+- Use `fill="currentColor"` for filled shapes. If a shape has a fill and no visible border, set `stroke="none"` on that shape.
+- Do not set `stroke-width` in the SVG. Stroke width is controlled by the component styling.
+- Use `stroke-linecap="round"` and `stroke-linejoin="round"` where the icon design requires rounded ends or corners.

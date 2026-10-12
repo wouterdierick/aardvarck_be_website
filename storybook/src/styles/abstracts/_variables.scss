@@ -27,22 +27,22 @@
   --paragraph-width-small: 500px;
 
   // Typography
-  --font-family-base: var(--font-family-rubik);
-  --font-family-title: var(--font-family-aleo);
+  --font-family-base: var(--font-family-lato);
+  --font-family-title: var(--font-family-palanquin-dark);
 
   --font-color-base: var(--color-neutral-800);
   --font-color-title: var(--color-black);
 
   --font-size-base: var(--font-scale-16);
-  --font-size-h1: clamp(var(--font-scale-32), var(--font-scale-40) + 1.25vw, var(--font-scale-48));
-  --font-size-h2: clamp(var(--font-scale-24), var(--font-scale-32) + 0.8vw, var(--font-scale-40));
-  --font-size-h3: clamp(var(--font-scale-20), var(--font-scale-24) + 0.7vw, var(--font-scale-32));
-  --font-size-h4: clamp(var(--font-scale-18), var(--font-scale-20) + 0.7vw, var(--font-scale-24));
-  --font-size-h5: clamp(var(--font-scale-16), var(--font-scale-18) + 0.7vw, var(--font-scale-20));
+  --font-size-h1: clamp(var(--font-scale-40), var(--font-scale-64) + 1.25vw, var(--font-scale-72));
+  --font-size-h2: clamp(var(--font-scale-32), var(--font-scale-40) + 0.8vw, var(--font-scale-48));
+  --font-size-h3: clamp(var(--font-scale-24), var(--font-scale-32) + 0.7vw, var(--font-scale-40));
+  --font-size-h4: clamp(var(--font-scale-20), var(--font-scale-24) + 0.7vw, var(--font-scale-32));
+  --font-size-h5: clamp(var(--font-scale-18), var(--font-scale-20) + 0.7vw, var(--font-scale-24));
   --font-size-h6: var(--font-scale-18);
 
   --line-height-heading: 1.2;
-  --line-height-base: 1.5;
+  --line-height-base: 1.4;
 
   // Borders
   --border-color: var(--color-neutral-100);

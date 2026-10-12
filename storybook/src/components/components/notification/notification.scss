@@ -23,8 +23,8 @@ $base_class: 'c-notification';
   color: var(--notification-text-color);
   border-radius: var(--radius-md);
 
-  &__icon svg {
-    stroke: var(--notification-text-color);
+  &__icon {
+    color: var(--notification-text-color);
   }
 
   &__content {
@@ -41,9 +41,8 @@ $base_class: 'c-notification';
   }
 
   &__close {
-    svg {
-      stroke: var(--notification-text-color);
-    }
+    color: var(--notification-text-color);
+
     &:hover {
       background-color: var(--notification-background-hover-color);
     }

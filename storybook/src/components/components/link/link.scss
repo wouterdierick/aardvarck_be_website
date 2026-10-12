@@ -24,7 +24,7 @@ $base_class: 'c-link';
   }
 
   .c-icon {
-    stroke: var(--text-color);
+    color: var(--text-color);
     transform: translateY(2px);
   }
 }

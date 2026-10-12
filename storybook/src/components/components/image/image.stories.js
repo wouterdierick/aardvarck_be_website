@@ -43,7 +43,7 @@ export default {
 export const Default = {
   args: {
     attributes: {},
-    src: 'blue_600x400.jpg',
+    src: 'docs/assets/blue_600x400.jpg',
     alt: 'Placeholder image',
     rounded: false,
   },
@@ -52,7 +52,7 @@ export const Default = {
 export const Rounded = {
   args: {
     attributes: {},
-    src: 'blue_600x400.jpg',
+    src: 'docs/assets/blue_600x400.jpg',
     alt: 'Rounded placeholder image',
     rounded: true,
   },

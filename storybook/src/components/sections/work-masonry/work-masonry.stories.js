@@ -43,7 +43,7 @@ const items = imageSizes.map(([width, height], index) => Card({
   title: `Work item ${index + 1}`,
   content: 'A short placeholder description for this work item.',
   image: Image({
-    src: `blue_${width}x${height}.jpg`,
+    src: `docs/assets/blue_${width}x${height}.jpg`,
     alt: `Placeholder for work item ${index + 1}`,
     width,
     height,

@@ -44,7 +44,7 @@ export default {
 
 
 const imageArgs = {
-  src: 'blue_600x400.jpg',
+  src: 'docs/assets/blue_600x400.jpg',
   alt: 'Dummy image',
   width: 600,
   height: 400,

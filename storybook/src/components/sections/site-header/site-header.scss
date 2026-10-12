@@ -18,53 +18,34 @@ $base_class: 'c-site-header';
   }
 }
 
+.#{$base_class}__main-navigation {
+  --menu-gap: 0;
+  --menu-link-padding: var(--space-8) var(--space-16);
+  --menu-link-color: var(--text-color-base);
+  --menu-link-hover-color: var(--text-color-base);
+  --menu-link-font-size: var(--font-scale-16);
+  --menu-link-font-weight: var(--font-weight-regular);
+  --menu-link-line-height: 1.2;
+  --menu-link-border-width: 0;
+  --menu-link-hover-border-color: transparent;
+  --menu-link-hover-background: var(--color-pale-mint-400);
+  --menu-link-active-color: var(--text-color-base);
+  --menu-link-active-font-weight: var(--font-weight-regular);
+  --menu-link-active-border-color: transparent;
+}
+
 .#{$base_class}__secondary-navigation {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  flex-flow: row nowrap;
-  gap: 0;
-  padding-inline: var(--space-16);
-  background-color: var(--color-pale-mint-500);
-  border-bottom-right-radius: var(--radius-md);
-
-  &:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: -60px;
-    width: 60px;
-    height: 52px;
-    background-image: url('assets/navigation-background.svg');
-    background-repeat: no-repeat;
-    background-position: bottom right;
-    background-size: 60px 52px;
-    background-color: transparent;
-  }
-
-  // Language selector toggle.
-  .c-button {
-    border-radius: 0;
-  }
-
-  // User menu
-  .c-menu__list {
-    gap: 0;
-  }
-  .c-menu__item a {
-    display: block;
-    padding-inline: var(--space-16);
-    padding-block: var(--space-8);
-    font-size: var(--font-scale-16);
-    font-weight: var(--font-weight-regular);
-    line-height: 1.2;
-    text-decoration: none;
-    --text-color: var(--text-color-base);
-    border: none;
-
-    &:hover {
-      background-color: var(--color-pale-mint-400);
-    }
-  }
+  --menu-gap: 0;
+  --menu-link-padding: var(--space-8) var(--space-16);
+  --menu-link-color: var(--text-color-base);
+  --menu-link-hover-color: var(--text-color-base);
+  --menu-link-font-size: var(--font-scale-16);
+  --menu-link-font-weight: var(--font-weight-regular);
+  --menu-link-line-height: 1.2;
+  --menu-link-border-width: 0;
+  --menu-link-hover-border-color: transparent;
+  --menu-link-hover-background: var(--color-pale-mint-400);
+  --menu-link-active-color: var(--text-color-base);
+  --menu-link-active-font-weight: var(--font-weight-regular);
+  --menu-link-active-border-color: transparent;
 }

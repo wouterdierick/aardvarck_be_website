@@ -22,6 +22,9 @@ props:
     name:
       type: string
       description: Name of the menu, used for accessibility and identification.
+    show_separator:
+      type: boolean
+      description: Adds a 1px separator between menu items.
     links:
       type: array
       description: Array of menu items with title, href, optional active state, optional icon_id, and optional hide_label for accessible icon-only links.

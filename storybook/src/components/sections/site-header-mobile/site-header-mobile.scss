@@ -53,8 +53,11 @@ $base_class: 'c-site-header-mobile';
   .c-menu__item {
     border-color: var(--color-pale-mint-500);
     text-align: center;
-    font-size: var(--font-scale-18);
   }
+}
+
+.#{$base_class}__main-navigation .c-menu {
+  --menu-link-font-size: var(--font-scale-18);
 }
 
 // Language switcher
@@ -71,6 +74,11 @@ $base_class: 'c-site-header-mobile';
 // User menu
 
 .#{$base_class}__user-menu {
+  --menu-link-padding: 0;
+  --menu-link-font-weight: var(--font-weight-regular);
+  --menu-link-border-width: 0;
+  --menu-link-hover-border-color: transparent;
+
   display: flex;
   flex-flow: row wrap;
   gap: var(--space-16);
@@ -85,9 +93,6 @@ $base_class: 'c-site-header-mobile';
   .c-menu__list {
     .c-menu__item {
       .c-menu__link {
-        padding: 0;
-        border: 0;
-        font-weight: var(--font-weight-regular);
         text-decoration: none;
 
         &:hover {

@@ -1,10 +1,12 @@
 {# Component: Menu #}
 {% set base_class = 'c-menu' %}
 {% set attributes = create_attribute(attributes|default({})) %}
+{% set show_separator = show_separator|default(false) %}
 {% set classes = [
     base_class,
     base_class ~ '--' ~ system_name|default('default'),
     base_class ~ '--' ~ orientation|default('horizontal'),
+    show_separator ? base_class ~ '--has-separator' : null
 ] %}
 {% set attributes = attributes.addClass(classes) %}
 

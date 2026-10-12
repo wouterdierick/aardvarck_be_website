@@ -32,6 +32,10 @@ Storybook runs on `http://localhost:6006`.
 `/.storybook`
 - Storybook configuration (framework, addons, preview setup).
 
+`/src/assets`
+- Root-level static assets for Storybook and Drupal export.
+- In source CSS, reference these as `/assets/...`.
+
 `/src/components`
 - Source components (Twig, SCSS, stories, assets).
 - This is where developers work day-to-day.
@@ -53,6 +57,10 @@ Storybook runs on `http://localhost:6006`.
 - Generated global Drupal CSS output (`main.css`).
 - Auto-generated, do not edit manually.
 
+`/dist/drupal/assets`
+- Generated copy of `src/assets` for Drupal.
+- Auto-generated, do not edit manually.
+
 ## NPM commands
 
 Run these in `storybook/`:
@@ -72,9 +80,10 @@ Run these in `storybook/`:
 `npm run build:drupal`
 - One-time build of Drupal export artifacts to `dist/drupal`.
 - Also syncs to Drupal theme when a valid theme folder is found.
+- Rewrites `/assets/...` CSS URLs for Drupal output.
 
 `npm run watch:drupal`
-- Watches `src/components` and `src/styles`.
+- Watches `src/components`, `src/styles`, and `src/assets`.
 - Rebuilds `dist/drupal` on every relevant change.
 - Also syncs each rebuild to Drupal theme when available.
 
@@ -84,19 +93,30 @@ Theme sync is resolved on every `build:drupal` run and on every rebuild in `watc
 
 Default target is `../web/themes/custom/aardvarck` (relative to `./storybook/`).
 If `DRUPAL_THEME_DIR` is set, that value is used instead.
+If `DRUPAL_THEME_ASSET_BASE_URL` is set, generated Drupal CSS uses that asset
+base URL instead of `/themes/custom/aardvarck/assets`.
 
 If no theme is found, sync is skipped and only `dist/drupal` is generated.
 
 When a valid Drupal theme is detected, this mapping is applied automatically:
+
+`./storybook/dist/drupal/assets` -> `./web/themes/custom/aardvarck/assets`
 
 `./storybook/dist/drupal/components` -> `./web/themes/custom/aardvarck/components`
 
 `./storybook/dist/drupal/styles` -> `./web/themes/custom/aardvarck/styles`
 
 
-## Components
+## Coding documentation
 
-### Icons
+### Using assets
+
+Source CSS should reference root assets as `/assets/...`.
+Storybook serves those directly from `src/assets`.
+During `build:drupal` and `watch:drupal`, generated CSS is rewritten to
+`/themes/custom/aardvarck/assets/...` for Drupal output.
+
+### Adding icons
 
 SVG icons can be found in './storybook/src/components/components/icon/icons'
 

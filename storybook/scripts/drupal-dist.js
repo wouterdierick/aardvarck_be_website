@@ -19,14 +19,18 @@ const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.join(__dirname, '..');
 
 const SOURCE_COMPONENTS_DIR = path.join(ROOT_DIR, 'src/components');
+const SOURCE_ASSETS_DIR = path.join(ROOT_DIR, 'src/assets');
 const SOURCE_STYLES_DIR = path.join(ROOT_DIR, 'src/styles');
 const OUTPUT_DRUPAL_DIR = path.join(ROOT_DIR, 'dist/drupal');
+const OUTPUT_ASSETS_DIR = path.join(OUTPUT_DRUPAL_DIR, 'assets');
 const OUTPUT_COMPONENTS_DIR = path.join(OUTPUT_DRUPAL_DIR, 'components');
 const OUTPUT_STYLES_DIR = path.join(OUTPUT_DRUPAL_DIR, 'styles');
 const OUTPUT_STYLES_FILE = path.join(OUTPUT_DRUPAL_DIR, 'styles/main.css');
+const ASSETS_DO_NOT_EDIT_FILE = path.join(OUTPUT_ASSETS_DIR, 'DO_NOT_EDIT.md');
 const COMPONENTS_DO_NOT_EDIT_FILE = path.join(OUTPUT_COMPONENTS_DIR, 'DO_NOT_EDIT.md');
 const STYLES_DO_NOT_EDIT_FILE = path.join(OUTPUT_STYLES_DIR, 'DO_NOT_EDIT.md');
 const DEFAULT_THEME_DIR = path.resolve(ROOT_DIR, '../web/themes/custom/aardvarck');
+const DEFAULT_THEME_ASSET_BASE_URL = '/themes/custom/aardvarck/assets';
 
 const EXCLUDED_SUFFIXES = [
   '.stories.js',
@@ -232,6 +236,15 @@ function resolveThemeSyncDirectory() {
   return DEFAULT_THEME_DIR;
 }
 
+function resolveThemeAssetBaseUrl() {
+  const configuredBaseUrl = process.env.DRUPAL_THEME_ASSET_BASE_URL;
+  if (configuredBaseUrl) {
+    return configuredBaseUrl.replace(/\/$/, '');
+  }
+
+  return DEFAULT_THEME_ASSET_BASE_URL;
+}
+
 // Add short README files so it's obvious these folders are generated output.
 function writeGeneratedReadmes() {
   const readmeFileContent = `# Auto-generated
@@ -241,8 +254,18 @@ Do not edit files in this folder manually.
 Use \`npm run build:drupal\` or \`npm run watch:drupal\` inside the storybook directory.
 `;
 
+  fs.writeFileSync(ASSETS_DO_NOT_EDIT_FILE, readmeFileContent, 'utf-8');
   fs.writeFileSync(COMPONENTS_DO_NOT_EDIT_FILE, readmeFileContent, 'utf-8');
   fs.writeFileSync(STYLES_DO_NOT_EDIT_FILE, readmeFileContent, 'utf-8');
+}
+
+// Copy root-level Storybook assets into dist/drupal/assets unchanged.
+function copyDrupalAssets() {
+  if (!fs.existsSync(SOURCE_ASSETS_DIR)) {
+    return;
+  }
+
+  fs.cpSync(SOURCE_ASSETS_DIR, OUTPUT_ASSETS_DIR, { recursive: true });
 }
 
 // Copy Twig/assets/javascript sources into dist/drupal/components.
@@ -291,6 +314,25 @@ function generateComponentMetadata() {
   console.log(`Generated ${generated} .component.yml file(s).`);
 }
 
+// Rewrite Storybook asset URLs in generated CSS so Drupal points at the
+// mirrored theme asset directory instead of Storybook's /assets mount.
+function rewriteDrupalCssAssetUrls() {
+  const themeAssetBaseUrl = resolveThemeAssetBaseUrl();
+  const cssFiles = listFilesRecursive(OUTPUT_DRUPAL_DIR).filter((filePath) => filePath.toLowerCase().endsWith('.css'));
+
+  for (const cssFile of cssFiles) {
+    const content = fs.readFileSync(cssFile, 'utf-8');
+    const rewrittenContent = content.replace(
+      /url\((['"]?)\/assets\/([^'")]+)\1\)/g,
+      (_match, quote, assetPath) => `url(${quote}${themeAssetBaseUrl}/${assetPath}${quote})`
+    );
+
+    if (rewrittenContent !== content) {
+      fs.writeFileSync(cssFile, rewrittenContent, 'utf-8');
+    }
+  }
+}
+
 // Run a shell command (used for Sass builds) and fail on non-zero exit codes.
 function runCommand(command, args) {
   return new Promise((resolve, reject) => {
@@ -325,12 +367,15 @@ function syncDistToDrupalTheme(themeDirectory) {
     return;
   }
 
+  const themeAssetsDir = path.join(themeDirectory, 'assets');
   const themeComponentsDir = path.join(themeDirectory, 'components');
   const themeStylesDir = path.join(themeDirectory, 'styles');
 
   // Replace the whole generated tree so stale component files disappear too.
+  fs.rmSync(themeAssetsDir, { recursive: true, force: true });
   fs.rmSync(themeComponentsDir, { recursive: true, force: true });
   fs.rmSync(themeStylesDir, { recursive: true, force: true });
+  fs.cpSync(OUTPUT_ASSETS_DIR, themeAssetsDir, { recursive: true });
   fs.cpSync(OUTPUT_COMPONENTS_DIR, themeComponentsDir, { recursive: true });
   fs.cpSync(OUTPUT_STYLES_DIR, themeStylesDir, { recursive: true });
 
@@ -345,9 +390,11 @@ function syncDistToDrupalTheme(themeDirectory) {
 async function buildDrupalDist() {
   // Start from a clean export so removed source files do not linger in dist.
   fs.rmSync(OUTPUT_DRUPAL_DIR, { recursive: true, force: true });
+  ensureDirectory(OUTPUT_ASSETS_DIR);
   ensureDirectory(OUTPUT_COMPONENTS_DIR);
   ensureDirectory(OUTPUT_STYLES_DIR);
 
+  copyDrupalAssets();
   copyDrupalSourceFiles();
 
   // Build the global stylesheet that Drupal includes once for shared tokens
@@ -368,6 +415,8 @@ async function buildDrupalDist() {
     '--style=compressed',
     '--no-source-map',
   ]);
+
+  rewriteDrupalCssAssetUrls();
 
   generateComponentMetadata();
   writeGeneratedReadmes();
@@ -432,6 +481,14 @@ async function watchDrupalDist() {
     }
   );
 
+  const assetsWatcher = fs.watch(
+    SOURCE_ASSETS_DIR,
+    { recursive: true },
+    (_eventType, filename) => {
+      scheduleBuild(filename ? `assets/${filename}` : 'assets update');
+    }
+  );
+
   // Watch shared Sass sources that feed the exported global stylesheet.
   const stylesWatcher = fs.watch(
     SOURCE_STYLES_DIR,
@@ -444,6 +501,7 @@ async function watchDrupalDist() {
   // Close native file watchers explicitly so Ctrl+C exits cleanly.
   process.on('SIGINT', () => {
     componentWatcher.close();
+    assetsWatcher.close();
     stylesWatcher.close();
     console.log('\nStopped Drupal dist watcher.');
     process.exit(0);

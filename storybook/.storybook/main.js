@@ -21,7 +21,10 @@ const config = {
     '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],
   staticDirs: [
-    '../src/assets',
+    {
+      from: '../src/assets',
+      to: '/assets',
+    },
     {
       from: '../src/docs/assets',
       to: '/docs/assets',

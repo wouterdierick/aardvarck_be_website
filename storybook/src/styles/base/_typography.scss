@@ -15,6 +15,18 @@ h6, .h6 {
   color: var(--font-color-title);
 }
 
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    background-image: url('/assets/duotone-pattern.png');
+    background-repeat: repeat;
+    background-size: auto;
+  }
+}
+
 h1, .h1 {
   font-size: var(--font-size-h1);
   text-transform: uppercase;

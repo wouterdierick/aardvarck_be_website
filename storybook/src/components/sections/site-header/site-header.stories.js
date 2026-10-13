@@ -2,10 +2,10 @@ import SiteHeader from './site-header.twig';
 import './site-header.scss';
 import './site-header.js';
 
-import Logo from '../../components/logo/logo.twig';
-import Menu from '../../components/menu/menu.twig';
-import LanguageSwitcher from '../../components/language-switcher/language-switcher.twig';
-import UserMenu from '../../components/user-menu/user-menu.twig';
+import '../../components/logo/logo.scss';
+import '../../components/menu/menu.scss';
+import '../../components/language-switcher/language-switcher.scss';
+import '../../components/user-menu/user-menu.scss';
 import '../../components/language-switcher/language-switcher.js';
 import '../../components/user-menu/user-menu.js';
 
@@ -25,36 +25,36 @@ export default {
       description: 'Additional HTML attributes (for example: class, id, data-*)',
     },
     branding: {
-      control: false,
-      description: 'Branding slot.',
+      control: { type: 'object' },
+      description: 'Branding component props.',
     },
     mainnavigation: {
-      control: false,
-      description: 'Legacy main navigation slot.',
+      control: { type: 'object' },
+      description: 'Legacy main navigation props.',
     },
     desktop_mainnavigation: {
-      control: false,
-      description: 'Desktop main navigation slot.',
+      control: { type: 'object' },
+      description: 'Desktop main navigation props.',
     },
     mobile_mainnavigation: {
-      control: false,
-      description: 'Mobile main navigation slot.',
+      control: { type: 'object' },
+      description: 'Mobile main navigation props.',
     },
     desktop_languageswitcher: {
-      control: false,
-      description: 'Desktop language switcher slot.',
+      control: { type: 'object' },
+      description: 'Desktop language switcher props.',
     },
     mobile_languageswitcher: {
-      control: false,
-      description: 'Mobile language switcher slot.',
+      control: { type: 'object' },
+      description: 'Mobile language switcher props.',
     },
     desktop_usermenu: {
-      control: false,
-      description: 'Desktop user menu slot.',
+      control: { type: 'object' },
+      description: 'Desktop user menu props.',
     },
     mobile_usermenu: {
-      control: false,
-      description: 'Mobile user menu slot.',
+      control: { type: 'object' },
+      description: 'Mobile user menu props.',
     },
     login_url: {
       control: { type: 'text' },
@@ -166,12 +166,12 @@ const mobileGuestMenuArgs = {
 export const Default = {
   args: {
     attributes: {},
-    branding: Logo(logoArgs),
-    desktop_mainnavigation: Menu(mainMenuArgs),
-    mobile_mainnavigation: Menu(mobileMainMenuArgs),
-    desktop_languageswitcher: LanguageSwitcher(desktopLanguageSwitcherArgs),
-    mobile_languageswitcher: LanguageSwitcher(mobileLanguageSwitcherArgs),
-    mobile_usermenu: UserMenu(mobileGuestMenuArgs),
+    branding: logoArgs,
+    desktop_mainnavigation: mainMenuArgs,
+    mobile_mainnavigation: mobileMainMenuArgs,
+    desktop_languageswitcher: desktopLanguageSwitcherArgs,
+    mobile_languageswitcher: mobileLanguageSwitcherArgs,
+    mobile_usermenu: mobileGuestMenuArgs,
     login_url: '/user/login',
     login_label: 'Login',
     show_cart: true,
@@ -184,13 +184,13 @@ export const Default = {
 export const LoggedIn = {
   args: {
     attributes: {},
-    branding: Logo(logoArgs),
-    desktop_mainnavigation: Menu(mainMenuArgs),
-    mobile_mainnavigation: Menu(mobileMainMenuArgs),
-    desktop_languageswitcher: LanguageSwitcher(desktopLanguageSwitcherArgs),
-    mobile_languageswitcher: LanguageSwitcher(mobileLanguageSwitcherArgs),
-    desktop_usermenu: UserMenu(desktopUserMenuArgs),
-    mobile_usermenu: UserMenu(mobileUserMenuArgs),
+    branding: logoArgs,
+    desktop_mainnavigation: mainMenuArgs,
+    mobile_mainnavigation: mobileMainMenuArgs,
+    desktop_languageswitcher: desktopLanguageSwitcherArgs,
+    mobile_languageswitcher: mobileLanguageSwitcherArgs,
+    desktop_usermenu: desktopUserMenuArgs,
+    mobile_usermenu: mobileUserMenuArgs,
     login_url: '/user/login',
     login_label: 'Login',
     show_cart: true,

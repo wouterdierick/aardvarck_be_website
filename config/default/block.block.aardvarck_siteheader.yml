@@ -1,0 +1,20 @@
+uuid: 26dddcbe-27a9-466f-9ecf-e82e50261fb0
+langcode: en
+status: true
+dependencies:
+  module:
+    - aardvarck_header
+  theme:
+    - aardvarck
+id: aardvarck_siteheader
+theme: aardvarck
+region: header
+weight: -5
+provider: null
+plugin: aardvarck_site_header
+settings:
+  id: aardvarck_site_header
+  label: 'Site header'
+  label_display: '0'
+  provider: aardvarck_header
+visibility: {  }

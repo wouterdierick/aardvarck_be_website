@@ -1,0 +1,8 @@
+services:
+  aardvarck_header.view_model_builder:
+    class: Drupal\aardvarck_header\HeaderViewModelBuilder
+    arguments:
+      - '@config.factory'
+      - '@menu.link_tree'
+      - '@current_user'
+      - '@language_manager'

@@ -20,8 +20,10 @@ props:
       type: string
       description: Accessible label for the menu.
     links:
-      type: string
-      description: Menu links.
+      type: array
+      description: Array of menu links with title and URL.
+      items:
+        type: object
 slots:
   default:
     description: Default slot content

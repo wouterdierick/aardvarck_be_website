@@ -82,6 +82,89 @@
 		list.hidden = !expanded;
 	}
 
+	function setLanguageSwitcherExpanded(switcher, expanded) {
+		const toggle = switcher.querySelector('.c-language-switcher__toggle');
+		const list = switcher.querySelector('.c-language-switcher__list');
+
+		if (!toggle || !list) {
+			return;
+		}
+
+		toggle.setAttribute('aria-expanded', String(expanded));
+		list.setAttribute('aria-hidden', String(!expanded));
+		list.hidden = !expanded;
+	}
+
+	function initialiseNestedLanguageSwitchers(header) {
+		header.querySelectorAll('.c-language-switcher--dropdown').forEach((switcher) => {
+			if (switcher.dataset.languageSwitcherInitialised) {
+				return;
+			}
+
+			const toggle = switcher.querySelector('.c-language-switcher__toggle');
+			const links = switcher.querySelectorAll('.c-language-switcher__link');
+
+			if (!toggle) {
+				return;
+			}
+
+			switcher.dataset.languageSwitcherInitialised = 'true';
+
+			toggle.addEventListener('click', () => {
+				const expanded = toggle.getAttribute('aria-expanded') === 'true';
+				setLanguageSwitcherExpanded(switcher, !expanded);
+			});
+
+			toggle.addEventListener('keydown', (event) => {
+				if (event.key !== 'ArrowDown') {
+					return;
+				}
+
+				event.preventDefault();
+				setLanguageSwitcherExpanded(switcher, true);
+				links[0]?.focus();
+			});
+
+			links.forEach((link, index) => {
+				link.addEventListener('keydown', (event) => {
+					if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') {
+						return;
+					}
+
+					event.preventDefault();
+
+					if (event.key === 'ArrowUp' && index === 0) {
+						toggle.focus();
+						return;
+					}
+
+					const nextIndex = event.key === 'ArrowDown'
+						? (index + 1) % links.length
+						: index - 1;
+
+					links[nextIndex].focus();
+				});
+			});
+
+			switcher.addEventListener('keydown', (event) => {
+				if (event.key !== 'Escape') {
+					return;
+				}
+
+				setLanguageSwitcherExpanded(switcher, false);
+				toggle.focus();
+			});
+		});
+
+		document.addEventListener('click', (event) => {
+			if (!header.contains(event.target)) {
+				header.querySelectorAll('.c-language-switcher--dropdown').forEach((switcher) => {
+					setLanguageSwitcherExpanded(switcher, false);
+				});
+			}
+		});
+	}
+
 	function initialiseNestedUserMenus(header) {
 		header.querySelectorAll('.c-user-menu--dropdown').forEach((menu) => {
 			if (menu.dataset.userMenuInitialised) {
@@ -138,6 +221,7 @@
 		const mediaQuery = window.matchMedia(`(min-width: ${getHeaderBreakpoint()})`);
 
 		initialiseNestedUserMenus(header);
+		initialiseNestedLanguageSwitchers(header);
 
 		if (toggle && close && drawer) {
 			toggle.addEventListener('click', () => setNavigationOpen(header, true));

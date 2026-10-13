@@ -28,7 +28,7 @@ export default {
     },
     links: {
       control: false,
-      description: 'Menu links.',
+      description: 'Array of menu links with title and URL.',
     },
   },
   component: UserMenu,

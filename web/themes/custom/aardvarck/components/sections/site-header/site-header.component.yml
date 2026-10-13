@@ -14,29 +14,29 @@ props:
         - string
       description: 'Additional HTML attributes (for example: class, id, data-*)'
     branding:
-      type: string
-      description: Branding slot.
+      type: object
+      description: Branding component props.
     mainnavigation:
-      type: string
-      description: Legacy main navigation slot.
+      type: object
+      description: Legacy main navigation props.
     desktop_mainnavigation:
-      type: string
-      description: Desktop main navigation slot.
+      type: object
+      description: Desktop main navigation props.
     mobile_mainnavigation:
-      type: string
-      description: Mobile main navigation slot.
+      type: object
+      description: Mobile main navigation props.
     desktop_languageswitcher:
-      type: string
-      description: Desktop language switcher slot.
+      type: object
+      description: Desktop language switcher props.
     mobile_languageswitcher:
-      type: string
-      description: Mobile language switcher slot.
+      type: object
+      description: Mobile language switcher props.
     desktop_usermenu:
-      type: string
-      description: Desktop user menu slot.
+      type: object
+      description: Desktop user menu props.
     mobile_usermenu:
-      type: string
-      description: Mobile user menu slot.
+      type: object
+      description: Mobile user menu props.
     login_url:
       type: string
       description: Fallback login URL for anonymous users.

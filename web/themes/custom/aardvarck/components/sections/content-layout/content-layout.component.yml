@@ -1,0 +1,33 @@
+# AUTO-GENERATED FILE
+# Generated from content-layout.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: ContentLayout
+description: 'Component: Content Layout'
+props:
+  type: object
+  properties:
+    attributes:
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*).'
+    variant:
+      type: string
+      description: Column layout variant.
+    col_1:
+      type: object
+      description: First column content.
+    col_2:
+      type: object
+      description: Second column content.
+    col_3:
+      type: object
+      description: Third column content.
+    col_4:
+      type: object
+      description: Fourth column content.
+slots:
+  default:
+    description: Default slot content

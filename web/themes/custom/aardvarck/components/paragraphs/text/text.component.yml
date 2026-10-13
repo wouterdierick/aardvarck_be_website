@@ -1,0 +1,21 @@
+# AUTO-GENERATED FILE
+# Generated from text.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: Text
+description: 'Component: Text'
+props:
+  type: object
+  properties:
+    attributes:
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*).'
+    content:
+      type: object
+      description: Rendered text content.
+slots:
+  default:
+    description: Default slot content

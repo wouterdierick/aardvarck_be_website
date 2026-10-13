@@ -1,0 +1,21 @@
+# AUTO-GENERATED FILE
+# Generated from intro.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: Intro
+description: 'Component: Intro'
+props:
+  type: object
+  properties:
+    attributes:
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*).'
+    content:
+      type: object
+      description: Rendered intro content.
+slots:
+  default:
+    description: Default slot content

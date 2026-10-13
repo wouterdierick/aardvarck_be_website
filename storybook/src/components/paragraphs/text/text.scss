@@ -1,0 +1,7 @@
+/* Component: Text */
+
+$base_class: 'c-text';
+
+.#{$base_class} {
+  max-width: var(--paragraph-width-medium);
+}

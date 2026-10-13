@@ -1,0 +1,12 @@
+{# Component: Intro #}
+
+{% set base_class = 'c-intro' %}
+{% set attributes = create_attribute(attributes|default({})) %}
+{% set classes = [
+  base_class,
+] %}
+{% set attributes = attributes.addClass(classes) %}
+
+<div {{ attributes }}>
+  {{ content }}
+</div>

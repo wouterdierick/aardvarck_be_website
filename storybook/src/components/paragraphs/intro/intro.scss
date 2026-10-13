@@ -1,0 +1,31 @@
+/* Component: Intro */
+
+@use 'abstracts/mixins';
+
+$base_class: 'c-intro';
+
+.#{$base_class} {
+  position: relative;
+  padding-inline-start: mixins.ptr(72);
+
+  &:before {
+    position: absolute;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: mixins.ptr(40);
+    transform: rotate(90deg);
+    transform-origin: top left;
+    background-image: url('/assets/shape-7.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: mixins.ptr(132);
+    height: mixins.ptr(40);
+  }
+
+  p {
+    font-size: var(--font-scale-18);
+    font-weight: var(--font-weight-semi-bold);
+  }
+}

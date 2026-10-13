@@ -1,0 +1,6 @@
+{% include 'aardvarck:content-layout' with {
+  attributes: attributes,
+  variant: 'cols-1',
+  col_1: content.col_1|default(null),
+  col_1_attributes: region_attributes.col_1|default(create_attribute()),
+} only %}

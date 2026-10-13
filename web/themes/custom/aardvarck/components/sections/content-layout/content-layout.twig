@@ -1,0 +1,41 @@
+{# Component: Content layout #}
+
+{% set base_class = 'c-content-layout' %}
+{% set attributes = attributes|default(create_attribute()) %}
+{% set variant = variant|default('cols-1') %}
+{% set col_1_attributes = col_1_attributes|default(create_attribute()) %}
+{% set col_2_attributes = col_2_attributes|default(create_attribute()) %}
+{% set col_3_attributes = col_3_attributes|default(create_attribute()) %}
+{% set col_4_attributes = col_4_attributes|default(create_attribute()) %}
+{% set classes = [
+  'layout',
+  'layout--' ~ variant,
+  base_class,
+  base_class ~ '--' ~ variant,
+] %}
+
+<div {{ attributes.addClass(classes) }}>
+  {% if col_1 %}
+    <div {{ col_1_attributes.addClass('layout__region', 'layout__region--col-1', base_class ~ '__region', base_class ~ '__region--col-1') }}>
+      {{ col_1 }}
+    </div>
+  {% endif %}
+
+  {% if col_2 %}
+    <div {{ col_2_attributes.addClass('layout__region', 'layout__region--col-2', base_class ~ '__region', base_class ~ '__region--col-2') }}>
+      {{ col_2 }}
+    </div>
+  {% endif %}
+
+  {% if col_3 %}
+    <div {{ col_3_attributes.addClass('layout__region', 'layout__region--col-3', base_class ~ '__region', base_class ~ '__region--col-3') }}>
+      {{ col_3 }}
+    </div>
+  {% endif %}
+
+  {% if col_4 %}
+    <div {{ col_4_attributes.addClass('layout__region', 'layout__region--col-4', base_class ~ '__region', base_class ~ '__region--col-4') }}>
+      {{ col_4 }}
+    </div>
+  {% endif %}
+</div>

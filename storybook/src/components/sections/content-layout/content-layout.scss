@@ -1,0 +1,32 @@
+/* Component: Content layout */
+
+@use 'abstracts/mixins';
+
+$base_class: 'c-content-layout';
+
+.#{$base_class} {
+  display: grid;
+  gap: var(--space-16);
+
+  &__region {
+    min-width: 0;
+  }
+
+  &--cols-1 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  @include mixins.bp(40em, 'min') {
+    &--cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    &--cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    &--cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+}

@@ -5,12 +5,12 @@
 $base_class: 'c-menu';
 
 .#{$base_class} {
-  --menu-gap: #{mixins.ptr(16)};
+  --menu-gap: var(--space-16);
   --menu-justify-content: flex-start;
   --menu-item-separator-width: 1px;
   --menu-item-separator-color: var(--color-neutral-300);
   --menu-item-separator-spacing: var(--menu-gap);
-  --menu-link-padding: 0 0 #{mixins.ptr(2)};
+  --menu-link-padding: 0 0 var(--space-2);
   --menu-link-color: var(--font-color-base);
   --menu-link-hover-color: var(--color-link-hover);
   --menu-link-font-size: inherit;

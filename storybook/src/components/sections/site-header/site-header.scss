@@ -10,6 +10,22 @@ $base_class: 'c-site-header';
   margin-bottom: var(--space-32);
   background-color: var(--color-neutral-white);
   border-bottom: 1px solid var(--color-neutral-200);
+  transform: translateY(0);
+  transition: transform .5s ease, box-shadow .5s ease;
+  z-index: 100;
+
+  &.is-sticky-active {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateY(calc(-100% - 1px));
+  }
+
+  &.is-sticky-visible {
+    transform: translateY(0);
+    // box-shadow: 0 10px 30px rgb(0 0 0 / 10%);
+  }
 
   &__wrapper {
     position: relative;

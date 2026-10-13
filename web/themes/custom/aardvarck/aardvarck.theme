@@ -95,7 +95,7 @@ function aardvarck_preprocess_paragraph__layout(&$variables): void {
  */
 function aardvarck_preprocess_paragraph__buttons(&$variables): void {
   $buttons = [];
-  $allowed_colors = ['default', 'primary', 'secondary'];
+  $allowed_colors = ['default', 'primary', 'secondary', 'ghost'];
   $allowed_icons = ['arrow-right', 'file', 'link'];
 
   foreach ($variables['paragraph']->get('field_buttons') as $item) {

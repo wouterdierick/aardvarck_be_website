@@ -37,26 +37,35 @@
             </div>
           {% endif %}
           {% if show_cart %}
-            <a href="{{ cart_url }}" class="{{ base_class }}__utility-link {{ base_class }}__utility-link--cart" aria-label="{{ cart_label }}">
-              {% include 'aardvarck:icon' with {
-                id: 'cart',
-                size: 'small',
-                label: ''
+            <div class="badge-wrapper">
+              {% include 'aardvarck:button' with {
+                attributes: {
+                  'class': base_class ~ '__utility-link' ~ ' ' ~ base_class ~ '__utility-link--cart',
+                },
+                title: '{{ cart_label }}',
+                aria_label: '{{ cart_label }}',
+                element: 'a',
+                color: 'ghost',
+                layout: 'icon-only',
+                href: cart_url,
+                icon_id: 'cart',
               } only %}
               {% if cart_count %}
                 <span class="{{ base_class }}__cart-badge">{{ cart_count }}</span>
               {% endif %}
-            </a>
+            </div>
           {% endif %}
           <div class="{{ base_class }}__utility {{ base_class }}__utility--account">
             {% if is_logged_in and desktop_usermenu %}
               {% include 'aardvarck:user-menu' with desktop_usermenu only %}
             {% else %}
-              {% include 'aardvarck:link' with {
+              {% include 'aardvarck:button' with {
+                element: 'a',
                 title: login_label,
-                url: login_url,
+                href: login_url,
                 icon_id: 'user',
-                hide_label: true,
+                color: 'ghost',
+                layout: 'icon-only',
                 attributes: {
                   class: base_class ~ '__utility-link'
                 }
@@ -65,18 +74,6 @@
           </div>
         </div>
         <div class="{{ base_class }}__mobile-utilities">
-          {% if show_cart %}
-            <a href="{{ cart_url }}" class="{{ base_class }}__utility-link {{ base_class }}__utility-link--cart" aria-label="{{ cart_label }}">
-              {% include 'aardvarck:icon' with {
-                id: 'cart',
-                size: 'small',
-                label: ''
-              } only %}
-              {% if cart_count %}
-                <span class="{{ base_class }}__cart-badge">{{ cart_count }}</span>
-              {% endif %}
-            </a>
-          {% endif %}
           {% include 'aardvarck:button' with {
             attributes: {
               'class': base_class ~ '__menu-toggle',
@@ -106,6 +103,25 @@
             href: '#',
             icon_id: 'close',
           } only %}
+          {% if show_cart %}
+            <div class="badge-wrapper">
+              {% include 'aardvarck:button' with {
+                attributes: {
+                  'class': base_class ~ '__utility-link' ~ ' ' ~ base_class ~ '__utility-link--cart',
+                },
+                title: '{{ cart_label }}',
+                aria_label: '{{ cart_label }}',
+                element: 'a',
+                color: 'ghost',
+                layout: 'icon-only',
+                href: cart_url,
+                icon_id: 'cart',
+              } only %}
+              {% if cart_count %}
+                <span class="{{ base_class }}__cart-badge">{{ cart_count }}</span>
+              {% endif %}
+            </div>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -119,12 +135,10 @@
         <div class="{{ base_class }}__mobile-navigation">
           {% include 'aardvarck:menu' with mobile_mainnavigation only %}
         </div>
-        {% if mobile_languageswitcher %}
-          <div class="{{ base_class }}__drawer-section {{ base_class }}__drawer-section--language">
+        <div class="{{ base_class }}__mobile-secondary">
+          {% if mobile_languageswitcher %}
             {% include 'aardvarck:language-switcher' with mobile_languageswitcher only %}
-          </div>
-        {% endif %}
-        <div class="{{ base_class }}__drawer-section {{ base_class }}__drawer-section--account">
+          {% endif %}
           {% if is_logged_in and mobile_usermenu %}
             {% include 'aardvarck:user-menu' with mobile_usermenu only %}
           {% else %}

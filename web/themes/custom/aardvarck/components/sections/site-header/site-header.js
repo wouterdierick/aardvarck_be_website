@@ -272,6 +272,7 @@
 			const currentScrollY = window.scrollY;
 
 			if (currentScrollY <= 0) {
+				setNavigationOpen(header, false);
 				setHeaderState(header, placeholder, 'top');
 				lastScrollY = 0;
 				return;
@@ -287,6 +288,7 @@
 				setHeaderState(header, placeholder, 'sticky');
 			}
 			else {
+				setNavigationOpen(header, false);
 				setHeaderState(header, placeholder, 'default');
 			}
 

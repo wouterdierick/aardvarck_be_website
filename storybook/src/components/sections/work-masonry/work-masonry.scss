@@ -6,6 +6,7 @@ $base_class: 'c-work-masonry';
 
   &__items {
     position: relative;
+    z-index: 1;
   }
 
   &__items > * {

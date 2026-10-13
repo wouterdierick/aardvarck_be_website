@@ -7,9 +7,22 @@ $base_class: 'c-user-menu';
 }
 
 .#{$base_class}__list {
+  position: relative;
   list-style: none;
   margin: 0;
   padding: 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -6px;
+    right: 16px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-background-secondary);
+    transform: rotate(45deg);
+  }
 }
 
 .#{$base_class}--link-list {

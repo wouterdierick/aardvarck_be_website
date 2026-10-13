@@ -1,6 +1,16 @@
 (function (Drupal, once) {
   'use strict';
 
+  const headerBreakpointVariable = '--site-header-breakpoint';
+
+  function getHeaderBreakpoint() {
+    const value = window.getComputedStyle(document.documentElement)
+      .getPropertyValue(headerBreakpointVariable)
+      .trim();
+
+    return value || '768px';
+  }
+
   Drupal.behaviors.siteHeaderVariant = {
     attach(context) {
       once('site-header-variant', '#site-header', context).forEach((header) => {
@@ -23,7 +33,7 @@
           mobile: mobileTemplate,
           desktop: desktopTemplate,
         };
-        const mediaQuery = window.matchMedia('(min-width: 768px)');
+        const mediaQuery = window.matchMedia(`(min-width: ${getHeaderBreakpoint()})`);
         let activeVariant = 'mobile';
 
         // Put the mobile default back immediately. This avoids attaching its

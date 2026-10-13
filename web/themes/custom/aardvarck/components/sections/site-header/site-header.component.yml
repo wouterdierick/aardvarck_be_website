@@ -18,13 +18,46 @@ props:
       description: Branding slot.
     mainnavigation:
       type: string
-      description: Main navigation slot.
-    languageswitcher:
+      description: Legacy main navigation slot.
+    desktop_mainnavigation:
       type: string
-      description: Language switcher slot.
-    usermenu:
+      description: Desktop main navigation slot.
+    mobile_mainnavigation:
       type: string
-      description: User menu slot.
+      description: Mobile main navigation slot.
+    desktop_languageswitcher:
+      type: string
+      description: Desktop language switcher slot.
+    mobile_languageswitcher:
+      type: string
+      description: Mobile language switcher slot.
+    desktop_usermenu:
+      type: string
+      description: Desktop user menu slot.
+    mobile_usermenu:
+      type: string
+      description: Mobile user menu slot.
+    login_url:
+      type: string
+      description: Fallback login URL for anonymous users.
+    login_label:
+      type: string
+      description: Fallback login label for anonymous users.
+    is_logged_in:
+      type: boolean
+      description: Whether the current user is authenticated.
+    show_cart:
+      type: boolean
+      description: Whether the cart icon should be shown.
+    cart_count:
+      type: number
+      description: Current shopping cart item count.
+    cart_url:
+      type: string
+      description: Shopping cart URL.
+    cart_label:
+      type: string
+      description: Accessible cart label.
 slots:
   default:
     description: Default slot content

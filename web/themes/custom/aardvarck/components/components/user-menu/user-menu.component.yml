@@ -1,0 +1,27 @@
+# AUTO-GENERATED FILE
+# Generated from user-menu.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: UserMenu
+description: 'Component: User Menu'
+props:
+  type: object
+  properties:
+    attributes:
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*)'
+    variant:
+      type: string
+      description: User menu variant.
+    title:
+      type: string
+      description: Accessible label for the menu.
+    links:
+      type: string
+      description: Menu links.
+slots:
+  default:
+    description: Default slot content

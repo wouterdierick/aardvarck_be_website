@@ -1,6 +1,20 @@
 {# Component: Site header #}
 {% set base_class = 'c-site-header' %}
 {% set attributes = create_attribute(attributes|default({})) %}
+{% set drawer_id = attributes.id|default(base_class ~ '-drawer-' ~ random()) %}
+{% set desktop_mainnavigation = desktop_mainnavigation|default(mainnavigation|default('')) %}
+{% set mobile_mainnavigation = mobile_mainnavigation|default(mainnavigation|default('')) %}
+{% set desktop_languageswitcher = desktop_languageswitcher|default('') %}
+{% set mobile_languageswitcher = mobile_languageswitcher|default('') %}
+{% set desktop_usermenu = desktop_usermenu|default('') %}
+{% set mobile_usermenu = mobile_usermenu|default('') %}
+{% set show_cart = show_cart|default(false) %}
+{% set cart_count = cart_count|default(0) %}
+{% set cart_url = cart_url|default('/cart') %}
+{% set cart_label = cart_label|default('Shopping cart') %}
+{% set login_url = login_url|default('/user/login') %}
+{% set login_label = login_label|default('Login') %}
+{% set is_logged_in = is_logged_in|default(false) %}
 {% set classes = [
   base_class,
 ] %}
@@ -8,19 +22,121 @@
 
 <div {{ attributes }}>
   <div class="container">
-    <div class="{{ base_class }}__wrapper">
+    <div class="{{ base_class }}__bar">
       <div class="{{ base_class }}__branding">
         {{ branding }}
       </div>
-      <div class="{{ base_class }}__main-menu">
-        {{ mainnavigation }}
+      <div class="{{ base_class }}__desktop-navigation">
+        {{ desktop_mainnavigation }}
       </div>
-      <div class="{{ base_class }}__secondary-navigation">
-        <div class="{{ base_class }}__language-switcher">
-          {{ languageswitcher }}
+      <div class="{{ base_class }}__utilities">
+        <div class="{{ base_class }}__desktop-utilities">
+          {% if desktop_languageswitcher %}
+            <div class="{{ base_class }}__utility {{ base_class }}__utility--language">
+              {{ desktop_languageswitcher }}
+            </div>
+          {% endif %}
+          {% if show_cart %}
+            <a href="{{ cart_url }}" class="{{ base_class }}__utility-link {{ base_class }}__utility-link--cart" aria-label="{{ cart_label }}">
+              {% include 'aardvarck:icon' with {
+                id: 'cart',
+                size: 'small',
+                label: ''
+              } only %}
+              {% if cart_count %}
+                <span class="{{ base_class }}__cart-badge">{{ cart_count }}</span>
+              {% endif %}
+            </a>
+          {% endif %}
+          <div class="{{ base_class }}__utility {{ base_class }}__utility--account">
+            {% if is_logged_in and desktop_usermenu %}
+              {{ desktop_usermenu }}
+            {% else %}
+              {% include 'aardvarck:link' with {
+                title: login_label,
+                url: login_url,
+                icon_id: 'user',
+                hide_label: true,
+                attributes: {
+                  class: base_class ~ '__utility-link'
+                }
+              } only %}
+            {% endif %}
+          </div>
         </div>
-        <div class="{{ base_class }}__user-menu">
-          {{ usermenu }}
+        <div class="{{ base_class }}__mobile-utilities">
+          {% if show_cart %}
+            <a href="{{ cart_url }}" class="{{ base_class }}__utility-link {{ base_class }}__utility-link--cart" aria-label="{{ cart_label }}">
+              {% include 'aardvarck:icon' with {
+                id: 'cart',
+                size: 'small',
+                label: ''
+              } only %}
+              {% if cart_count %}
+                <span class="{{ base_class }}__cart-badge">{{ cart_count }}</span>
+              {% endif %}
+            </a>
+          {% endif %}
+          {% include 'aardvarck:button' with {
+            attributes: {
+              'class': base_class ~ '__menu-toggle',
+              'aria-expanded': 'false',
+              'aria-controls': drawer_id,
+            },
+            title: 'Open navigation',
+            aria_label: 'Open navigation',
+            element: 'button',
+            type: 'button',
+            color: 'ghost',
+            layout: 'icon-only',
+            href: '#',
+            icon_id: 'menu',
+          } only %}
+          {% include 'aardvarck:button' with {
+            attributes: {
+              'class': base_class ~ '__menu-close',
+              'hidden': 'hidden',
+            },
+            title: 'Close navigation',
+            aria_label: 'Close navigation',
+            element: 'button',
+            type: 'button',
+            color: 'ghost',
+            layout: 'icon-only',
+            href: '#',
+            icon_id: 'close',
+          } only %}
+        </div>
+      </div>
+    </div>
+    <div
+      id="{{ drawer_id }}"
+      class="{{ base_class }}__drawer"
+      aria-hidden="true"
+      hidden
+    >
+      <div class="{{ base_class }}__drawer-inner">
+        <div class="{{ base_class }}__mobile-navigation">
+          {{ mobile_mainnavigation }}
+        </div>
+        {% if mobile_languageswitcher %}
+          <div class="{{ base_class }}__drawer-section {{ base_class }}__drawer-section--language">
+            {{ mobile_languageswitcher }}
+          </div>
+        {% endif %}
+        <div class="{{ base_class }}__drawer-section {{ base_class }}__drawer-section--account">
+          {% if is_logged_in and mobile_usermenu %}
+            {{ mobile_usermenu }}
+          {% else %}
+            {% include 'aardvarck:link' with {
+              title: login_label,
+              url: login_url,
+              icon_id: 'user',
+              attributes: {
+                class: base_class ~ '__drawer-login-link'
+              }
+            } only %}
+          {% endif %}
         </div>
       </div>
     </div>

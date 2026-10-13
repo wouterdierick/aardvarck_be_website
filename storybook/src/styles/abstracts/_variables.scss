@@ -1,6 +1,8 @@
 // Variables
 // -------------------------------
 
+$site-header-breakpoint: 768px;
+
 :root {
   // Colors
   --color-brand-primary: var(--color-saffron-500);
@@ -25,6 +27,7 @@
   --container-max-width: 1200px;
   --paragraph-width-medium: 720px;
   --paragraph-width-small: 500px;
+  --site-header-breakpoint: #{$site-header-breakpoint};
 
   // Typography
   --font-family-base: var(--font-family-lato);

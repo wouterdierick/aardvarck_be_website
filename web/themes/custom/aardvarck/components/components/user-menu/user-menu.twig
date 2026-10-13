@@ -1,0 +1,54 @@
+{# Component: User menu #}
+
+{% set base_class = 'c-user-menu' %}
+{% set attributes = create_attribute(attributes|default({})) %}
+{% set variant = variant|default('link-list') %}
+{% set classes = [
+  base_class,
+  base_class ~ '--' ~ variant,
+] %}
+{% set attributes = attributes.addClass(classes) %}
+{% set list_id = 'user-menu-list' ~ '-' ~ random() %}
+
+<nav {{ attributes }} aria-label="{{ title|default('User menu') }}">
+  {% if variant == 'dropdown' %}
+    {% include 'aardvarck:button' with {
+      attributes: {
+        'class': base_class ~ '__toggle',
+        'aria-expanded': 'false',
+        'aria-controls': list_id,
+      },
+      title: title|default('User menu'),
+      aria_label: title|default('User menu'),
+      element: 'button',
+      type: 'button',
+      color: 'ghost',
+      layout: 'icon-only',
+      href: '#',
+      icon_id: 'user',
+    } only %}
+  {% else %}
+    {% include 'aardvarck:icon' with {
+      id: 'user',
+      size: 'small',
+    } only %}
+  {% endif %}
+
+  {% if variant == 'dropdown' %}
+    <ul id="{{ list_id }}" class="{{ base_class }}__list" aria-hidden="true" hidden>
+  {% else %}
+    <ul id="{{ list_id }}" class="{{ base_class }}__list">
+  {% endif %}
+    {% for link in links %}
+      <li class="{{ base_class }}__item {% if link.active %}{{ base_class }}__item--active{% endif %}">
+        {% include 'aardvarck:link' with {
+          title: link.title,
+          url: link.href,
+          attributes: {
+            class: base_class ~ '__link'
+          }
+        } only %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

@@ -1,0 +1,5 @@
+name: Aardvarck header
+type: module
+description: 'Provides the unified site header block and future header-specific integrations.'
+package: Aardvarck
+core_version_requirement: ^11

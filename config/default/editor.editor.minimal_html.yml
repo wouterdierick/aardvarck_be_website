@@ -1,0 +1,20 @@
+uuid: 4b5495c9-63e8-4cb6-b313-3097481af2bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.minimal_html
+  module:
+    - ckeditor5
+format: minimal_html
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - bold
+      - italic
+      - '|'
+      - link
+  plugins: {  }
+image_upload:
+  status: false

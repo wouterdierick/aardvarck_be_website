@@ -37,6 +37,7 @@ $site-header-breakpoint: 768px;
   --font-color-title: var(--color-neutral-900);
 
   --font-size-base: var(--font-scale-16);
+  --font-size-small: var(--font-scale-12);
   --font-size-h1: clamp(var(--font-scale-40), 1.4565rem + 3.4783vw, var(--font-scale-72));
   --font-size-h2: clamp(var(--font-scale-32), 1.4783rem + 1.7391vw, var(--font-scale-48));
   --font-size-h3: clamp(var(--font-scale-24), 0.9783rem + 1.7391vw, var(--font-scale-40));

@@ -1,0 +1,33 @@
+{# Component: Paragraph buttons #}
+
+{% set base_class = 'c-paragraph-buttons' %}
+{% set attributes = create_attribute(attributes|default({})) %}
+{% set classes = [
+  base_class,
+] %}
+{% set attributes = attributes.addClass(classes) %}
+{% set buttons = buttons|default([]) %}
+
+<div {{ attributes }}>
+  {% if buttons %}
+    <div class="{{ base_class }}__actions">
+      {% for button in buttons %}
+        {% include 'aardvarck:button' with {
+          element: 'a',
+          href: button.href,
+          title: button.title,
+          color: button.color|default('default'),
+          size: 'default',
+          layout: 'icon-label',
+          icon_id: button.icon|default(''),
+        } only %}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if description %}
+    <div class="{{ base_class }}__description">
+      {{ description }}
+    </div>
+  {% endif %}
+</div>

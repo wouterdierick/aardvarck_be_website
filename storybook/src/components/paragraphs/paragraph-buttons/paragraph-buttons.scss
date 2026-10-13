@@ -1,0 +1,16 @@
+/* Component: Paragraph buttons */
+
+$base_class: 'c-paragraph-buttons';
+
+.#{$base_class} {
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-12);
+  }
+
+  &__description {
+    margin-top: var(--space-8);
+    font-size: var(--font-size-small);
+  }
+}

@@ -4,6 +4,7 @@ module:
   aardvarck_header: 0
   aardvarck_import: 0
   aardvarck_layouts: 0
+  aardvarck_link_attributes: 0
   address: 0
   block: 0
   block_field: 0
@@ -34,6 +35,7 @@ module:
   layout_discovery: 0
   layout_paragraphs: 0
   link: 0
+  link_attributes: 0
   locale: 0
   media: 0
   media_library: 0

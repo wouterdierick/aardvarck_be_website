@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - commerce_product.commerce_product_type.default
+    - filter.format.basic_html
+    - filter.format.minimal_html
     - media.type.image
     - node.type.page
     - node.type.work
@@ -22,6 +24,7 @@ dependencies:
     - commerce_product
     - commerce_store
     - content_translation
+    - filter
     - media
     - node
     - taxonomy
@@ -113,6 +116,8 @@ permissions:
   - 'update any online commerce_store'
   - 'update content translations'
   - 'update default commerce_order'
+  - 'use text format basic_html'
+  - 'use text format minimal_html'
   - 'view all media revisions'
   - 'view any image media revisions'
   - 'view commerce_order'

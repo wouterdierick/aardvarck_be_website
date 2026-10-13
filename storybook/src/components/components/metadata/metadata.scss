@@ -8,7 +8,7 @@ $base_class: 'c-metadata';
   display: grid;
   grid-gap: var(--space-4) var(--space-16);
   grid-template-columns: max-content;
-  font-size: var(--font-scale-12);
+  font-size: var(--font-size-small);
   // color: var(--color-neutral-700);
 
   dt {

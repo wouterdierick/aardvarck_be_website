@@ -1,0 +1,12 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+  ]
+%}
+
+{% include 'aardvarck:paragraph-buttons' with {
+  attributes: attributes.addClass(classes),
+  buttons: buttons,
+  description: content.field_description,
+} only %}

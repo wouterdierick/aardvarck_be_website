@@ -1,0 +1,17 @@
+color:
+  title: Color
+  type: select
+  empty_value: ''
+  options:
+    default: Default
+    primary: Primary
+    secondary: Secondary
+    ghost: Ghost
+icon:
+  title: Icon
+  type: select
+  empty_value: ''
+  options:
+    arrow-right: Arrow right
+    file: File
+    link: Link

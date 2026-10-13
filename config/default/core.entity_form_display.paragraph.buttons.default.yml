@@ -1,0 +1,47 @@
+uuid: d0684ada-3c36-4bcb-8ba8-e1d5ec566b0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.buttons.field_buttons
+    - field.field.paragraph.buttons.field_description
+    - paragraphs.paragraphs_type.buttons
+  module:
+    - link_attributes
+    - text
+id: paragraph.buttons.default
+targetEntityType: paragraph
+bundle: buttons
+mode: default
+content:
+  field_buttons:
+    type: link_attributes
+    weight: 0
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        id: false
+        name: false
+        target: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
+        color: true
+        icon: true
+      widget_default_open: expandIfValuesSet
+    third_party_settings: {  }
+  field_description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

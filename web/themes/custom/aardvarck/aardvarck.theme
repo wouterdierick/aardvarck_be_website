@@ -89,3 +89,33 @@ function aardvarck_preprocess_block(&$variables): void {
 function aardvarck_preprocess_paragraph__layout(&$variables): void {
   $variables['width'] = $variables['paragraph']->get('field_width')->value;
 }
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function aardvarck_preprocess_paragraph__buttons(&$variables): void {
+  $buttons = [];
+  $allowed_colors = ['default', 'primary', 'secondary'];
+  $allowed_icons = ['arrow-right', 'file', 'link'];
+
+  foreach ($variables['paragraph']->get('field_buttons') as $item) {
+    if ($item->isEmpty()) {
+      continue;
+    }
+
+    $url = $item->getUrl();
+    $options = $item->options ?? [];
+    $attributes = $options['attributes'] ?? [];
+    $color = $attributes['color'] ?? 'default';
+    $icon = $attributes['icon'] ?? '';
+
+    $buttons[] = [
+      'title' => $item->title ?: $url->toString(),
+      'href' => $url->toString(),
+      'color' => in_array($color, $allowed_colors, TRUE) ? $color : 'default',
+      'icon' => in_array($icon, $allowed_icons, TRUE) ? $icon : '',
+    ];
+  }
+
+  $variables['buttons'] = $buttons;
+}

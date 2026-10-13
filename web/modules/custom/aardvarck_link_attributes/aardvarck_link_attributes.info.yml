@@ -1,0 +1,7 @@
+name: Aardvarck Link Attributes
+type: module
+description: Provides site-specific link attribute options.
+package: Aardvarck
+core_version_requirement: ^10 || ^11
+dependencies:
+  - link_attributes:link_attributes

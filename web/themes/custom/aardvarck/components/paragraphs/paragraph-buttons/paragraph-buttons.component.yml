@@ -1,0 +1,26 @@
+# AUTO-GENERATED FILE
+# Generated from paragraph-buttons.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: ParagraphButtons
+description: 'Component: Buttons'
+props:
+  type: object
+  properties:
+    attributes:
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*).'
+    buttons:
+      type: array
+      description: Array of button links with title, href, optional color, and optional icon.
+      items:
+        type: object
+    description:
+      type: object
+      description: Rendered description content below the buttons.
+slots:
+  default:
+    description: Default slot content

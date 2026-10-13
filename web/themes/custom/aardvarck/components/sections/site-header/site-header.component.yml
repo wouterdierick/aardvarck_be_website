@@ -16,9 +16,6 @@ props:
     branding:
       type: object
       description: Branding component props.
-    mainnavigation:
-      type: object
-      description: Legacy main navigation props.
     desktop_mainnavigation:
       type: object
       description: Desktop main navigation props.

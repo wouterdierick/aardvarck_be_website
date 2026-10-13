@@ -2,8 +2,8 @@
 {% set base_class = 'c-site-header' %}
 {% set attributes = create_attribute(attributes|default({})) %}
 {% set drawer_id = attributes.id|default(base_class ~ '-drawer-' ~ random()) %}
-{% set desktop_mainnavigation = desktop_mainnavigation|default(mainnavigation|default(null)) %}
-{% set mobile_mainnavigation = mobile_mainnavigation|default(mainnavigation|default(null)) %}
+{% set desktop_mainnavigation = desktop_mainnavigation|default(null) %}
+{% set mobile_mainnavigation = mobile_mainnavigation|default(null) %}
 {% set desktop_languageswitcher = desktop_languageswitcher|default(null) %}
 {% set mobile_languageswitcher = mobile_languageswitcher|default(null) %}
 {% set desktop_usermenu = desktop_usermenu|default(null) %}
@@ -15,13 +15,6 @@
 {% set login_url = login_url|default('/user/login') %}
 {% set login_label = login_label|default('Login') %}
 {% set is_logged_in = is_logged_in|default(false) %}
-{% set branding_is_data = branding is iterable %}
-{% set desktop_navigation_is_data = desktop_mainnavigation is iterable %}
-{% set mobile_navigation_is_data = mobile_mainnavigation is iterable %}
-{% set desktop_language_is_data = desktop_languageswitcher is iterable %}
-{% set mobile_language_is_data = mobile_languageswitcher is iterable %}
-{% set desktop_usermenu_is_data = desktop_usermenu is iterable %}
-{% set mobile_usermenu_is_data = mobile_usermenu is iterable %}
 {% set classes = [
   base_class,
 ] %}
@@ -31,28 +24,16 @@
   <div class="container">
     <div class="{{ base_class }}__bar">
       <div class="{{ base_class }}__branding">
-        {% if branding_is_data %}
-          {% include 'aardvarck:logo' with branding only %}
-        {% else %}
-          {{ branding }}
-        {% endif %}
+        {% include 'aardvarck:logo' with branding only %}
       </div>
       <div class="{{ base_class }}__desktop-navigation">
-        {% if desktop_navigation_is_data %}
-          {% include 'aardvarck:menu' with desktop_mainnavigation only %}
-        {% else %}
-          {{ desktop_mainnavigation }}
-        {% endif %}
+        {% include 'aardvarck:menu' with desktop_mainnavigation only %}
       </div>
       <div class="{{ base_class }}__utilities">
         <div class="{{ base_class }}__desktop-utilities">
           {% if desktop_languageswitcher %}
             <div class="{{ base_class }}__utility {{ base_class }}__utility--language">
-              {% if desktop_language_is_data %}
-                {% include 'aardvarck:language-switcher' with desktop_languageswitcher only %}
-              {% else %}
-                {{ desktop_languageswitcher }}
-              {% endif %}
+              {% include 'aardvarck:language-switcher' with desktop_languageswitcher only %}
             </div>
           {% endif %}
           {% if show_cart %}
@@ -69,11 +50,7 @@
           {% endif %}
           <div class="{{ base_class }}__utility {{ base_class }}__utility--account">
             {% if is_logged_in and desktop_usermenu %}
-              {% if desktop_usermenu_is_data %}
-                {% include 'aardvarck:user-menu' with desktop_usermenu only %}
-              {% else %}
-                {{ desktop_usermenu }}
-              {% endif %}
+              {% include 'aardvarck:user-menu' with desktop_usermenu only %}
             {% else %}
               {% include 'aardvarck:link' with {
                 title: login_label,
@@ -140,28 +117,16 @@
     >
       <div class="{{ base_class }}__drawer-inner">
         <div class="{{ base_class }}__mobile-navigation">
-          {% if mobile_navigation_is_data %}
-            {% include 'aardvarck:menu' with mobile_mainnavigation only %}
-          {% else %}
-            {{ mobile_mainnavigation }}
-          {% endif %}
+          {% include 'aardvarck:menu' with mobile_mainnavigation only %}
         </div>
         {% if mobile_languageswitcher %}
           <div class="{{ base_class }}__drawer-section {{ base_class }}__drawer-section--language">
-            {% if mobile_language_is_data %}
-              {% include 'aardvarck:language-switcher' with mobile_languageswitcher only %}
-            {% else %}
-              {{ mobile_languageswitcher }}
-            {% endif %}
+            {% include 'aardvarck:language-switcher' with mobile_languageswitcher only %}
           </div>
         {% endif %}
         <div class="{{ base_class }}__drawer-section {{ base_class }}__drawer-section--account">
           {% if is_logged_in and mobile_usermenu %}
-            {% if mobile_usermenu_is_data %}
-              {% include 'aardvarck:user-menu' with mobile_usermenu only %}
-            {% else %}
-              {{ mobile_usermenu }}
-            {% endif %}
+            {% include 'aardvarck:user-menu' with mobile_usermenu only %}
           {% else %}
             {% include 'aardvarck:link' with {
               title: login_label,

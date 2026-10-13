@@ -28,10 +28,6 @@ export default {
       control: { type: 'object' },
       description: 'Branding component props.',
     },
-    mainnavigation: {
-      control: { type: 'object' },
-      description: 'Legacy main navigation props.',
-    },
     desktop_mainnavigation: {
       control: { type: 'object' },
       description: 'Desktop main navigation props.',

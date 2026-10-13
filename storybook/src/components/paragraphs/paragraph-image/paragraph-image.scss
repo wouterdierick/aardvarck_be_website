@@ -1,0 +1,11 @@
+/* Component: Paragraph image */
+
+$base_class: 'c-paragraph-image';
+
+.#{$base_class} {
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}

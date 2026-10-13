@@ -1,12 +1,12 @@
-import Text from './text.twig';
-import './text.scss';
+import ParagraphIntro from './paragraph-intro.twig';
+import './paragraph-intro.scss';
 
 export default {
-  title: 'Paragraphs/Text',
+  title: 'Paragraphs/Intro',
   parameters: {
     docs: {
       description: {
-        component: 'Text paragraph component for regular body text.',
+        component: 'Intro paragraph component for lead-in content.',
       },
     },
   },
@@ -18,15 +18,15 @@ export default {
     },
     content: {
       control: { type: 'object' },
-      description: 'Rendered text content.',
+      description: 'Rendered intro content.',
     },
   },
-  component: Text,
+  component: ParagraphIntro,
 };
 
 export const Default = {
   args: {
     attributes: {},
-    content: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>',
+    content: '<p>This is a short introduction paragraph with slightly stronger visual weight and a tighter max width.</p>',
   },
 };

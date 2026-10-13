@@ -1,8 +1,8 @@
-/* Component: Intro */
+/* Component: Paragraph intro */
 
 @use 'abstracts/mixins';
 
-$base_class: 'c-intro';
+$base_class: 'c-paragraph-intro';
 
 .#{$base_class} {
   position: relative;

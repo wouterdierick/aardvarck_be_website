@@ -1,10 +1,10 @@
 # AUTO-GENERATED FILE
-# Generated from text.stories.js
+# Generated from paragraph-intro.stories.js
 # Regenerate with: npm run build:drupal
 #
 
-name: Text
-description: 'Component: Text'
+name: ParagraphIntro
+description: 'Component: Intro'
 props:
   type: object
   properties:
@@ -15,7 +15,7 @@ props:
       description: 'Additional HTML attributes (for example: class, id, data-*).'
     content:
       type: object
-      description: Rendered text content.
+      description: Rendered intro content.
 slots:
   default:
     description: Default slot content

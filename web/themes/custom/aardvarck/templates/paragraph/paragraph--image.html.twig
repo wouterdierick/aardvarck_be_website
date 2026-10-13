@@ -1,0 +1,11 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+  ]
+%}
+
+{% include 'aardvarck:paragraph-image' with {
+  attributes: attributes.addClass(classes),
+  content: content.field_image,
+} only %}

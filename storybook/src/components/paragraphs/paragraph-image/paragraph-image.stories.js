@@ -1,12 +1,12 @@
-import Intro from './intro.twig';
-import './intro.scss';
+import ParagraphImage from './paragraph-image.twig';
+import './paragraph-image.scss';
 
 export default {
-  title: 'Paragraphs/Intro',
+  title: 'Paragraphs/Image',
   parameters: {
     docs: {
       description: {
-        component: 'Intro paragraph component for lead-in content.',
+        component: 'Image paragraph component for rendered paragraph image content.',
       },
     },
   },
@@ -18,15 +18,15 @@ export default {
     },
     content: {
       control: { type: 'object' },
-      description: 'Rendered intro content.',
+      description: 'Rendered image content.',
     },
   },
-  component: Intro,
+  component: ParagraphImage,
 };
 
 export const Default = {
   args: {
     attributes: {},
-    content: '<p>This is a short introduction paragraph with slightly stronger visual weight and a tighter max width.</p>',
+    content: '<img src="docs/assets/blue_600x400.jpg" alt="Placeholder image">',
   },
 };

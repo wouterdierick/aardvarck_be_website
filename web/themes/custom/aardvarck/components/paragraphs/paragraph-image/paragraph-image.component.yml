@@ -1,0 +1,21 @@
+# AUTO-GENERATED FILE
+# Generated from paragraph-image.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: ParagraphImage
+description: 'Component: Image'
+props:
+  type: object
+  properties:
+    attributes:
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*).'
+    content:
+      type: object
+      description: Rendered image content.
+slots:
+  default:
+    description: Default slot content

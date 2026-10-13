@@ -1,0 +1,91 @@
+uuid: 352d7ffd-54d0-4472-b519-097bad52292a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.services.field_title
+    - field.field.paragraph.services.field_service_1_title
+    - field.field.paragraph.services.field_service_1_text
+    - field.field.paragraph.services.field_service_2_title
+    - field.field.paragraph.services.field_service_2_text
+    - field.field.paragraph.services.field_service_3_title
+    - field.field.paragraph.services.field_service_3_text
+    - field.field.paragraph.services.field_service_4_title
+    - field.field.paragraph.services.field_service_4_text
+    - paragraphs.paragraphs_type.services
+  module:
+    - text
+id: paragraph.services.default
+targetEntityType: paragraph
+bundle: services
+mode: default
+content:
+  field_service_1_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_service_1_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_service_2_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_service_2_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_service_3_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_service_3_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_service_4_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_service_4_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

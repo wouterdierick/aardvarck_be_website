@@ -1,0 +1,31 @@
+{# Component: Paragraph services #}
+
+{% set base_class = 'c-paragraph-services' %}
+{% set attributes = create_attribute(attributes|default({})) %}
+{% set classes = [
+  base_class,
+] %}
+{% set attributes = attributes.addClass(classes) %}
+{% set items = items|default([]) %}
+
+<section {{ attributes }}>
+  {% if title %}
+    <h2 class="{{ base_class }}__title">{{ title }}</h2>
+  {% endif %}
+
+  {% if items %}
+    <div class="{{ base_class }}__grid">
+      {% for item in items %}
+        <article class="{{ base_class }}__item">
+          {% if item.title %}
+            <h3 class="{{ base_class }}__item-title">{{ item.title }}</h3>
+          {% endif %}
+
+          {% if item.body %}
+            <div class="{{ base_class }}__item-body">{{ item.body }}</div>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>

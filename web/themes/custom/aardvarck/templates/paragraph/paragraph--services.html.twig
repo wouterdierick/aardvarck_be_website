@@ -1,0 +1,12 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+  ]
+%}
+
+{% include 'aardvarck:paragraph-services' with {
+  attributes: attributes.addClass(classes),
+  title: services_title,
+  items: services_items,
+} only %}

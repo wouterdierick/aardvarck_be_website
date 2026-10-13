@@ -1,0 +1,26 @@
+# AUTO-GENERATED FILE
+# Generated from paragraph-services.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: ParagraphServices
+description: 'Component: Services'
+props:
+  type: object
+  properties:
+    attributes:
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*).'
+    title:
+      type: string
+      description: Optional section title.
+    items:
+      type: array
+      description: Array of service items with title and body.
+      items:
+        type: object
+slots:
+  default:
+    description: Default slot content

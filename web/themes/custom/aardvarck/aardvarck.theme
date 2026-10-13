@@ -119,3 +119,31 @@ function aardvarck_preprocess_paragraph__buttons(&$variables): void {
 
   $variables['buttons'] = $buttons;
 }
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function aardvarck_preprocess_paragraph__services(&$variables): void {
+  $paragraph = $variables['paragraph'];
+  $content = $variables['content'];
+  $items = [];
+
+  for ($index = 1; $index <= 4; $index++) {
+    $title_field = 'field_service_' . $index . '_title';
+    $text_field = 'field_service_' . $index . '_text';
+    $title = trim((string) $paragraph->get($title_field)->value);
+    $body = $content[$text_field] ?? NULL;
+
+    if ($title === '' && empty($body)) {
+      continue;
+    }
+
+    $items[] = [
+      'title' => $title,
+      'body' => $body,
+    ];
+  }
+
+  $variables['services_title'] = trim((string) $paragraph->get('field_title')->value);
+  $variables['services_items'] = $items;
+}

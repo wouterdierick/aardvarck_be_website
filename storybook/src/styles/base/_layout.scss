@@ -50,6 +50,12 @@
 
 // Paragraph layouts.
 
+.paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+}
+
 .paragraph--width--medium {
   max-width: var(--paragraph-width-medium);
   margin-inline: auto;

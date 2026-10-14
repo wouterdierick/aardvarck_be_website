@@ -38,6 +38,9 @@
  * @ingroup themeable
  */
 #}
-{% for item in items %}
-  {{ item.content }}
-{% endfor %}
+
+<div class="paragraphs">
+  {% for item in items %}
+    {{ item.content }}
+  {% endfor %}
+</div>

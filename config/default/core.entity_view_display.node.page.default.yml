@@ -4,15 +4,34 @@ status: true
 dependencies:
   config:
     - field.field.node.page.field_body
+    - field.field.node.page.field_hero_title
+    - field.field.node.page.field_hero_type
     - field.field.node.page.field_paragraphs
     - node.type.page
   module:
+    - options
     - user
 id: node.page.default
 targetEntityType: node
 bundle: page
 mode: default
-content: {  }
+content:
+  field_hero_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_hero_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   field_body: true
   field_paragraphs: true

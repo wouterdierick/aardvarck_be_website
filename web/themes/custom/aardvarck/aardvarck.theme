@@ -50,6 +50,26 @@ function aardvarck_preprocess_breadcrumb(&$variables): void {
 }
 
 /**
+ * Implements hook_preprocess_node().
+ */
+function aardvarck_preprocess_node__page(&$variables): void {
+  $node = $variables['node'];
+  $hero_variant = 'default';
+
+  if ($node->hasField('field_hero_type') && !$node->get('field_hero_type')->isEmpty()) {
+    $hero_variant = (string) $node->get('field_hero_type')->value;
+  }
+
+  $hero_title = '';
+  if ($node->hasField('field_hero_title') && !$node->get('field_hero_title')->isEmpty()) {
+    $hero_title = trim((string) $node->get('field_hero_title')->value);
+  }
+
+  $variables['hero_variant'] = $hero_variant === 'full' ? 'full' : 'default';
+  $variables['hero_title'] = $hero_title !== '' ? $hero_title : $node->label();
+}
+
+/**
  * Implements hook_preprocess_block().
  */
 function aardvarck_preprocess_block(&$variables): void {

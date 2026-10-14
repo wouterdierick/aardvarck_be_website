@@ -1,0 +1,16 @@
+{# Component: Hero #}
+
+{% set base_class = 'c-hero' %}
+{% set attributes = create_attribute(attributes|default({})) %}
+{% set variant = variant|default('default') %}
+{% set classes = [
+  base_class,
+  base_class ~ '--' ~ variant,
+] %}
+{% set attributes = attributes.addClass(classes) %}
+
+<section {{ attributes }}>
+  <div class="{{ base_class }}__inner">
+    <h1 class="{{ base_class }}__title">{{ title }}</h1>
+  </div>
+</section>

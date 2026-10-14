@@ -1,0 +1,24 @@
+# AUTO-GENERATED FILE
+# Generated from hero.stories.js
+# Regenerate with: npm run build:drupal
+#
+
+name: Hero
+description: 'Component: Hero'
+props:
+  type: object
+  properties:
+    attributes:
+      type:
+        - object
+        - string
+      description: 'Additional HTML attributes (for example: class, id, data-*).'
+    title:
+      type: string
+      description: Hero title.
+    variant:
+      type: string
+      description: Hero width variant.
+slots:
+  default:
+    description: Default slot content

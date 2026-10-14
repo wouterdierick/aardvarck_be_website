@@ -1,0 +1,17 @@
+<article{{ attributes }}>
+
+  {% include 'aardvarck:hero' with {
+    title: hero_title,
+    variant: hero_variant,
+  } only %}
+
+  <div class="container">
+    <div{{ content_attributes }}>
+      {{ content|without('field_paragraphs') }}
+    </div>
+  </div>
+
+  {% if content.field_paragraphs %}
+    {{ content.field_paragraphs }}
+  {% endif %}
+</article>

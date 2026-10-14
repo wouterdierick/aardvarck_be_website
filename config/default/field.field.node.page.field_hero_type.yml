@@ -1,0 +1,23 @@
+uuid: 12f24d68-f049-4a07-b0d3-c91ffa57e40b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_type
+    - node.type.page
+  module:
+    - options
+id: node.page.field_hero_type
+field_name: field_hero_type
+entity_type: node
+bundle: page
+label: Type
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: default
+default_value_callback: ''
+settings: {  }
+field_type: list_string

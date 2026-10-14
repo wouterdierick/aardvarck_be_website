@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.page.field_body
+    - field.field.node.page.field_hero_title
+    - field.field.node.page.field_hero_type
     - field.field.node.page.field_paragraphs
     - node.type.page
   module:
@@ -33,5 +35,7 @@ content:
     weight: 1
     region: content
 hidden:
+  field_hero_title: true
+  field_hero_type: true
   langcode: true
   links: true

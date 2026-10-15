@@ -18,11 +18,11 @@
       {% for item in items %}
         <article class="{{ base_class }}__item">
           {% if item.title %}
-            <h3 class="{{ base_class }}__item-title">{{ item.title }}</h3>
+            <h3 class="{{ base_class }}__item-title h5">{{ item.title }}</h3>
           {% endif %}
 
           {% if item.body %}
-            <div class="{{ base_class }}__item-body">{{ item.body }}</div>
+            <div class="{{ base_class }}__item-body">{{ item.body|field_value }}</div>
           {% endif %}
         </article>
       {% endfor %}

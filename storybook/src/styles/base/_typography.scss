@@ -16,7 +16,7 @@ h6, .h6 {
 }
 
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
-  h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+  h1, .h1, h2, .h2 {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -39,12 +39,10 @@ h2, .h2 {
 
 h3, .h3 {
   font-size: var(--font-size-h3);
-  text-transform: uppercase;
 }
 
 h4, .h4 {
   font-size: var(--font-size-h4);
-  text-transform: uppercase;
 }
 
 h5, .h5 {
